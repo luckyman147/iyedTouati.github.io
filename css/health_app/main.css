@@ -1,0 +1,138 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.video-container {
+    align-items: center;
+display: flex;
+justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+    background: url('../../Assets/Frame\ 8.png');
+    position: relative;
+    overflow: hidden;
+}
+.video-container video {
+ justify-content: center;
+    align-items: center;
+    position: absolute;
+    align-self: center;
+
+    object-fit: cover;
+}
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2, h3 {
+    color: #333;
+}
+#title {
+
+ text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+#title span {
+    color: #000;
+    position: relative; /* To position the pseudo-element correctly */
+}
+#title span::after {
+    content: "";
+    display: block;
+    width: 70%; /* Adjust this width as needed */
+    height: 5px; /* Adjust thickness of the underline */
+    background:url('../../Assets/Frame\ 8.png');
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Align underline to the left */
+}
+h1 {
+    color:         #04146e;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+}
+
+.section p {
+    margin: 5px 0;
+}
+
+.technology-list {
+    display: flex;
+    gap: 20px;
+}
+ .technology-list img {
+   
+        width: 100px; /* Set a fixed width for the logo */
+        height: 100px; /* Maintain aspect ratio */
+        object-fit: cover; /* Prevent distortion of the image */
+        margin-left: 20px; /* Space between text and image */
+    
+    }
+    .technology-list div {
+        flex: 1;
+     justify-content: space-between;
+     align-content: center;
+       
+      
+        text-align: center;
+          
+        height: 300px; /* Adjust height as needed */
+       
+        position: relative;
+        overflow: hidden;
+      background-image: url("../../Assets/Frame\ 8.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: contrast(1.2) brightness(0.9) saturate(2.2);
+        border-radius: 15px; /* Slight rounding of corners */
+    }
+
+    .technology-list h3 {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        margin-top: 20px;
+     
+    }  .technology-list p {
+        color: #ffffff;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        margin-top: 20px;
+     
+    }
+footer h1 {
+    color: #fff;
+    text-align: start;
+    margin-left: 45px;
+}
+footer p {
+    margin-left: 45px;
+    color: #fff;
+}
+footer {
+    text-align: start;
+   
+    padding: 10px;
+   
+    background: url('../../Assets/Frame\ 8.png');
+}

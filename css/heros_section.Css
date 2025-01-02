@@ -1,0 +1,357 @@
+
+.hero-section {
+    padding-left: 50px;
+    margin-top: 250px;
+    display: flex;
+    align-items: start;
+    align-self: self-start;
+    justify-content: space-between;
+    height: fit-content;
+ 
+    
+   
+  
+}
+.about-section {
+    display: inline-block;
+    align-items: start;
+    justify-content: space-between;
+    /*column*/
+
+
+
+    
+    height: 40%;
+    padding-left: 50px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    width: 70%;
+  
+}
+
+/* Left Section */
+.left-content {
+    max-width: 50%;
+}
+
+.greeting {
+    font-size:57px;
+    font-weight:400;
+    font-style: normal;
+    font-family: "Poppins";
+    color: #000;
+}
+
+.name {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #000;
+}
+
+.role {
+    font-size: 2.9rem;
+    width: 100%;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, 
+        #00093f 4%, 
+        #00114C 41%, 
+        #0A0449 73%, 
+        #0F0049 92%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+.about-title {
+
+ 
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.about-title span {
+    color: #000;
+    position: relative; /* To position the pseudo-element correctly */
+}
+
+.about-title span::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust this width as needed */
+    height: 5px; /* Adjust thickness of the underline */
+    background-color: #010D1B; /* Color of the underline */
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Align underline to the left */
+}
+
+
+.description {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    width: 60%;
+    font-weight: bolder;
+    color: #000;
+    line-height: 2;
+    font-family: "Poppins";
+    text-align: justify;
+    
+}
+
+/* Buttons */
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.hire-me {
+    background-color: #070149;
+    color: #fff;
+    border: 2px solid #070149;
+    transition: background-color 0.3s ease;
+}
+
+.hire-me:hover {
+    background-color: #070149;
+    border-color: #070149;
+}
+
+.download-cv {
+    background-color: transparent;
+    color: #1A3978;
+    border: 2px solid #1A3978;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.download-cv:hover {
+    background-color: #070149;
+    color: #fff;
+}
+
+/* Right Section */
+.right-content {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-circle {
+    width: 400px;
+    height: 400px;
+    background-image: url(../Assets/iyed.png);
+    background-size: cover;
+ 
+    /* make more to the left */
+  
+    top: 0%;
+    right: 20%;
+
+    border-radius: 90%;
+}
+
+@media (max-width:1330px) {
+    .name{
+        font-size: 2.8rem;
+    }
+    
+}
+@media (max-width: 1000px) {
+  
+    .hero-section {
+        flex-direction: column-reverse; /* Stack content vertically */
+        align-items: start; /* Center the content */
+  
+    }
+
+   .right-content {
+        width: 
+        50%; /* Make both sections take full width */
+      
+    }
+    .description {
+        margin-top: 10px;
+        font-size: 1.1rem;
+        width:80%;
+        font-weight: bolder;
+        color: #000;
+        line-height: 2;
+        font-family: "Poppins";
+        text-align: justify;
+        
+    }
+    .left-content{
+       
+        width: 100%; /* Make both sections take full width */
+        text-align: start; /* Center text for better alignment */
+    }
+    .left-content p{
+        font-size: 1.7rem;
+        width: 100%;
+    }
+    .left-content h1{
+        font-size: 2.8rem;
+    }.left-content h2{
+        font-size: 2.3rem;
+    }
+   
+    .about-title {
+
+ 
+        font-size: 2rem;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+    .profile-circle {
+        width: 400px;
+        height: 400px;
+        right: 0; /* Adjust positioning */
+         /* Space out the circle */
+    }
+}@media (max-width:977px) {
+  
+    .hero-section {
+        flex-direction: column-reverse; /* Stack content vertically */
+        align-items: start; /* Center the content */
+      
+    }
+
+  
+    
+    .right-content {
+      
+        text-align: start; /* Center text for better alignment */
+    }
+    .description {
+        font-size: .96rem;
+        width: 80%;
+  
+    }
+    .left-content{
+       
+        width: 100%; /* Make both sections take full width */
+        
+    }
+    .left-content p{
+        font-size: 2rem;
+        width: 100%;
+    }
+    .left-content h1{
+        font-size: 2.8rem;
+    }.left-content h2{
+        font-size: 2.3rem;
+    }
+    .profile-circle {
+        width: 350px;
+        height: 350px;
+        
+        
+ 
+         /* Space out the circle */
+    }
+}
+@media (max-width:700px) {
+    .hero-section {
+        flex-direction: column-reverse; /* Stack content vertically */
+        align-items: start; /* Center the content */
+        
+        
+    }
+    .right-content{
+        width: 70%;
+    }
+    .left-content p{
+      
+    width: 500px;
+
+    }
+    .left-content h1{
+        font-size: 2.5rem;
+        width: 500px;
+       
+    }.left-content h2{
+        font-size: 2.5rem;
+        width: 500px;
+    }
+ 
+  
+ 
+    .about-title {
+        font-size: 2rem;
+    }
+    .description {
+        font-size: .96rem;
+        width: 100%;
+    
+        
+    }
+ 
+       .profile-circle {
+        width: 350px;
+        height: 350px;
+        
+        
+ 
+         /* Space out the circle */
+    }
+    
+}
+
+
+@media (max-width:560px) {
+    .hero-section {
+        flex-direction: column-reverse; /* Stack content vertically */
+        align-items: start; /* Center the content */
+      
+        
+    }
+    .left-content p{
+        font-size: 1.5rem;
+        width: 150%;
+    }
+    .left-content h1{
+        font-size: 2.5rem;
+
+    }.left-content h2{
+        font-size: 2rem;
+        width: 150%;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+    .description {
+        font-size: .96rem;
+        width: 100%;
+        font-weight: bolder;
+        color: #000;
+        line-height: 2;
+        font-family: "Poppins";
+        text-align: justify;
+        
+    }
+    .right-content{
+        width: 100%;
+    }
+       .profile-circle {
+        width: 350px;
+        height: 350px;
+        
+        
+ 
+         /* Space out the circle */
+    }
+}

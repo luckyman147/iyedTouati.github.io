@@ -1,0 +1,347 @@
+#experiences {
+    background-color: transparent; /* Background of the entire section */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers elements horizontally */
+    position: relative;
+    background-color: #fff;
+}
+
+#img1-wrapper {
+    position: relative; /* Enables text to be positioned on top of the image */
+    width: 100%; /* Matches the width of the image */
+}
+
+#img1 {
+    background-image: url(../assets/Frame\ 8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
+    filter: brightness(0.9) saturate(2.2) contrast(1.2);
+    height:80vh; /* Height of the image */
+    width: 100%; /* Full width of the container */
+}
+
+#text-above-img {
+    position: absolute; /* Places the text above the image */
+    top: 10%; /* Adjust the vertical position of the text */
+    left: 50%; /* Centers the container horizontally */
+    transform: translateX(-50%); /* Adjusts horizontal centering */
+    width: 90%; /* Adjust width for responsiveness */
+    z-index: 2; /* Ensures the text appears above the image */
+    color: #ffffff; /* White text color */
+    text-align: center; /* Centers the text */
+}
+
+.experience-row {
+    display: flex;
+    justify-content: space-between; /* Pushes text to the left and arrow to the right */
+    align-items: center; /* Vertically centers the text and arrow */
+    width: 100%; /* Full width of the container */
+}
+
+.about-Experience {
+    font-size: 2.5rem; /* Adjust as needed */
+    font-weight: 700;
+    margin: 0;
+    color: #ffffff;
+}
+
+.about-Experience span {
+    position: relative;
+}
+
+.about-Experience span::after {
+    content: "";
+    display: block;
+    width: 50%; /* Width of underline */
+    height: 5px; /* Thickness of underline */
+    background-color: #ffffff; /* Underline color */
+    position: absolute;
+    bottom: -5px; /* Adjusts spacing below the text */
+    left: 0;
+}
+
+.arrow-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-button {
+    background-color: #ffffff; /* Blue oval background */
+    border: none;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    transition: transform 0.3s ease;
+}
+
+.arrow-button:hover {
+    transform: scale(1.1);
+}
+
+.arrow-button:active {
+    transform: scale(0.9);
+}
+
+.arrow-icon {
+ 
+padding: 10px;
+margin-top: 10px;
+    
+} 
+.btn-1 {
+    background-color: #070149;
+    color: #fff; /* This sets the default text color to white */
+    border: 2px solid #070149;
+    padding: 5px 20px;
+    margin-top: 5px;
+    border-radius: 10px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-1:hover {
+    background-color: #fff;
+    color: #070149; /* Text color changes on hover */
+    border-color: #070149;
+}
+.btn-1:hover span {
+    color: #070149; /* Text color changes on hover */
+}
+
+/* Optional: If you want to style text specifically */
+.btn-1 span {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff; /* Ensure text is white */
+    font-family: 'Poppins', sans-serif;
+}
+
+.timeline-wheels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Matches the timeline-item width */
+    margin-top: 10px;
+    position: relative;
+    z-index: 0; /* Behind the timeline content */
+}
+
+.wheel {
+    width: 20px; /* Adjust wheel size */
+    height: 20px;
+    object-fit: contain;
+}
+
+.left-wheel {
+    position: absolute;
+    left: 10%;
+    bottom: -4px; /* Adjust positioning below the content */
+}
+
+.right-wheel {
+    position: absolute;
+    right: 10%;
+    bottom: -4px; /* Adjust positioning below the content */
+}
+
+
+/* Timeline Styles */
+.timeline-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+
+
+}
+
+.timeline {
+    margin-top: 90px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 171px;
+  
+    border-radius: 10px;
+    padding: 10px;
+}
+.divi{
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+
+    background:linear-gradient(90deg, #ffffff 0%, #1A3978 100%);
+}
+.timeline-item {
+    position: relative;
+    text-align: center;
+    color: rgb(47, 36, 36);
+    padding: 20px;
+    flex: 1;
+}
+.timeline-item:hover {
+    transform: dscale(1.9);
+    border-radius: 10px;
+  
+}
+.timeline-content {
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    padding: 15px;
+
+    
+}.timeline-content:hover {
+  transition: 0.5s;
+ transform: scale(1.01);
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(255, 255, 255,);
+
+    
+}
+
+.timeline-content h3 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    color: #000;
+}
+.timeline-content h4 {
+    font-size: 16px;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+    color: #373737;
+}
+
+.timeline-content hr {
+    margin: 10px 0;
+    border: none;
+    height: 2px;
+    background-color: #000;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-content p {
+    font-size: 15px;
+    margin: 0;
+    font-weight: 800;
+    color: #555;
+}
+
+/* Timeline Dots */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+}
+@media (max-width: 1410px) {
+    .left-wheel {
+        display: none;
+        position: absolute;
+        left: 10%;
+        bottom: -4px; /* Adjust positioning below the content */
+    }
+    .about-Experience {
+        align-items: center;
+        font-size: 2rem; /* Adjust as needed */
+        font-weight: 700;
+        margin: 0;
+        color: #ffffff;
+    }
+    .arrow-icon {
+display: none;
+        padding: 10px;
+        margin-top: 10px;
+            
+        } 
+    .about-Experience span {
+        position: relative;
+    }
+    
+    .about-Experience span::after {
+        content: "";
+        display: block;
+        width: 30%; /* Width of underline */
+        height: 5px; /* Thickness of underline */
+        background-color: #ffffff; /* Underline color */
+        position: absolute;
+        bottom: -5px; /* Adjusts spacing below the text */
+        left: 0;
+    }
+    
+    .arrow-icon-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .arrow-button {
+     display:none;
+    }
+    #img1 {
+        background-image: url(../assets/Frame\ 8.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
+        filter: brightness(0.9) saturate(2.2) contrast(1.2);
+        height:150vh; /* Height of the image */
+        width: 100%; /* Full width of the container */
+    }
+    .divi{
+       display: none;
+        height: 10px;
+        width: 100%;
+        border-radius: 10px;
+    
+        background:linear-gradient(90deg, #ffffff 0%, #1A3978 100%);
+    }
+    .timeline {
+        flex-direction: column; /* Stacks items vertically */
+        align-items: flex-start; /* Aligns items to the start horizontally */
+        justify-content: center; /* Centers items vertically */
+        height: auto; /* Adjust height to fit content */
+    }
+
+    .timeline-item {
+        width: 100%; /* Ensures each item takes up full width */
+        margin-bottom: 20px; /* Adds spacing between items */
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0; /* Removes margin for the last item */
+    }
+    .experience-row {
+        display: flex;
+        justify-content:center; /* Pushes text to the left and arrow to the right */
+        align-items: center; /* Vertically centers the text and arrow */
+        width: 100%; /* Full width of the container */
+    }
+    .right-wheel {
+        display: none;
+        position: absolute;
+        right: 10%;
+        bottom: -4px; /* Adjust positioning below the content */
+    }
+    
+}

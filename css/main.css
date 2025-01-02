@@ -1,0 +1,122 @@
+body{
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#main {
+    background-image: url(../assets/Vector.png);
+    background-size: cover ; /* Ensures the image scales to fill the container */
+    background-repeat: no-repeat;
+    
+    padding: 4 7rem; /* Optional: Adds some space around the image */
+    margin: 0 auto; /* Optional: Centers the image */
+    /* Adjust for responsiveness */
+    filter:  brightness(0.9) saturate(2.2) contrast(1.2);
+    /* Anti-aliasing for smoother scaling */
+    image-rendering: -webkit-optimize-contrast; /* WebKit browsers */
+    image-rendering: crisp-edges; /* Modern browsers */
+    image-rendering: pixelated; /* For pixel art, optional */
+    height: 70%;
+    /* Optional: Add media queries for better control */
+}
+#Logo{
+  
+    height: 100px; /* Maintain aspect ratio */
+    object-fit: cover; /* Prevent distortion of the image */
+    margin-left: 20px; /* Space between text and image */
+}
+/* Navigation Bar */
+.navbar {
+    display: flex;
+ 
+    align-items: center;
+
+    background-color: transparent; /* Transparent nav */
+    padding: 10px 50px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+
+    margin-left: 70px;
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size:20px;
+    /* Regular font weight */
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #1A3978, #ffffff); /* Blue to White */
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #bfd3fd;
+}
+@media (max-width:1210px ) {
+    .nav-links a{
+        font-size:.9rem;
+    }
+  
+  
+}
+ @media (max-width: 1030px) {
+ 
+    .nav-links {
+        display: none;
+    }
+    .nav-links a{
+        font-size:.7rem;
+    }
+    .navbar {
+        justify-content: center;
+    }
+    #Logo{
+        
+        height: 100px; /* Maintain aspect ratio */
+    
+        margin-left: 20px; /* Space between text and image */
+    }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1A3978;
+        padding: 20px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    .nav-links.active li {
+        margin: 10px 0;
+    }
+    .nav-links.active a {
+        font-size: 1.5rem;
+    }
+    
+ }

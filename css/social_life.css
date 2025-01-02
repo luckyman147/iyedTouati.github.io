@@ -1,0 +1,146 @@
+.social-timeline-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 20px;
+    
+}
+.social-timeline-container{
+    display: grid;
+ grid-template-columns: repeat(1, minmax(300px, 1fr)); 
+    grid-gap: 10px; 
+    margin-top: 20px;
+    margin-left: 20px;
+    margin: 20px;
+}
+.cont{
+    display: flex; /* Use flexbox for alignment */
+    
+    align-items: start; /* Center items vertically */
+    margin: 20px; /* Add space around the skill box */
+    padding: 20px; /* Add padding inside the skill box */
+   align-items: start;
+   flex-direction: row;
+    border-radius: 10px;
+    background-color: #fff;
+  
+    
+    box-shadow: 0 4px 10px rgba(60, 60, 60, 0.1);
+    height: fit-content;
+    width: 100%; /* Make the content section narrower to give space for the image */
+    margin-left: 10px; /* Create space for the date */
+}
+.social-timeline-date {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #00093f; /* LinkedIn Blue or similar color */
+   /* Add more space between the date and content */
+    position: relative;
+    background-color: #fff;
+    padding: 5px 15px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-left: 10px;
+    border-radius: 10px;
+    box-shadow:  0 10px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f6f6f6; /* LinkedIn Blue or similar color */
+   /* Ensure it stays above the content */
+}
+
+
+
+.social-timeline-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+.social-timeline-content  {
+ margin: 20px;
+}
+
+.social-timeline-content p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.social-timeline-image {
+    align-self: center;
+
+
+    width: 15%; /* Set the image container width */
+    margin-right: 30px; /* Space between content and image */
+}
+
+.social-timeline-image img {
+    width: 100%;
+    height: auto;
+    align-items: center;
+
+    border-radius: 10px;
+    object-fit: cover; /* Make sure the image fits within the container */
+}.social-timeline-image2 { align-self: center;
+    position: relative;
+    display: inline-block; /* Ensure the container wraps around the image */
+    border-radius: 10px; /* Match the border radius of the inner image */
+    padding: 5px; /* Space for the gradient border */
+    background: linear-gradient(90deg, #00093f, #1e90ff); /* Gradient colors */
+}
+
+.social-timeline-image2 img {
+    width: 300px;
+    height: 200px;
+   
+    display: block; /* Remove inline spacing from images */
+    border-radius: 10px; /* Same border radius as the container */
+    object-fit: cover;
+    background: white; /* Optional: To add a background to the image */
+}
+
+
+@media (max-width: 1068px) {
+    .social-timeline-item {
+        flex-direction: column; /* Stack content and image vertically on smaller screens */
+        align-items: center;
+    }
+
+    .social-timeline-date {
+        margin-bottom: 15px; /* Add space between the date and content when stacked */
+    }
+    .social-timeline-container{
+        grid-template-columns: repeat(1, minmax(400px, 2fr)); 
+
+    }
+.cont{
+    flex-direction: column;
+}
+    .social-timeline-content {
+        width: 100%;
+        margin-left: 0; /* Remove margin when stacked */
+    }
+    .social-timeline-image2 {
+        position: relative;
+        display: inline-block; /* Ensure the container wraps around the image */
+        border-radius: 10px; /* Match the border radius of the inner image */
+        padding: 5px; /* Space for the gradient border */
+        background: linear-gradient(90deg, #00093f, #1e90ff); /* Gradient colors */
+    }
+    
+    .social-timeline-image2 img {
+        width: 100%;
+        height: auto;
+        display: block; /* Remove inline spacing from images */
+        object-fit: cover;
+    }
+    
+
+    .social-timeline-image {
+       
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}

@@ -1,0 +1,113 @@
+.skillset {
+    display: grid;
+ grid-template-columns: repeat(2, minmax(300px, 1fr)); 
+    grid-gap: 10px; 
+    margin-top: 20px;
+    margin-left: 20px;
+    margin: 20px;
+}
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+.piece {
+  
+    height: 300px; /* Adjust height as needed */
+    background-color: #ccc; /* Placeholder color */
+    position: relative;
+    overflow: hidden;
+  background-image: url("../Assets/Frame\ 8.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: contrast(1.2) brightness(0.9) saturate(2.2);
+    border-radius: 15px; /* Slight rounding of corners */
+}
+
+/* Apply gradient backgrounds to each piece */
+.about-titleSet{
+     margin-left:40px;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.about-titleSet span {
+    color: #000;
+    position: relative; /* To position the pseudo-element correctly */
+}
+
+.about-titleSet span::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust this width as needed */
+    height: 5px; /* Adjust thickness of the underline */
+    background-color: #010D1B; /* Color of the underline */
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Align underline to the left */
+}
+.skill {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between text and image */
+    align-items: center; /* Center items vertically */
+    margin: 20px; /* Add space around the skill box */
+    padding: 20px; /* Add padding inside the skill box */
+   
+    border-radius: 10px; /* Slight rounding of corners */
+}
+.piece:hover {
+    transform: scale(1.009); /* Increase size on hover */
+    transition:  0.3s ease-in; /* Smooth transition effect */
+    box-shadow: #000 0px 0px 10px; /* Add shadow on hover */
+}
+
+#skill_image {
+    width: 100px; /* Set a fixed width for the logo */
+    height: 100px; /* Maintain aspect ratio */
+    object-fit: cover; /* Prevent distortion of the image */
+    margin-left: 20px; /* Space between text and image */
+}
+
+.content {
+    padding-right: 20px; /* Add space to the right of content */
+    color: #ffffff; /* White text color */
+    text-align: left; /* Align text to the left */
+    font-family: 'Poppins', sans-serif; /* Use Poppins font */
+}
+@media  (max-width: 1235px) {
+.content h3{
+    font-size: 1rem;
+}
+    
+}
+/* Responsive Styles */
+@media (max-width: 1008px) {
+    .about-titleSet {
+        font-size: 2rem; /* Smaller font size */
+        text-align: center;
+    }.content h3{
+        font-size:1.3rem;
+    }
+    .skillset{
+        grid-template-columns: repeat(1, minmax(400px, 2fr)); 
+
+    }
+.piece{
+    height: fit-content;
+}
+    .skill {
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Align items to the start */
+    }
+
+    #skill_image {
+        width: 60px; /* Smaller size for images */
+        height: 60px;
+        align-self: center;
+        margin: 0 0 10px 0; /* Adjust spacing */
+    }
+
+    .content {
+        text-align: center; /* Center-align text on smaller screens */
+        padding: 0;
+    }
+}
+

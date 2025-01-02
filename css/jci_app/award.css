@@ -1,0 +1,78 @@
+.awards-section {
+    text-align: center; /* Center-align the content */
+    margin: 20px;
+}
+
+
+#App_img  {
+    
+    
+}
+.login_page{
+    text-align: center;
+    display: flex;
+    
+    margin: 10px;
+    flex-direction: column; 
+}
+.awards-title {
+
+ 
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.awards-title span {
+    color: #000;
+    position: relative; /* To position the pseudo-element correctly */
+}
+.awards-title span::after {
+    content: "";
+    display: block;
+    width: 70%; /* Adjust this width as needed */
+    height: 5px; /* Adjust thickness of the underline */
+    background:linear-gradient( to left,
+        #04146e,
+        #000000
+    ); /* Color of the underline */
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Align underline to the left */
+}
+
+
+.awards-photos {
+    display: flex;
+    justify-content: center; /* Center-align the images */
+    gap: 20px;
+}
+
+.award-item {
+    text-align: center; /* Center-align the text and image */
+}
+
+.award-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #555; /* Grey color for the text */
+    margin-bottom: 10px; /* Space between text and image */
+}
+
+.award-item img {
+    width: 200px; /* Adjust the image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+    border: 2px solid #00093f;
+}
+
+@media screen and (max-width: 768px) {
+    .awards-photos {
+        flex-direction: column; /* Stack images vertically on smaller screens */
+    }
+
+    .award-item img {
+        width: 100%; /* Make images full width */
+    }
+    
+}

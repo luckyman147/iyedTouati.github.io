@@ -1,0 +1,51 @@
+.long-term-impact {
+    background-color: #f8f9fa;
+  padding: 29px;
+    border-radius: 10px;
+background-image: url(../../Assets/Frame\ 8.png);
+background-size: cover;
+background-repeat: no-repeat;
+border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
+filter: brightness(0.9) saturate(2.2) contrast(1.2);
+
+width: 100%; /* Full width of the container */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.long-term-impact h2 {
+    
+    text-align: center;
+    color: #fbfdff;
+    font-size: 2.4rem;
+    margin-bottom: 15px;
+}
+
+
+.long-term-impact span {
+    color: #ffffff;
+    position: relative; /* To position the pseudo-element correctly */
+}
+.long-term-impact  span::after {
+    content: "";
+    display: block;
+    width: 70%; /* Adjust this width as needed */
+    height: 5px; /* Adjust thickness of the underline */
+    background:linear-gradient( to left,
+        #ffffff,
+        #ffffff
+    ); /* Color of the underline */
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Align underline to the left */
+}
+
+
+.long-term-impact p {
+    width: 90%;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: justify;
+}

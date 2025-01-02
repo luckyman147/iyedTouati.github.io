@@ -1,0 +1,147 @@
+#Contact {
+    background-color: transparent; /* Background of the entire section */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers elements horizontally */
+    position: relative;
+}
+#img-contact-wrapper {
+    background-image: url(../assets/Frame\ 8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
+    filter: brightness(0.9) saturate(2.2) contrast(1.2);
+    height: 40vh; /* Height of the image */
+    width: 100%; /* Full width of the container */
+}  
+
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .about-contact{
+    margin-left:20px;
+   font-size: 3rem;
+   font-weight: 700;
+   margin-top: 20px;
+}
+.about-contact span {
+   color: #ffffff;
+   position: relative; /* To position the pseudo-element correctly */
+}
+.about-contact span::after {
+    content: "";
+    display: block;
+    width: 50%; /* Adjust this width as needed */
+    height: 5px; /* Adjust thickness of the underline */
+    background-color: #ffffff; /* Color of the underline */
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Align underline to the left */
+}
+
+  .social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fbfbfb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
+    box-shadow: 12px 6px 15px rgba(255, 255, 255, 0.2); /* Add shadow */
+  }
+  .social-icon:nth-child(1) img { 
+    width: 30px;
+    height: 30px;
+    color: blue;
+  }
+  
+  .social-icon:nth-child(2) img { 
+    width: 30px;
+    height: 30px;
+  }
+  
+  .social-icon:nth-child(3) img { 
+    width: 30px;
+    height: 30px;
+    /* Add styles for the third icon if needed */
+  }
+  
+  .social-icon:nth-child(4) img { 
+    width: 30px;
+    height: 30px;
+    /* Add styles for the fourth icon if needed */
+  }
+  .contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .contact-container p{
+    font-size: 1.5rem;
+    color: #fff;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+  }
+
+  .social-icon:hover {
+    transform: scale(1.1);
+    background-color: #4300d4;
+  }
+
+  .social-icon i {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+@media screen and (max-width: 1068px) {
+    .social-icon {
+      margin: 0 5px;
+      height: 30px;
+      width: 30px;
+    }
+    .social-icon i {
+      font-size: 1.2rem;
+    }
+    .about-contact{
+      font-size: 1.8rem;
+    }
+    .contact-container p{
+      font-size: 1.2rem;
+      color: #fff;
+      margin-top: 20px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: bolder;
+    }
+    .social-icon:nth-child(1) img { 
+      width: 20px;
+      height: 20px;
+      color: blue;
+    }
+    
+    .social-icon:nth-child(2) img { 
+      width: 20px;
+      height: 20px;
+    }
+    
+    .social-icon:nth-child(3) img { 
+      width: 20px;
+      height: 20px;
+      /* Add styles for the third icon if needed */
+    }
+    
+    .social-icon:nth-child(4) img { 
+      width: 20px;
+      height: 20px;
+      /* Add styles for the fourth icon if needed */
+    }
+}
