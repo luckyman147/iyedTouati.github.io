@@ -16,18 +16,20 @@
 }
 
 #img1 {
+    transition: height 0.3s ease; /* Smooth transition for better UX */
     background-image: url(../Assets/Frame\ 8.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
     filter: brightness(0.9) saturate(2.2) contrast(1.2);
-    height:80vh; /* Height of the image */
+    height: calc(286px + (100px - 86px)); /* Dynamically adjusts based on viewport height */
     width: 100%; /* Full width of the container */
 }
 
 #text-above-img {
+    top: 10%;
     position: absolute; /* Places the text above the image */
-    top: 10%; /* Adjust the vertical position of the text */
+  /* Adjust the vertical position of the text */
     left: 50%; /* Centers the container horizontally */
     transform: translateX(-50%); /* Adjusts horizontal centering */
     width: 90%; /* Adjust width for responsiveness */
@@ -37,6 +39,9 @@
 }
 
 .experience-row {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     display: flex;
     justify-content: space-between; /* Pushes text to the left and arrow to the right */
     align-items: center; /* Vertically centers the text and arrow */
@@ -44,6 +49,9 @@
 }
 
 .about-Experience {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     font-size: 2.5rem; /* Adjust as needed */
     font-weight: 700;
     margin: 0;
@@ -72,6 +80,9 @@
 }
 
 .arrow-button {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     background-color: #ffffff; /* Blue oval background */
     border: none;
     border-radius: 50%;
@@ -99,6 +110,9 @@ margin-top: 10px;
     
 } 
 .btn-1 {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     background-color: #070149;
     color: #fff; /* This sets the default text color to white */
     border: 2px solid #070149;
@@ -128,6 +142,9 @@ margin-top: 10px;
 }
 
 .timeline-wheels {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -158,6 +175,9 @@ margin-top: 10px;
 
 /* Timeline Styles */
 .timeline-container {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards; /* Animation applied on page load */
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -166,16 +186,25 @@ margin-top: 10px;
 
 
 }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
 
 .timeline {
-    margin-top: 90px;
+   
     display: flex;
     position: relative;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: start;
+    justify-content: start;
     width: 100%;
     height: 171px;
-  
+    margin-top: 60px;
     border-radius: 10px;
     padding: 10px;
 }
@@ -255,6 +284,36 @@ margin-top: 10px;
 
     border-radius: 50%;
 }
+
+@media (width>1900px) {
+    #img1 {
+        height: 55vh; /* Height of the image */
+    }
+    
+.timeline {
+    display: flex; /* Display items in a row */
+    flex-direction: row; /* Horizontal alignment */
+    justify-content: center; /* Align items to the center */
+    align-items: center; /* Vertically centers the text and arrow */
+    width: 100%; /* Full container width */}
+
+    
+}@media (width<1990px){
+    #img1 {
+        height: 70vh; /* Height of the image */
+    }
+.divi{
+margin-top: 30px;
+}
+}
+@media (width>=1905px)and (width<1990px) {
+    #img1 {
+        height: 70vh; /* Height of the image */
+    }
+.divi{
+margin-top: 0px;
+}
+}
 @media (max-width: 1410px) {
     .left-wheel {
         display: none;
@@ -305,7 +364,7 @@ display: none;
         background-repeat: no-repeat;
         border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
         filter: brightness(0.9) saturate(2.2) contrast(1.2);
-        height:150vh; /* Height of the image */
+        height:1070px; /* Height of the image */
         width: 100%; /* Full width of the container */
     }
     .divi{
@@ -317,19 +376,16 @@ display: none;
         background:linear-gradient(90deg, #ffffff 0%, #1A3978 100%);
     }
     .timeline {
-        flex-direction: column; /* Stacks items vertically */
-        align-items: flex-start; /* Aligns items to the start horizontally */
-        justify-content: center; /* Centers items vertically */
-        height: auto; /* Adjust height to fit content */
+        display: flex; /* Display items in a row */
+        flex-direction: column; /* Horizontal alignment */
+   justify-content: start;
+        align-items: flex-start; /* Align items to the top */
+        width: 100%; /* Full container width */
     }
 
     .timeline-item {
-        width: 100%; /* Ensures each item takes up full width */
-        margin-bottom: 20px; /* Adds spacing between items */
-    }
-
-    .timeline-item:last-child {
-        margin-bottom: 0; /* Removes margin for the last item */
+    width: 100%; /* Full width of the container */
+    height: 100vh; /* Adjust height to content */
     }
     .experience-row {
         display: flex;
@@ -344,4 +400,83 @@ display: none;
         bottom: -4px; /* Adjust positioning below the content */
     }
     
+}
+
+@media   (width<700px) {
+    .timeline {
+        gap: 1px; /* Adds spacing between items */
+        flex-direction: column; /* Stacks items vertically */
+display: flex;
+margin-top: 10px;
+ /* Aligns items to the start horizontally */
+        justify-content: center; /* Centers items vertically */
+      height: fit-content;/* Adjust height to fit content */
+    }
+
+    .timeline-item {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        margin-left: 20px; /* Add spacing between items */
+        width: 80%; /* Ensures each item takes up full width */
+
+     ;
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0; /* Removes margin for the last item */
+    }
+    .timeline-content p{
+        display: none;
+    }
+    .experience-row {
+        display: flex;
+        justify-content:center; /* Pushes text to the left and arrow to the right */
+        align-items: safe; /* Vertically centers the text and arrow */
+        width: 100%; /* Full width of the container */
+    }
+
+}
+@media (height< 700px) and (height< 400px) {
+    .timeline {
+        display: flex; /* Flex container */
+        flex-direction: column; /* Stack items vertically */
+        overflow-y: auto; /* Enable vertical scrolling */
+        height:fit-content; /* Full height of the container */
+    /* Limit height to show only two items */
+    }
+
+    .timeline-item {
+        flex: 0 0 auto; /* Allow items to maintain their height */
+        margin-bottom: 10px; /* Add space between items */
+        width: 100%; /* Full width of the container */
+        height: fit-content; /* Adjust height to content */
+        /* box-sizing: border-box; Include padding and borders in size */
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0; /* Remove margin for the last item */
+    }
+}
+
+
+@media (height <400px) {
+    .timeline {
+        display: flex; /* Display items in a row */
+        flex-direction: row; /* Horizontal alignment */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        align-items: flex-start; /* Align items to the top */
+        width: 100%; /* Full container width */
+    }
+
+    .timeline-item {
+        flex: 0 0 100%; /* Each item takes up 100% of the viewport width */
+        margin-left: 0; /* Remove unnecessary left margin */
+        margin-right: 10px; /* Add space between items */
+        height: fit-content; /* Allow height to adjust to content */
+        box-sizing: border-box; /* Include padding and borders in width/height calculations */
+    }
+
+    .timeline-item:last-child {
+        margin-right: 0; /* Remove margin on the last item */
+    }
 }

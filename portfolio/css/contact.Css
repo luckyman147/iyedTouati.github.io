@@ -14,7 +14,7 @@
     background-repeat: no-repeat;
     border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
     filter: brightness(0.9) saturate(2.2) contrast(1.2);
-    height: 40vh; /* Height of the image */
+    height: 400px; /* Height of the image */
     width: 100%; /* Full width of the container */
 }  
 
@@ -96,7 +96,7 @@
 
   .social-icon:hover {
     transform: scale(1.1);
-    background-color: #4300d4;
+    background-color: #d9d8ff;
   }
 
   .social-icon i {

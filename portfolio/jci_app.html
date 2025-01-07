@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/jci_app/termez.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../portfolio/Assets/image-removebg-preview-_2_-1.ico" type="image/x-icon">
-
+<script src="./js/script.js"></script>
 </head>
 <body>
     <body>
@@ -23,7 +23,7 @@
             <div class="text-overlay">
              <h1>JCI OC</h1>
               
-              <p class="description">Une application mobile développée par JCI Hammam Sousse</p>
+              <p class="description">A Mobile Applcation Developed By JCI Hammam Sousse</p>
               <a href="https://github.com/your-repository-link" class="btn-github">
                 <div class="btn-content">
                     <img src="./Assets/github.svg" alt="GitHub Logo">
@@ -43,48 +43,42 @@
           </h2>
             <div class="awards-photos">
                 <div class="award-item">
-                    <p class="award-text">Best Innovation Award</p>
+                    <p class="award-text">BEST GROWTH AND DEVELOPMENT PROGRAM FOR THE C AREA</p>
                     <img src="./Assets/jci_app/462567383_1347047456665864_6196710637348691484_n.jpg" alt="Award 1">
                 </div>
                 <div class="award-item">
-                    <p class="award-text">Community Excellence Award</p>
+                    <p class="award-text">BEST NATIONAL GROWTH AND DEVELOPMENT PROGRAM</p>
                     <img src="./Assets/jci_app/466000650_551478554530437_1405147689976395724_n.jpg" alt="Award 2">
                 </div>
             </div>
         </div>
         <div class="login_page">
 
-          <div id="App_img">
+          <div>
             <h2 class="awards-title"><span>
               Login Pages
             </span>
           </h2>
-          <img src="./Assets/jci_app/1.png" alt="" >
+          <img src="./Assets/jci_app/1.png" alt="" id="App_img" >
         </div>
       </div>
 <div class="ALL_id">
 
 
   <section class="objectives-section">
-    <h1 class="section-title">Valeur Ajoutée pour les Membres et les
-      Parties Prenantes</h1>
+    <h1 class="section-title">Value Added for Members and Stakeholders</h1>
     <div class="objective">
-      <img src="/Assets/jci_app/event_icon.png" alt="Icon" class="objective-icon">
-      <h2 class="objective-title">Gestion simplifiée des événements, réunions et formations</h2>
+      <img src="./Assets/jci_app/event_icon.png" alt="Icon" class="objective-icon">
+      <h2 class="objective-title">Simplified Management of Events, Meetings, and Training</h2>
       <div class="objective-description">
-     <p>L’application permet aux membres de consulter facilement les événements passés et à venir, les réunions programmées et les
-      formations disponibles via un calendrier centralisé. Les utilisateurs peuvent s’
-      inscrire rapidement à ces activités directement depuis l’application. Des notifications automatiques rappellent les dates
-      importantes, assurant ainsi une meilleure participation et réduisant les oublis. Cette gestion simplifiée contribue à maximiser
-      l’engagement des membres tout en facilitant l’organisation pour les administrateurs.</p>
- <img src="./Assets/jci_app/events.png" alt="" id="App_img" >
+        <p>The application allows members to easily view past and upcoming events, scheduled meetings, and available training sessions through a centralized calendar. Users can quickly register for these activities directly from the application. Automated notifications remind users of important dates, ensuring better participation and reducing forgetfulness. This simplified management helps maximize member engagement while making organization easier for administrators.</p>
+        <img src="./Assets/jci_app/events.png" alt="" id="App_img">
       </div>
-     
-
     </div>
+    
 
     <div class="objective">
-      <img src="/Assets/jci_app/comm_icon.png" alt="Icon" class="objective-icon">
+      <img src="./Assets/jci_app/comm_icon.png" alt="Icon" class="objective-icon">
       <h2 class="objective-title">Improved Communication</h2>
       <div class="objective-description">
           <p>To facilitate interactions, the application integrates a dedicated chat feature, allowing members to exchange ideas, ask questions, or share comments on events, meetings, or training sessions. Additionally, real-time notifications keep members informed of important updates or changes. Automated emails are also sent to confirm registrations, send reminders, or inform about new activities, thereby enhancing communication fluidity.</p>
@@ -93,7 +87,7 @@
   </div>
   
   <div class="objective">
-    <img src="/Assets/jci_app/collaboration.png" alt="Icon" class="objective-icon">
+    <img src="./Assets/jci_app/collaboration.png" alt="Icon" class="objective-icon">
     <h2 class="objective-title">Enhanced Collaboration</h2>
     <div class="objective-description">
         <p>The application provides a comprehensive space dedicated to teams, where members can collaborate effectively by managing tasks, tracking project progress, and sharing files. Advanced features include creating and assigning tasks, adding subtasks, and sharing notes for better organization. Furthermore, an integrated voting system allows members to make collective decisions quickly and democratically, fostering a participatory spirit.</p>
@@ -101,7 +95,7 @@
     </div>
 </div>
 <div class="objective">
-  <img src="/Assets/jci_app/rankls.png" alt="Icon" class="objective-icon">
+  <img src="./Assets/jci_app/rankls.png" alt="Icon" class="objective-icon">
   <h2 class="objective-title">Personalized Monitoring</h2>
   <div class="objective-description">
       <p>Members have access to tools for tracking their engagement and performance, with indicators such as points awarded for participation or their ranking within the organization. Administrators, on the other hand, can monitor member activity, validate attendance, and adjust resources as needed. 
@@ -109,7 +103,38 @@
       <img src="./Assets/jci_app/suivi.png" alt="" id="App_img">
   </div>
 </div>
+<!-- Modal for Enlarged Image -->
+
+
+  </section><div class="modal" id="image-modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="enlarged-image" alt="Enlarged View">
+</div>
+
+
+<section class="technologies-section">
+
+  <h1>Technologies Used</h1>
+  <div class="technology-list">
+    <div class="technology">
+      <img src="./Assets/flutter.png" alt="React Native Logo">
+      <div>
+        
+        <h3>Front-end</h3>
+        <p>Flutter</p>
+      </div>
+    </div>
+    <div class="technology">
+        <img src="./Assets/jci_app/1_R4c8lHBHuH5qyqOtZb3h-w.png" alt="Express.js Logo">
+        <div>
+          
+          <h3>Back-end</h3>
+          <p>Firebase</p>
+        </div>
+      </div>
+    </div>
   </section>
+
   <div class="long-term-impact">
     <h2><span>
 Long-Term Impact

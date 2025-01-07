@@ -6,12 +6,76 @@ body {
     background-color: #f8f9fa;
     color: #333;
     line-height: 1.6;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+    
 }
+ @keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+    
+ }
 
+ .technology-list {
+    display: flex;
+    gap: 20px;
+
+    
+}
+ .technology-list img {
+   
+        width: 130px; /* Set a fixed width for the logo */
+        height: 100px; /* Maintain aspect ratio */
+        object-fit: cover; /* Prevent distortion of the image */
+        margin-left: 20px; /* Space between text and image */
+    
+    }
+ 
+    .technology-list div {
+        flex: 1;
+     justify-content: space-between;
+     align-content: center;
+       
+      
+        text-align: center;
+          width: 100%;
+        height: 300px; /* Adjust height as needed */
+           box-shadow:  12px 15px 15px rgba(0, 0, 0, 0.6);
+        position: relative;
+        overflow: hidden;
+      background-image: url("../../Assets/Frame\ 8.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: contrast(1.2) brightness(0.9) saturate(2.2);
+        border-radius: 15px; /* Slight rounding of corners */
+    }
+.technology{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  
+
+    margin-top: 20px;
+}
+    .technology-list h3 {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        margin-top: 20px;
+     
+    }  .technology-list p {
+        color: #ffffff;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        margin-top: 20px;
+     
+    }
 .container {
-    width: 70%;
+    width: 90%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 /* Title Styling */
@@ -30,7 +94,7 @@ h1::after {
     height: 5px; /* Adjust thickness of the underline */
     background:linear-gradient( to left,
         #04146e,
-        #656464
+        #04146e
     ); /* Color of the underline */
     position: relative;
    
@@ -77,13 +141,14 @@ h1::after {
 .section p {
     margin-bottom: 20px;
     text-align: center;
+    width: 90%;
     font-size: 1.5rem;
     color: #ffffff;
 }
 
 .section img {
     display: block;
-    width: 100%;
+    width: 80%;
     height: auto;
     border: 2px solid #f5f5f5;
     border-radius: 10px;
@@ -124,6 +189,25 @@ footer {
         width: 60%;
     }
 
+    .technology div h3{
+        font-size: 1.9rem;
+        
+        
+    }  .technology-list {
+        padding: 10px;
+        flex-direction: column;
+    }
+    .technology div p{
+        font-size: 1.7rem;
+        
+        
+    }  .technology img{
+        padding-left: 10px;
+        width: 20%;
+        height: auto;
+        
+        
+    }
     .section {
         padding: 15px;
     }
@@ -133,7 +217,6 @@ footer {
         
 
     }
-
     .section h2 {
         font-size: 1.5rem;
     }
@@ -184,11 +267,27 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 470px) {
     h1 {
-        font-size: 1.1rem;
+        font-size: 1.8rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 900;
     }
-
+    .technology div h3{
+        font-size: 1.6rem;
+       
+  
+    }
+    .technology div p{
+        font-size: 1.4rem;
+       
+  
+    }
+    
+     .technology-list {
+        margin: 10px;
+        flex-direction: column;
+    }
     h1:after {
         width: 40%;
     }
@@ -210,5 +309,45 @@ footer {
     }
     footer{
         font-size: 0.8rem;
+    }
+}
+@media   (max-width:342px) 
+{
+    .technology div h3{
+        font-size: 1.3rem;
+       
+  
+    }
+    .technology div p{
+        font-size: 1.2rem;
+       
+  
+    }  .technology img{
+       width: 100px;
+       
+  
+    }
+    
+     .technology-list {
+        flex-direction: column;
+    }
+
+    
+}
+@media screen and (max-width: 300px) {
+
+    .technology div h3{
+        font-size: 1.1rem;
+       
+  
+    }
+    .technology div p{
+        font-size: 1rem;
+       
+  
+    }  .technology img{
+       display: none;
+       
+  
     }
 }

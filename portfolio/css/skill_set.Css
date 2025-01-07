@@ -53,6 +53,10 @@ html {
    
     border-radius: 10px; /* Slight rounding of corners */
 }
+.skill:hover {
+    background-color: #010D1B; /* Change background color on hover */
+    transition: 0.3s ease-in; /* Smooth transition effect */
+}
 .piece:hover {
     transform: scale(1.009); /* Increase size on hover */
     transition:  0.3s ease-in; /* Smooth transition effect */

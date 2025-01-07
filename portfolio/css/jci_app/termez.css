@@ -13,9 +13,72 @@ width: 100%; /* Full width of the container */
     font-family: 'Poppins', sans-serif;
 }
 
+.technology-list {
+    display: flex;
+    gap: 20px;
+
+    
+}
+ .technology-list img {
+   
+        width: 130px; /* Set a fixed width for the logo */
+        height: 100px; /* Maintain aspect ratio */
+        object-fit: cover; /* Prevent distortion of the image */
+        margin-left: 20px; /* Space between text and image */
+    
+    }
+ 
+    .technology-list div {
+        flex: 1;
+     justify-content: space-between;
+     align-content: center;
+       
+      
+        text-align: center;
+          width: 100%;
+        height: 300px; /* Adjust height as needed */
+           box-shadow:  12px 15px 15px rgba(0, 0, 0, 0.6);
+        position: relative;
+        overflow: hidden;
+      background-image: url("../../Assets/Frame\ 8.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        filter: contrast(1.2) brightness(0.9) saturate(2.2);
+        border-radius: 15px; /* Slight rounding of corners */
+    }
+    .technologies-section{
+        padding: 20px;
+    }
+    .technologies-section h1{
+        padding: 20px;
+        text-align: center;
+        font-size: 2rem     ;
+    }
+.technology{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  
+
+    margin-top: 20px;
+}
+    .technology-list h3 {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: 15px;
+        margin-top: 20px;
+     
+    }  .technology-list p {
+        color: #ffffff;
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+        margin-top: 20px;
+     
+    }
 .long-term-impact h2 {
     
-    text-align: center;
+    text-align: start;
     color: #fbfdff;
     font-size: 2.4rem;
     margin-bottom: 15px;
@@ -29,7 +92,7 @@ width: 100%; /* Full width of the container */
 .long-term-impact  span::after {
     content: "";
     display: block;
-    width: 70%; /* Adjust this width as needed */
+    width: 40%; /* Adjust this width as needed */
     height: 5px; /* Adjust thickness of the underline */
     background:linear-gradient( to left,
         #ffffff,
@@ -43,9 +106,125 @@ width: 100%; /* Full width of the container */
 
 .long-term-impact p {
     width: 90%;
-    font-size: 1rem;
+    font-size: 1.3rem;
     line-height: 1.6;
     color: #ffffff;
     margin-bottom: 10px;
     text-align: justify;
+}
+@media (max-width: 1024px) {
+    .long-term-impact {
+        padding: 20px;
+    }
+    .long-term-impact h2 {
+        font-size: 2.2rem;
+    }
+    .long-term-impact p {
+        font-size: 1.2rem;
+    }
+    .technology div h3{
+        font-size: 1.9rem;
+        
+        
+    }  .technology-list {
+        padding: 10px;
+        flex-direction: column;
+    }
+    .technology div p{
+        font-size: 1.7rem;
+        
+        
+    }  .technology img{
+        padding-left: 10px;
+        width: 20%;
+        height: auto;
+        
+        
+    } 
+}
+@media (max-width: 768px) {
+    .long-term-impact {
+        padding: 20px;
+    }
+    .long-term-impact h2 {
+        font-size: 2rem;
+    }
+    .long-term-impact p {
+        font-size: 1.1rem;
+    }
+    
+}
+@media (max-width: 425px) {
+    .long-term-impact {
+        padding: 20px;
+    }
+    .long-term-impact h2 {
+        font-size: 1.3rem;
+    }
+    .long-term-impact p {
+        font-size:.9rem;
+        width: 90%;
+    }
+    .technology div h3{
+        font-size: 1.6rem;
+       
+  
+    }
+    .technology div p{
+        font-size: 1.4rem;
+       
+  
+    }
+    
+     .technology-list {
+        margin: 10px;
+        flex-direction: column;
+    }
+}
+
+@media   (max-width:342px) 
+{
+    .technology div h3{
+        font-size: 1.3rem;
+       
+  
+    }
+    .technology div p{
+        font-size: 1.2rem;
+       
+  
+    }  .technology img{
+       width: 100px;
+       
+  
+    }
+    
+     .technology-list {
+        flex-direction: column;
+    }
+    .technologies-section h1{
+        font-size: 1.2rem;
+       
+    }
+    
+}
+@media screen and (max-width: 300px) {
+.technologies-section h1{
+        font-size: 1rem;
+       
+    }
+    .technology div h3{
+        font-size: 1.1rem;
+       
+  
+    }
+    .technology div p{
+        font-size: 1rem;
+       
+  
+    }  .technology img{
+       display: none;
+       
+  
+    }
 }

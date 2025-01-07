@@ -3,11 +3,27 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     font-family: 'Poppins', sans-serif;
     padding: 20px;
 }
+#imgCertif{
+    transition: height 0.3s ease; /* Smooth transition for better UX */
+    background-image: url(../Assets/Frame\ 8.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
+    filter: brightness(0.9) saturate(2.2) contrast(1.2);
+    height: 690px; /* Dynamically adjusts based on viewport height */
+    width: 100%; /* Full width of the container */
+}
 
 .certificate-item {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     background-color: #ffffff;
     border-radius: 10px;
     width: calc(27% - 20px); /* 4 items per row */
@@ -21,6 +37,12 @@
     justify-content: center;
 
     border: #08013c 2px solid;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+    
 }
 
 .certificate-item img {
@@ -61,6 +83,9 @@
 }
 
 .certificate-image {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -69,28 +94,140 @@
 }
 
 .certificate-title {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     color: #000;
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    
 }
 
 .certificate-description {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+  
     font-size: 1.7rem;
     color: #555;
     font-weight: 200;
-    margin-bottom: 10px;
+
 }
 
 .certificate-date {
+        opacity: 0;
+  animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
+
     font-weight: 600;
     font-size: 1.2rem;
     color: #00093f;
 }
+@media (max-height:800px) and (max-width: 1024px) {
+    .certificate-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 150px; /* Set the height to a fixed value */
+    }
+    
+    .certificate-item img {
+        height: 70px;
+        width: 70px;
+
+    }
+    .certificate-item:nth-child(3) img  {
+
+        height: 70px;
+        width: 70px;
+    }
+    .certificate-item h3 {
+        font-size: 1.2rem;
+        width: 25%;
+    } .certificate-item p {
+        font-size: 1.2rem;
+        width: 25%;
+    }
+    #imgCertif{
+        height: 160px/* Dynamically adjusts based on viewport height */
+    }
+ 
+    
+}@media (height<770px) and (width<500px) {
+    .certificate-item {
+        flex-direction: column;
+      
+        align-items: center;
+        justify-content: space-between;
+        height: 150px; /* Set the height to a fixed value */
+    }
+    
+    .certificate-item img {
+        height: 70px;
+        width: 70px;
+
+    }
+    .certificate-item:nth-child(3) img  {
+
+        height: 70px;
+        width: 70px;
+    }
+    .certificate-item h3 {
+        font-size: 1.2rem;
+        width: 100%;
+    } .certificate-item p {
+        font-size: 1.2rem;
+        width: 100%;
+    }
+    #imgCertif{
+        height: 660px/* Dynamically adjusts based on viewport height */
+    }
+    
+}
+@media (max-height: 380px) {
+    .certificate-item {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 150px; /* Reduce the height further */
+    }
+
+    .certificate-item img {
+        height: 50px; /* Smaller height */
+        width: 50px;  /* Smaller width */
+    }
+    #imgCertif{
+        height: 560px/* Dynamically adjusts based on viewport height */
+    }
+    .certificate-item:nth-child(3) img {
+        height: 50px; /* Smaller height */
+        width: 50px;  /* Smaller width */
+    }  .certificate-item:nth-child(3) h3 {
+        font-size: 0.8rem; /* Smaller font size */
+        width: 20%; /* Adjust width */
+        overflow: hidden; /* Hide the overflowed text */
+        white-space: nowrap; /* Prevent wrapping to the next line */
+        text-overflow: ellipsis; /* Add ellipsis (...) for overflowed text */
+    }
+    
+
+    .certificate-item h3 {
+        font-size: .9rem; /* Smaller font size */
+        width:20%;
+        text-overflow: ellipsis;
+        /* Adjust width */
+    }
+
+    .certificate-item p {
+        font-size: .8rem; /* Smaller font size */
+        width: 20%; 
+     
+        margin: 10px;
+        /* Adjust width */
+    }
+}
 
 @media (max-width: 1024px) {
     .certificate-item {
-        width: calc(50% - 20px); /* 2 items per row on medium screens */
+        width: calc(40% - 20px); /* 2 items per row on medium screens */
       
     }
     .certificate-item:nth-child(2) {
@@ -110,18 +247,26 @@
         font-weight: 200;
         margin-bottom: 2px;
     }
-}@media (max-width: 1400px) {
+}
+@media (max-width: 1410px) {
     .certificate-item {
-        width: calc(50% - 20px); /* 2 items per row on medium screens */
+        width: 80%; /* 2 items per row on medium screens */
         
+    }
+    #imgCertif{
+        height: 1660px/* Dynamically adjusts based on viewport height */
     }
     .certificate-title {
         color: #000;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         font-weight: 600;
         margin-bottom: 2px;
     }
-    
+    .certificate-date {
+        font-size: 1.5rem;
+        color: #00093f;
+        font-weight: 600;
+    }
     .certificate-description {
         font-size: 1.5rem;
         color: #555;
@@ -133,7 +278,6 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 }
-
 @media (max-width: 768px) {
     .certificate-item {
         width: 100%; /* 1 item per row on small screens */
@@ -151,6 +295,58 @@
     
     .certificate-description {
         font-size: 1.5rem;
+        color: #555;
+        font-weight: 200;
+        margin-bottom: 2px;
+    }
+    
+    
+}
+
+@media (max-width: 468px) {
+ 
+    .certificate-title {
+        color: #000;
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+
+    
+    #imgCertif{
+        height: 1260px/* Dynamically adjusts based on viewport height */
+    }
+}
+
+@media (max-width: 700px) {
+    .certificate-item {
+        height: fit-content;
+        width: 100%; /* 1 item per row on small screens */
+    
+    }  .certificate-item:nth-child(2) {
+        transform: translateY(0) ;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .certificate-title {
+        color: #000;
+        font-size: 1.16rem;
+        font-weight: 600;
+        margin-bottom: 2px;
+    }
+    .certificate-image{
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        max-width: 250px;
+        margin-bottom: 15px;
+    }
+    .certificate-date {
+        font-size: 1rem;
+        color: #00093f;
+        font-weight: 600;
+    }
+    .certificate-description {
+        font-size: 1rem;
         color: #555;
         font-weight: 200;
         margin-bottom: 2px;
