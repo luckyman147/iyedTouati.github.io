@@ -6,7 +6,7 @@
     <title>Mohamed Iyed Touati</title>
     <!-- init as first page  -->
      
-    <link rel="icon" href="../portfolio/Assets/image-removebg-preview-_2_-1.ico" type="image/x-icon">
+    <link rel="icon" href="../portfolio/Assets/dd.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/heros_section.Css">
@@ -18,6 +18,21 @@
     <link rel="stylesheet" href="./css/social_life.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="./js/scroll.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init({
+        publicKey: 'XchjH0iopZnsqOUcY',
+    
+        limitRate: {
+          // Set the limit rate for the application
+         
+          // Allow 1 request per 10s
+          throttle: 10000,
+        },
+      });
+  })();
+</script>
 </head>
 <body>
     <div id="main">
@@ -104,27 +119,20 @@
 
                     <div class="timeline">
                       
-                        <!-- <div class="timeline-item" onclick="openModal()">
-                            
+                   
+                        <div class="timeline-item">
                             <div class="timeline-content">
-                                <h3>Intern, Flutter leader</h3> <h4>ZiwZiw , Sahloul ,Sousse </h4>
+                                <h3>Intern, Flutter Lead</h3> <h4>ZiwZiw Family Friend </h4>
                                 <hr />
-                               
-                                <p>July 2024- August 2024</p>
-                                <button class="btn-1" onclick="navigateToPage()">
-
-                                    <span>
-                                    Learn More
-
-                               </span>
-                            </button>
+                                <p>July 2024 - August 2024</p>
+                          
+                             
                             </div>
                             <div class="timeline-wheels">
                                 <img src="./Assets/wheel.png" alt="Wheel" class="wheel left-wheel" />
                                 <img src="./Assets/wheel.png" alt="Wheel" class="wheel right-wheel" />
                             </div>
-                        </div> -->
-                        <div class="timeline-item">
+                        </div>     <div class="timeline-item">
                             <div class="timeline-content">
                                 <h3>Intern, Flutter developer</h3> <h4>JCI Hammam Sousse ,Sousse </h4>
                                 <hr />
@@ -145,7 +153,7 @@
                         <div class="timeline-item">
                             <div class="timeline-content">
                                 <h3>React Native Developer</h3>
-                                <h4>IEEE, ESSTHS , SOusse</h4>                               
+                                <h4>IEEE, ESSTHS , Sousse</h4>                               
                                 <hr />
                                 <p>October 2023, Novbember 2023</p>
                                 <button class="btn-1" onclick="navigateToHealthPage()">
@@ -210,7 +218,7 @@
 
                     <div class="content">
                         <h1>Flutter</h1>
-                        <h2> +2 years Experience </h2>
+                        <h2> +3 years Experience </h2>
                         <h3>Expert in building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase.</h3>
                     </div>
                     <img id="skill_image" src="./Assets/flutter.png" alt="">
@@ -227,7 +235,9 @@
                     </div>
                     <img id="skill_image" src="./Assets/React-native.png" alt="">
                 </div>
-            </div>
+            </div>  
+              
+      
             <div class="piece">
                 <div class="skill"> 
 
@@ -249,6 +259,15 @@
                     <h3>Proficient in developing robust and scalable application, including microservices architecture.</h3>
                 </div>
                 <img id="skill_image" src="./Assets/dotnet.png" alt="">
+            </div></div>  <div class="piece">  <div class="skill"> 
+
+             
+
+                <div class="content">
+                    <h1>Nest Js</h1>
+                    <h2> 1 year Experience </h2>
+<h3>Implemented NestJS with TypeORM, Swagger documentation, Jest testing, and Docker deployments.</h3>                </div>
+                <img id="skill_image" src="./Assets/NestJS.svg" alt="">
             </div></div>
             <div class="piece">  <div class="skill"> 
 
@@ -383,15 +402,58 @@
 
                    <div class="contact-container">
 
+                      
+                       <form id="contactForm"> <p>Get In Touch With Me</p>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-                       <p>Get In Touch With Me</p>
-                    
-                    <div class="social-icons">
+                      <select id="service" name="service" required>
+    <option value="" disabled selected style="color: #999;">  Select a service...</option>
+    <option value="mobile-development">Mobile Development</option>
+    <option value="backend-development">Backend Development</option>
+    <option value="ux-design">UX Design</option>
+    <option value="other">Other Service</option>
+  </select>
+                        <textarea id="description" name="description" placeholder="Your description"></textarea>
+                        <button type="submit">Send Email</button>
+                      </form>
+                      <script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  // Get form values
+    const formData = new FormData(this);
+            formData.append('service_id', 'service_zb5oeln');
+            formData.append('template_id', 'template_prp2i9h');
+            formData.append('user_id', 'XchjH0iopZnsqOUcY');
+            
+            fetch('https://api.emailjs.com/api/v1.0/email/send-form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Failed to send message');
+                return response.text();
+            })
+            .then(() => {
+                alert('Message sent successfully!');
+                this.reset();
+            })
+            .catch(error => {
+                alert('Error: ' + error.message);
+            });
+});
+</script>
+                      
+  <div class="social-icons">
                         <a href="https://www.facebook.com/iyed.touati.432002" class="social-icon"><img src="./Assets/facebook.svg" alt="Facebook"></a> 
                         <a href="https://www.instagram.com/mediyedtouati/" class="social-icon"><img src="./Assets/Vector(4).png" alt="Instagram"></a>
                         <a href="https://www.linkedin.com/in/mohamed-iyed-touati-41a088226/" class="social-icon"><img src="./Assets/Vector(5).png" alt="LinkedIn"></a>
                         <a href="https://github.com/luckyman147" class="social-icon"><img src="./Assets/github.svg" alt="Github"></a>
                     </div>
+                   
+                      
+                  
                 </div>
                   </div>
                 </div>

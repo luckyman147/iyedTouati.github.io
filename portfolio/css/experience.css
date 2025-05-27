@@ -220,6 +220,7 @@ margin-top: 10px;
     text-align: center;
     color: rgb(47, 36, 36);
     padding: 20px;
+   
     flex: 1;
 }
 .timeline-item:hover {
@@ -231,11 +232,14 @@ margin-top: 10px;
     background-color: rgba(255, 255, 255, 1);
     border-radius: 10px;
     padding: 15px;
+    height:147px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
 
     
 }.timeline-content:hover {
   transition: 0.5s;
- transform: scale(1.01);
+ transform: scale(1.11);
   border-radius: 10px;
   box-shadow: 10px 10px 10px rgba(255, 255, 255,);
 
@@ -364,7 +368,7 @@ display: none;
         background-repeat: no-repeat;
         border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
         filter: brightness(0.9) saturate(2.2) contrast(1.2);
-        height:1070px; /* Height of the image */
+        height:1170px; /* Height of the image */
         width: 100%; /* Full width of the container */
     }
     .divi{

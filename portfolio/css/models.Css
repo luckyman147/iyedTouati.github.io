@@ -35,17 +35,50 @@
     text-align: center;
 }
 
+
 .drawer ul li a {
     text-decoration: none;
     color: rgb(0, 0, 0);
     font-size: 1.2rem;
-
-     font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    position: relative; /* Required for pseudo-element positioning */
     transition: color 0.3s ease;
+}
+
+
+/* Underline Effect on Hover */
+.drawer ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0; /* Start with no width */
+    height: 2px; /* Thickness of the underline */
+    bottom: -4px; /* Position below the text */
+    left: 0;
+    background-color: #ff8800; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth width transition */
+}
+
+.drawer ul li a:hover::after {
+    width: 100%; /* Full width on hover */
 }
 
 .drawer ul li a:hover {
     color: #ff8800;
+}
+
+.drawer ul li a.active {
+    color: #020644;
+}
+
+/* Optional: Add underline for active link */
+.drawer ul li a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%; /* Full width for active link */
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #020644; /* Match active text color */
 }
 
 /* Drawer Toggle */
@@ -62,7 +95,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: #a8a8f6;
+    color: #fdfdff;
     z-index: 11;
     display: none; /* Hidden by default */
 }

@@ -1,14 +1,135 @@
+/* Import Poppins font */
+
+/* Awards Section */
 .awards-section {
-    text-align: center; /* Center-align the content */
-    padding: 20px;
+    text-align: center;
+    padding: 40px 20px;
     background: url(../../Assets/Frame\ 8.png);
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-    border-radius: 0px 0px; /* Optional: Rounded corner at the bottom */
     filter: brightness(0.9) saturate(2.2) contrast(1.2);
+    font-family: 'Poppins', sans-serif;
+}
+.awards-title{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fcfeff;
+    margin-bottom: 20px;
+}
+.awards-photos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Award Item */
+.award-item {
+
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.award-header {
+    padding: 25px;
+   
+}
+
+.award-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.award-organization {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-top: 8px;
+    font-weight: 400;
+    color: white;
+}
+
+.award-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch; /* Equal height */
+    padding: 30px;
+    gap: 30px;
+}
+
+.award-description {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.award-highlights {
+    padding-left: 20px;
+    margin: 20px 0;
+    color: white;
+}
+
+.award-highlights li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    position: relative;
+    color: white;
+    font-weight: 500;
+}
+
+.award-highlights li::before {
+    content: "•";
+    color: #4fc3f7;
+    font-weight: bold;
+    position: absolute;
+    left: -20px;
+}
+
+.award-mission {
+    font-style: italic;
+    padding: 15px;
+    border-left: 4px solid #eeeeee;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-weight: 300;
+}
+
+.award-image {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 
+.award-photo {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
 #App_img  {
     opacity: 0;
     animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
@@ -33,7 +154,6 @@
     font-weight: 700;
     margin-top: 20px;
 }
-
 .awards-title:nth-child(1) span {
     padding-top: 20px;
     color: #ffffff;
@@ -56,7 +176,7 @@
     bottom: 0;
     left: 0; /* Align underline to the left */
 }
- .login_page.awards-title span::after {
+.login_page.awards-title span::after {
     content: "";
     display: block;
     width: 70%; /* Adjust this width as needed */
@@ -70,125 +190,45 @@
     left: 0; /* Align underline to the left */
 }
 
-
-.awards-photos {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards; /* Animation applied on page load */
-   
-    display: flex;
-    justify-content: center; /* Center-align the images */
-    gap: 20px;
-    flex-direction: column;
-}
-
-.award-item {
-
-    text-align: center; /* Center-align the text and image */
-}
-
-.award-text {
+.image-caption {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    font-weight:600;
-    text-transform: capitalize;
-    color: #ffffff; /* Grey color for the text */
-    margin-bottom: 10px; /* Space between text and image */
 }
 
-.award-item img {
-    width: 300px; /* Adjust the image width */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-    border: 2px solid #f8f9ff;
-}
-@media screen and (max-width: 1024px) {
-    .award-item img {
-        width: 250px; /* Adjust the image width */
-    }
-    .section-title {
-        font-size: 2.2rem;
-    }
-
-    .awards-title{
-
-        font-size: 2.5rem;
-    }
+/* Responsive Design */
+@media (max-width: 1024px) {
     .award-text {
-        font-size: 1.5rem;
-    }  #App_img{
-        width: 100%;
+        font-size: 1.6rem;
     }
     
- 
+    .award-content {
+        padding: 20px;
+    }
 }
-@media screen and (max-width: 768px) {
-    .awards-photos {
-        flex-direction: column; /* Stack images vertically on smaller screens */
-    }
-    .section-title {
-        font-size: 1.5rem;
-    }
-    .awards-title{
 
-        font-size: 2rem;
-    }
-
-    .award-item img {
-        width: 100%; /* Make images full width */
-    }
-    #App_img{
-        width: 100%;
-    }
-
+@media (max-width: 768px) {
     .award-text {
-        font-size: 1.25rem;
+        font-size: 1.4rem;
     }
     
+    .award-content {
+        flex-direction: column;
+    }
+    
+    .award-photo {
+        max-height: 300px;
+    }
 }
 
-@media screen and (max-width: 480px) {
-    .award-item img {
-        width: 100%; /* Make images full width */
-    }
-    .section-title {
-        font-size: 1.7rem;
-    }
-    .awards-title{
-
+@media (max-width: 480px) {
+    .award-text {
         font-size: 1.2rem;
     }
-    .login_page.awards-title{
-
-        font-size: 1.5rem;
-    }
-    .award-text {
-        font-size: 1rem;
-    }
     
-}
-@media screen and (max-width: 325px) {
-    .award-item img {
-        width: 100%; /* Make images full width */
+    .award-header {
+        padding: 15px;
     }
-    .section-title {
-        font-size: 1.2rem;
-    }
-    .awards-title{
-
-        font-size: 1rem;
-    }
-    .login_page .awards-title{
-padding:10px ;
-margin-bottom: 10px;
-        font-size: 1.7rem;
-    } 
-    .awards-title span::after {
-        content: "";
-        display: none;
-      
-    }
-    .award-text {
-        font-size: .8rem;
-    }
-    
 }
