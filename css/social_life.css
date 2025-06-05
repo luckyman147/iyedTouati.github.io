@@ -1,146 +1,156 @@
-.social-timeline-item {
+/* Base (Mobile-First) Styles - Optimized for <400px */
+.social-timeline-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 5px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .social-timeline-item {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: start;
-    margin-bottom: 30px;
-    position: relative;
-    padding: 20px;
-    
-}
-.social-timeline-container{
-    display: grid;
- grid-template-columns: repeat(1, minmax(300px, 1fr)); 
-    grid-gap: 10px; 
-    margin-top: 20px;
-    margin-left: 20px;
-    margin: 20px;
-}
-.cont{
-    display: flex; /* Use flexbox for alignment */
-    
-    align-items: start; /* Center items vertically */
-    margin: 20px; /* Add space around the skill box */
-    padding: 20px; /* Add padding inside the skill box */
-   align-items: start;
-   flex-direction: row;
-    border-radius: 10px;
-    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
   
-    
-    box-shadow: 0 4px 10px rgba(60, 60, 60, 0.1);
-    height: fit-content;
-    width: 100%; /* Make the content section narrower to give space for the image */
-    margin-left: 10px; /* Create space for the date */
-}
-.social-timeline-date {
-    font-size: 1.3rem;
+  .cont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  
+  .social-timeline-date {
+    font-size: 0.9rem; /* Smaller font for tiny screens */
     font-weight: 600;
-    color: #00093f; /* LinkedIn Blue or similar color */
-   /* Add more space between the date and content */
-    position: relative;
-    background-color: #fff;
-    padding: 5px 15px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    margin-left: 10px;
-    border-radius: 10px;
-    box-shadow:  0 10px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #f6f6f6; /* LinkedIn Blue or similar color */
-   /* Ensure it stays above the content */
-}
-
-
-
-.social-timeline-content h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
+    color: #00093f;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f6f6f6;
+    align-self: flex-start;
+  }
+  
+  .social-timeline-content h3 {
+    font-size: 1.1rem; /* Reduced heading size */
+    margin-bottom: 5px;
     color: #333;
-    margin-bottom: 10px;
-}
-.social-timeline-content  {
- margin: 20px;
-}
-
-.social-timeline-content p {
-    font-size: 1rem;
+  }
+  
+  .social-timeline-content p {
+    font-size: 0.85rem; /* Smaller text */
     color: #555;
-    line-height: 1.6;
-}
-
-.social-timeline-image {
-    align-self: center;
-
-
-    width: 15%; /* Set the image container width */
-    margin-right: 30px; /* Space between content and image */
-}
-
-.social-timeline-image img {
+    line-height: 1.4; /* Tighter line spacing */
+  }
+  
+  .social-timeline-image,
+  .social-timeline-image2 {
+    width: 100%;
+    margin: 8px 0;
+  }
+  
+  .social-timeline-image img,
+  .social-timeline-image2 img {
     width: 100%;
     height: auto;
-    align-items: center;
-
-    border-radius: 10px;
-    object-fit: cover; /* Make sure the image fits within the container */
-}.social-timeline-image2 { align-self: center;
-    position: relative;
-    display: inline-block; /* Ensure the container wraps around the image */
-    border-radius: 10px; /* Match the border radius of the inner image */
-    padding: 5px; /* Space for the gradient border */
-    background: linear-gradient(90deg, #00093f, #1e90ff); /* Gradient colors */
-}
-
-.social-timeline-image2 img {
-    width: 300px;
-    height: 200px;
-   
-    display: block; /* Remove inline spacing from images */
-    border-radius: 10px; /* Same border radius as the container */
+    border-radius: 6px;
     object-fit: cover;
-    background: white; /* Optional: To add a background to the image */
-}
+  }
+  
+  .social-timeline-image2 {
+    padding: 2px; /* Thinner gradient border */
+    background: linear-gradient(90deg, #00093f, #1e90ff);
+    border-radius: 8px;
+  }
+  
+  /* Tiny Screens (<=350px) */
+  @media (max-width: 370px) {
+    .social-timeline-container {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
 
-
-@media (max-width: 1068px) {
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+      scroll-snap-type: x mandatory;
+      padding-bottom: 15px; /* Space for scrollbar */
+      margin: 0 -10px; /* Compensate for container padding */
+    }
+  
     .social-timeline-item {
-        flex-direction: column; /* Stack content and image vertically on smaller screens */
-        align-items: center;
+      flex: 0 0 110%; /* Each item takes 90% of viewport width */
+      scroll-snap-align: start;
+      margin-right: 10px;
+      width: 60% /* Adjust width to fit within container */
+      min-width: 0; /* Fixes flexbox overflow issues */
     }
-
+  
     .social-timeline-date {
-        margin-bottom: 15px; /* Add space between the date and content when stacked */
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      white-space: nowrap;
+        overflow: hidden;
+        align-self: center;
+        text-overflow: ellipsis; /* Prevents overflow */
+      align-items: center; /* Ensures date fits within the item */
     }
-    .social-timeline-container{
-        grid-template-columns: repeat(1, minmax(400px, 2fr)); 
+  
+    .social-timeline-content h3 {
+      font-size: 1rem;
+      align-self: center;
+    }
+  
+    .social-timeline-content p {
+      font-size: 0.7rem; /* Slightly larger than 0.5rem for readability */
+      word-break: break-word; /* Prevent horizontal overflow */
+    }
+  
+    /* Hide scrollbar but keep functionality */
+    .social-timeline-container::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  /* Small Screens (400px-599px) */
+  @media (min-width: 400px) {
+    .social-timeline-container {
+      padding: 8px;
+      gap: 12px;
+    }
+    .social-timeline-item {
+      padding: 12px;
+    }
+    .social-timeline-date {
+      font-size: 1rem; /* Slightly larger for small screens */
+      padding: 8px 12px;
+    }
+ 
 
+  }
+
+  
+  /* Medium Screens (600px+) - Original tablet styles */
+  @media (min-width: 600px) {
+    .cont {
+      flex-direction: row;
+      align-items: flex-start;
     }
-.cont{
-    flex-direction: column;
-}
-    .social-timeline-content {
-        width: 100%;
-        margin-left: 0; /* Remove margin when stacked */
-    }
+    .social-timeline-image,
     .social-timeline-image2 {
-        position: relative;
-        display: inline-block; /* Ensure the container wraps around the image */
-        border-radius: 10px; /* Match the border radius of the inner image */
-        padding: 5px; /* Space for the gradient border */
-        background: linear-gradient(90deg, #00093f, #1e90ff); /* Gradient colors */
+      width: 25%;
+      min-width: 120px; /* Smaller min-width */
+      margin-right: 15px;
     }
-    
-    .social-timeline-image2 img {
-        width: 100%;
-        height: auto;
-        display: block; /* Remove inline spacing from images */
-        object-fit: cover;
+  }
+  
+  /* Large Screens (900px+) */
+  @media (min-width: 900px) {
+    .social-timeline-container {
+      grid-template-columns: repeat(2, 1fr);
     }
-    
-
-    .social-timeline-image {
-       
-        margin-left: 0;
-        margin-top: 15px;
-    }
-}
+  }
