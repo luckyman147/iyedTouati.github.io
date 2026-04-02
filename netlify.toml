@@ -1,0 +1,7 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  # Tell Netlify to ignore EmailJS "secrets" because they are meant to be public in the React bundle
+  SECRETS_SCAN_OMIT_KEYS = "REACT_APP_EMAILJS_SERVICE_ID,REACT_APP_EMAILJS_TEMPLATE_ID,REACT_APP_EMAILJS_PUBLIC_KEY"
