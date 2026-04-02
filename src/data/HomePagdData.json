@@ -1,0 +1,253 @@
+{
+  "hero": {
+    "imgUrl": "/images/me-removebg-preview(1).png",
+    "name": "Mohamed Iyed Touati",
+    "heading": "Hello I am",
+    "typingText": [
+      "Software Engineer",
+      1500,
+      "Full-Stack Architect",
+      1500,
+      "Mobile Expert",
+      1500,
+      "AI Solution Specialist",
+      1500
+    ],
+    "description": "Architecting high-performance digital ecosystems with Flutter, React, and robust backend infrastructures. From visionary concepts to production-grade deployments, I deliver scalable, secure, and user-centric software solutions.",
+    "btnText": "Empower Your Project",
+    "btnUrl": "contactus"
+  },
+  "socialBtns": [
+    {
+      "icon": "fa-brands:facebook-f",
+      "iconBgClass": "facebook",
+      "href": "https://www.facebook.com/iyed.touati.432002"
+    },
+    {
+      "icon": "fa-brands:instagram",
+      "iconBgClass": "instagram",
+      "href": "https://www.instagram.com/mediyedtouati/"
+    },
+    {
+      "icon": "fa-brands:linkedin-in",
+      "iconBgClass": "linkedin",
+      "href": "https://www.linkedin.com/in/mohamed-iyed-touati-41a088226/"
+    },
+    {
+      "icon": "fa-brands:github",
+      "iconBgClass": "github",
+      "href": "https://github.com/luckyman147"
+    }
+  ],
+  "brands": [
+    {
+      "src": "/images/flutter.png",
+      "alt": "Flutter"
+    },
+    {
+      "src": "/images/React-native.png",
+      "alt": "React"
+    },
+    {
+      "src": "/images/dotnet.png",
+      "alt": ".NET"
+    },
+    {
+      "src": "/images/figma.png",
+      "alt": "Figma"
+    },
+    {
+      "src": "/images/node.png",
+      "alt": "Backend"
+    },
+    {
+      "src": "/images/me.png",
+      "alt": "Mohamed Iyed Touati"
+    }
+  ],
+  "about": {
+    "imgSrc": "/images/me.png",
+    "miniTitle": "About Me",
+    "title": "Crafting <span>Premium Architectural</span> Digital Solutions",
+    "description": "Mohamed Iyed Touati is a visionary software engineer specializing in high-performance mobile and web ecosystems. With deep expertise in Flutter, React, and multi-layered Backend architecture, I transform complex business challenges into sleek, production-ready digital products. Having successfully delivered 10+ high-impact applications, I focus on engineering excellence and rapid, reliable deployment.",
+    "funfacts": [
+      {
+        "title": "Ready apps built",
+        "number": 10
+      },
+      {
+        "title": "Years in Development",
+        "number": 3
+      },
+      {
+        "title": "Core Stacks",
+        "number": 5
+      }
+    ],
+    "btnText": "Collaborate Now",
+    "btnUrl": "contactus"
+  },
+  "projects": {
+    "sectionHeading": {
+      "miniTitle": "Highlights",
+      "title": "Selected <span> Apps</span>"
+    },
+    "allProjects": [
+      {
+        "thumbUrl": "/myapps/jci_app.png",
+        "videoUrl": "/myapps/JCI HS APP Overview Video.mp4",
+        "title": "JCI Organization Hub",
+        "subTitle": "Scalable Flutter Solution",
+        "details": {
+          "title": "JCI Organization Hub",
+          "description": "Architected a comprehensive organization management system featuring automated member tracking, activity coordination, and high-performance real-time data synchronization with Firebase.",
+          "frameworks": "Flutter, Dart, Firebase, Figma",
+          "type": "Enterprise Application"
+        }
+      },
+      {
+        "thumbUrl": "/myapps/jci a member.png",
+        "videoUrl": "/myapps/jci a member video.mp4",
+        "title": "JCI A Member",
+        "subTitle": "Corporate HR & Project Governance",
+        "details": {
+          "title": "JCI A Member Operations",
+          "description": "Architected an enterprise-level operational hub for JCI, integrating advanced Human Resources automation with high-precision project lifecycle tracking. Leveraged the React ecosystem and Supabase's real-time Postgres capabilities to streamline internal governance and drastically reduce manual administrative overhead.",
+          "frameworks": "React, Supabase",
+          "type": "Operations Dashboard"
+        }
+      },
+      {
+        "thumbUrl": "/myapps/image.png",
+        "videoUrl": "/myapps/HAI.mp4",
+        "title": "AID Social Interface",
+        "subTitle": "Humanitarian AI Solutions",
+        "details": {
+          "title": "AID Social Interface",
+          "description": "Engineered an AI-driven humanitarian aid analysis platform, optimizing community strategy and resource allocation through predictive metrics and real-time social data integration.",
+          "frameworks": "React Native , AI Algorithms, Node Js",
+          "type": "AI Platform"
+        }
+      },
+      {
+        "thumbUrl": "/myapps/karhabty.jpg",
+        "videoUrl": "/myapps/karhabty.jpg", 
+        "title": "Karhabty.app",
+        "subTitle": "Automotive Marketplace",
+        "details": {
+          "title": "Karhabty.app",
+          "description": "Pioneered a full-cycle automotive platform for real-time vehicle management and service acquisition, featuring high-performance animations and secure .NET API integrations.",
+          "frameworks": "Flutter, .Node js, SQL Server, Figma",
+          "type": "Dashboard App"
+        }
+      }
+    ]
+  },
+  "service": {
+    "sectionHeading": {
+      "miniTitle": "Skills",
+      "title": "Technologies <span>I work with</span>"
+    },
+    "allService": [
+      {
+        "title": "React Development",
+        "subTitle": "Architecting high-frequency, responsive web ecosystems using the latest React patterns for enterprise-grade performance.",
+        "icon": "logos:react",
+        "ratings": 5
+      },
+      {
+        "title": "Angular Framework",
+        "subTitle": "Engineering scalable, modular corporate infrastructures with the Angular framework, ensuring maximum maintainability and structural integrity.",
+        "icon": "logos:angular-icon",
+        "ratings": 5
+      },
+      {
+        "title": "Kotlin / Android",
+        "subTitle": "Crafting natively optimized, high-performance mobile experiences for the Android ecosystem with a focus on fluid UX and secure architectures.",
+        "icon": "logos:kotlin-icon",
+        "ratings": 5
+      },
+      {
+        "title": ".NET Core / C#",
+        "subTitle": "Developing mission-critical backend systems and robust enterprise infrastructures that demand high availability and low-latency performance.",
+        "icon": "logos:dotnet",
+        "ratings": 5
+      },
+      {
+        "title": "NestJS & Node.js",
+        "subTitle": "Orchestrating scalable, microservices-oriented server architectures and real-time data streaming solutions for modern distributed systems.",
+        "icon": "logos:nestjs",
+        "ratings": 5
+      },
+      {
+        "title": "Spring Boot / Java",
+        "subTitle": "Engineering secure, production-grade backend services with a focus on high-concurrency processing and resilient cloud-native integrations.",
+        "icon": "logos:spring-icon",
+        "ratings": 5
+      }
+    ]
+  },
+  "experience": {
+    "sectionHeading": {
+      "miniTitle": "Experience",
+      "title": "My Work <span>Experience</span>"
+    },
+    "allExperience": [
+      {
+        "designation": "Intern, Software Engineer",
+        "company": "JCI Hammam Sousse",
+        "duration": "July 2025 - August 2025",
+        "jobType": "Internship",
+        "companyTitle": "Architecture of Operations & HR Systems",
+        "companyDescription": "Successfully architected and deployed a comprehensive internal ecosystem using React and Supabase. Engineered high-performance modules for Project & Activity Management, while developing a sophisticated Human Resources portal and integrated Member Management system, significantly streamlining organizational operations."
+      },
+      {
+        "designation": "Intern, Flutter Developer",
+        "company": "JCI Hammam Sousse, Sousse",
+        "duration": "Jan 2024 - May 2024",
+        "jobType": "Internship",
+        "companyTitle": "Architecture of Organization Management Systems",
+        "companyDescription": "Successfully engineered a large-scale Organization Management mobile application using Flutter. Implemented a highly scalable architecture to support heavy features, integrated complex state management, and optimized real-time database syncing, significantly enhancing administrative workflows."
+      },
+      {
+        "designation": "Software Engineer",
+        "company": "IEEE, ESSTHS, Sousse",
+        "duration": "October 2023 - November 2023",
+        "jobType": "Project work",
+        "companyTitle": "IoT Medical Solutions Architecture",
+        "companyDescription": "Developed a mission-critical medical support application using React Native, specifically designed to integrate with IoT wearable devices like smart rings. Engineered real-time health monitoring features and automated alert systems, focusing on data precision and patient-centric UX."
+      },
+      {
+        "designation": "Intern, Flutter Developer",
+        "company": "Karhabty.app, Monastir, Tunisia",
+        "duration": "Jun 2023 - August 2023",
+        "jobType": "Internship",
+        "companyTitle": "Product Strategy & Flutter Development",
+        "companyDescription": "Drove the product lifecycle of a flagship automotive application by crafting premium Flutter interfaces from complex Figma prototypes. Optimized complex widget trees for maximum performance, ensuring 60fps smooth animations."
+      }
+    ]
+  },
+  "testimonial": {
+    "sectionHeading": {
+      "miniTitle": "Social Life",
+      "title": "Community <span>Engagement</span>"
+    },
+    "allTestimonial": [
+      {
+        "reviewText": "Planned community strategy every 3 months, worked with a 3-person team, and created and scheduled social media content to drive engagement and growth.",
+        "avatarImg": "/images/me.jpeg",
+        "avatarName": "Community Manager",
+        "avatarCompany": "December 2024 - December 2025",
+        "communityNote": "<h2>Awarded: Best Community Strategy of the Year</h2><h2>Awarded: Best Advisor of the Year</h2>"
+      }
+    ]
+  },
+  "contact": {
+    "sectionHeading": {
+      "title": "Let’s Connect",
+      "subTitle": "Flutter, React, and backend development for startups, teams, and product ideas."
+    },
+    "contactImg": "/images/effect-3.svg",
+    "contactInfo": []
+  }
+}
