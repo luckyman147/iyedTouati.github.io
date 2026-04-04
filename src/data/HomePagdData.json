@@ -67,25 +67,58 @@
   ],
   "about": {
     "imgSrc": "/images/me.png",
-    "miniTitle": "About Me",
-    "title": "Crafting <span>Premium Architectural</span> Digital Solutions",
-    "description": "Mohamed Iyed Touati is a visionary software engineer specializing in high-performance mobile and web ecosystems. With deep expertise in Flutter, React, and multi-layered Backend architecture, I transform complex business challenges into sleek, production-ready digital products. Having successfully delivered 10+ high-impact applications, I focus on engineering excellence and rapid, reliable deployment.",
+    "miniTitle": "ORIGIN STORY",
+    "title": "ARCHITECTING THE <br/><span style=\"color:#00d4ff\">INVISIBLE INFRASTRUCTURE</span>",
+    "subTitle": "// BACKEND DEVELOPER · SYSTEM ARCHITECT · EXPLORER OF THE UNKNOWN",
+    "description": "<p style=\"margin-bottom:20px\">Some build what you <strong style=\"color:#fff\">see</strong>.<br/>I build what makes it <strong style=\"color:#00d4ff\">work</strong>.</p><p style=\"margin-bottom:20px\">I'm <strong style=\"color:#fff\">Mohamed Iyed Touati</strong> — a Backend Developer who engineers the systems beneath the surface. Scalable APIs, distributed architectures, data pipelines that never sleep.</p>",
+    "directives": [
+      {
+        "icon": "lucide:settings",
+        "title": "PRIMARY DIRECTIVE",
+        "desc": "Backend Architecture & APIs",
+        "borderColor": "border-l-plasma",
+        "iconColor": "text-white"
+      },
+      {
+        "icon": "lucide:planet",
+        "title": "FUEL SOURCE",
+        "desc": "Sci-Fi Literature & Astronomy",
+        "borderColor": "border-l-solar",
+        "iconColor": "text-blue-400"
+      },
+      {
+        "icon": "lucide:diamond",
+        "title": "OPERATING MODE",
+        "desc": "Think in Systems, Ship for Scale",
+        "borderColor": "border-l-yellow-400",
+        "iconColor": "text-white"
+      },
+      {
+        "icon": "lucide:sparkles",
+        "title": "CURRENT MISSION",
+        "desc": "Building Things That Outlast Us",
+        "borderColor": "border-l-purple-500",
+        "iconColor": "text-white"
+      }
+    ],
     "funfacts": [
       {
-        "title": "Ready apps built",
+        "title": "SYSTEMS DEPLOYED\nTO PRODUCTION",
         "number": 10
       },
       {
-        "title": "Years in Development",
+        "title": "YEARS ENGINEERING\nIN THE DARK",
         "number": 3
       },
       {
-        "title": "Core Stacks",
+        "title": "TECH STACKS\nMASTERED",
         "number": 5
       }
     ],
-    "btnText": "Collaborate Now",
-    "btnUrl": "contactus"
+    "btnText": "BEGIN THE MISSION",
+    "btnUrl": "contactus",
+    "btnText2": "ACCESS CODEX",
+    "btnUrl2": "experience"
   },
   "projects": {
     "sectionHeading": {
