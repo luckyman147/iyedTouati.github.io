@@ -22,10 +22,10 @@ export function useContactForm() {
 
     try {
       await emailjs.sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         event.target,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
       setFormData(INITIAL_FORM);
       setStatus({
