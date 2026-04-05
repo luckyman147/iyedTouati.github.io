@@ -36,7 +36,7 @@ export default function About({ data }) {
       </div>
       
       {/* Cinematic Star Frame */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none hidden md:block">
         <div className="absolute top-0 left-0 w-32 h-32 border-t border-l border-plasma/20 m-8" />
         <div className="absolute top-0 right-0 w-32 h-32 border-t border-r border-plasma/20 m-8" />
         <div className="absolute bottom-0 left-0 w-32 h-32 border-b border-l border-plasma/20 m-8" />

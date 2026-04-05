@@ -53,7 +53,7 @@ const HUD = () => {
   };
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-50 p-6 pt-24 flex flex-col justify-between font-mono">
+    <div className="fixed inset-0 pointer-events-none z-50 p-4 md:p-6 pt-24 hidden lg:flex flex-col justify-between font-mono">
       {/* Top HUD Frame */}
       <div className="flex justify-between items-start">
         <motion.div 

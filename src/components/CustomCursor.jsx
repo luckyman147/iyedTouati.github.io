@@ -41,7 +41,7 @@ const CustomCursor = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-[9999]">
+    <div className="fixed inset-0 pointer-events-none z-[9999] hidden lg:block">
       <div 
         ref={cursorRef}
         className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 will-change-transform"

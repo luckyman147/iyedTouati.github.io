@@ -112,7 +112,7 @@ export default function Projects({ data }) {
             <span className="scifi-badge">{sectionHeading.miniTitle || "Chronicles"}</span>
             <div className="w-12 h-[1px] bg-plasma/40" />
           </div>
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold tracking-tighter">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-orbitron font-bold tracking-tighter break-words">
             {sectionHeading.title.replace('<span>', '').replace('</span>', '') || "Missions Across Time"}
           </h2>
           <div className="text-[10px] text-plasma/40 font-mono tracking-[0.5em] uppercase">
