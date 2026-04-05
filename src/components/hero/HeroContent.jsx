@@ -26,7 +26,7 @@ export default function HeroContent({ name, heading, typingText, description, bt
         transition={{ duration: 0.8 }}
       >
         <span className="scifi-badge mb-4">Transmission Received</span>
-        <h1 className="text-4xl md:text-7xl font-orbitron font-bold tracking-tighter leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold tracking-tighter leading-tight break-words">
           <GlitchText text={name} />
         </h1>
       </motion.div>

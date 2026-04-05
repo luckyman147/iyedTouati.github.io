@@ -26,8 +26,8 @@ export default function AboutContent({ miniTitle, title, subTitle, description, 
         {/* TITLE */}
         <motion.div initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex flex-col gap-3">
           <h2
-            className="font-orbitron font-black uppercase leading-none"
-            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#ffffff', lineHeight: 1.1 }}
+            className="font-orbitron font-black uppercase leading-[1.1] text-2xl sm:text-3xl md:text-5xl lg:text-6xl break-words"
+            style={{ color: '#ffffff' }}
             dangerouslySetInnerHTML={{ __html: title }}
           />
           {subTitle && (
@@ -46,8 +46,7 @@ export default function AboutContent({ miniTitle, title, subTitle, description, 
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-orbitron leading-loose"
-            style={{ color: 'rgba(255,255,255,0.65)', fontSize: 20 }}
+            className="font-orbitron leading-relaxed text-base md:text-lg lg:text-xl text-white/60"
             dangerouslySetInnerHTML={{ __html: description }}
           />
 
@@ -91,7 +90,7 @@ export default function AboutContent({ miniTitle, title, subTitle, description, 
 
         {/* FUN FACTS */}
         <div
-          className="grid grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-6"
           style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 32 }}
         >
           {funfacts?.map((item, i) => {

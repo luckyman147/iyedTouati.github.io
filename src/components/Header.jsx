@@ -31,7 +31,7 @@ export default function Header() {
           <img 
             src="/dd.ico" 
             alt="Iyed Touati Logo" 
-            className="w-17² h-12 object-contain group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_#00d4ff] transition-all duration-500" 
+            className="w-12 h-12 object-contain group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_#00d4ff] transition-all duration-500" 
           />
         </motion.div>
 
