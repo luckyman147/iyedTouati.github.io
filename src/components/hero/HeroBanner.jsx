@@ -16,7 +16,7 @@ export default function HeroBanner({ imgUrl }) {
           repeat: Infinity, 
           ease: "linear" 
         }}
-        className="absolute w-[280px] h-[280px] md:w-[400px] md:h-[400px] border border-plasma/30 rounded-full"
+        className="absolute w-[320px] h-[320px] md:w-[550px] md:h-[550px] border border-plasma/30 rounded-full"
       />
       
       {/* Middle Spinning Ring */}
@@ -30,7 +30,7 @@ export default function HeroBanner({ imgUrl }) {
           repeat: Infinity, 
           ease: "linear" 
         }}
-        className="absolute w-[220px] h-[220px] md:w-[320px] md:h-[320px] border-2 border-dashed border-solar/40 rounded-full"
+        className="absolute w-[260px] h-[260px] md:w-[480px] md:h-[480px] border-2 border-dashed border-solar/40 rounded-full"
       />
       
       {/* Inner Core Portal */}
@@ -48,7 +48,7 @@ export default function HeroBanner({ imgUrl }) {
           repeat: Infinity, 
           ease: "easeInOut" 
         }}
-        className="relative w-48 h-48 md:w-64 md:h-64 bg-gradient-to-tr from-void via-plasma/20 to-void 
+        className="relative w-64 h-64 md:w-[400px] md:h-[400px] bg-gradient-to-tr from-void via-plasma/20 to-void 
                    rounded-full flex items-center justify-center overflow-hidden border-2 border-plasma/50"
       >
         {/* Glow effect */}
