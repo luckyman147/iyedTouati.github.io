@@ -22,7 +22,7 @@ function App() {
       setProgress(progress);
       
       // Update chapter based on scroll position
-      const chapters = ["THE VOID", "ORIGIN STAR", "QUANTUM LAB", "MISSIONS", "THE CODEX", "SIGNAL"];
+      const chapters = ["THE VOID", "QUANTUM LAB", "MISSIONS", "THE CODEX", "SIGNAL"];
       const chapterIndex = Math.min(Math.floor(progress * chapters.length), chapters.length - 1);
       setCurrentChapter(chapters[chapterIndex]);
     };
