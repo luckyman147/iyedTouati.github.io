@@ -3,7 +3,7 @@ import { Link as ScrollLink } from 'react-scroll';
 
 const navLinks = [
   { to: 'home', label: 'Home' },
-  { to: 'about', label: 'About Me' },
+
   { to: 'project', label: 'Projects' },
   { to: 'services', label: 'Services' },
   { to: 'contactus', label: 'Contact' },

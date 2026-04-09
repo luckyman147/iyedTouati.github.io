@@ -38,7 +38,7 @@ export default function Header() {
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8 bg-void/20 backdrop-blur-md px-8 py-3 border border-white/5 rounded-full">
            <NavLink to="home" label="Core" />
-           <NavLink to="about" label="Data" />
+
            <NavLink to="services" label="Lab" />
            <NavLink to="project" label="Missions" />
            <NavLink to="experience" label="Codex" />
@@ -66,7 +66,7 @@ export default function Header() {
           >
             <div className="flex flex-col items-center gap-8 py-12">
                <NavLink to="home" label="Core" onClick={() => setMobileToggle(false)} />
-               <NavLink to="about" label="Data" onClick={() => setMobileToggle(false)} />
+
                <NavLink to="services" label="Lab" onClick={() => setMobileToggle(false)} />
                <NavLink to="project" label="Missions" onClick={() => setMobileToggle(false)} />
                <NavLink to="experience" label="Codex" onClick={() => setMobileToggle(false)} />

@@ -13,7 +13,7 @@
       "AI Solution Specialist",
       1500
     ],
-    "description": "Architecting high-performance digital ecosystems with Flutter, React, and robust backend infrastructures. From visionary concepts to production-grade deployments, I deliver scalable, secure, and user-centric software solutions.",
+    "description": "I'm a <span class='correction-strikethrough text-white/20'>developer</span> <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. With <b class='text-plasma animate-pulse text-2xl'>3+ Years</b> in Flutter and <b class='text-plasma animate-pulse text-2xl'>2+ Years</b> in .NET, I love turning complex problems into simple, powerful solutions that users actually enjoy.",
     "btnText": "Empower Your Project",
     "btnUrl": "contactus"
   },
@@ -65,61 +65,7 @@
       "alt": "Mohamed Iyed Touati"
     }
   ],
-  "about": {
-    "imgSrc": "/images/me.png",
-    "miniTitle": "ORIGIN STORY",
-    "title": "ARCHITECTING THE <br/><span style=\"color:#00d4ff\">INVISIBLE INFRASTRUCTURE</span>",
-    "subTitle": "// BACKEND DEVELOPER · SYSTEM ARCHITECT · EXPLORER OF THE UNKNOWN",
-    "description": "<p style=\"margin-bottom:20px\">Some build what you <strong style=\"color:#fff\">see</strong>.<br/>I build what makes it <strong style=\"color:#00d4ff\">work</strong>.</p><p style=\"margin-bottom:20px\">I'm <strong style=\"color:#fff\">Mohamed Iyed Touati</strong> — a Backend Developer who engineers the systems beneath the surface. Scalable APIs, distributed architectures, data pipelines that never sleep.</p>",
-    "directives": [
-      {
-        "icon": "lucide:settings",
-        "title": "PRIMARY DIRECTIVE",
-        "desc": "Backend Architecture & APIs",
-        "borderColor": "border-l-plasma",
-        "iconColor": "text-white"
-      },
-      {
-        "icon": "lucide:planet",
-        "title": "FUEL SOURCE",
-        "desc": "Sci-Fi Literature & Astronomy",
-        "borderColor": "border-l-solar",
-        "iconColor": "text-blue-400"
-      },
-      {
-        "icon": "lucide:diamond",
-        "title": "OPERATING MODE",
-        "desc": "Think in Systems, Ship for Scale",
-        "borderColor": "border-l-yellow-400",
-        "iconColor": "text-white"
-      },
-      {
-        "icon": "lucide:sparkles",
-        "title": "CURRENT MISSION",
-        "desc": "Building Things That Outlast Us",
-        "borderColor": "border-l-purple-500",
-        "iconColor": "text-white"
-      }
-    ],
-    "funfacts": [
-      {
-        "title": "SYSTEMS DEPLOYED\nTO PRODUCTION",
-        "number": 10
-      },
-      {
-        "title": "YEARS ENGINEERING\nIN THE DARK",
-        "number": 3
-      },
-      {
-        "title": "TECH STACKS\nMASTERED",
-        "number": 5
-      }
-    ],
-    "btnText": "BEGIN THE MISSION",
-    "btnUrl": "contactus",
-    "btnText2": "ACCESS CODEX",
-    "btnUrl2": "experience"
-  },
+
   "projects": {
     "sectionHeading": {
       "miniTitle": "Highlights",

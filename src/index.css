@@ -60,6 +60,21 @@
            text-[10px] font-mono rounded-none uppercase tracking-[0.3em];
   }
 
+  .correction-strikethrough {
+    @apply relative inline-block;
+  }
+  
+  .correction-strikethrough::after {
+    content: '';
+    @apply absolute left-0 top-1/2 w-0 h-[2px] bg-red-500/60 -rotate-3;
+    animation: strike 0.8s forwards 1.2s ease-out;
+  }
+
+  .reveal-engineer {
+    @apply opacity-0 inline-block;
+    animation: reveal 0.5s forwards 2s ease-out;
+  }
+
   .animate-scan-y {
     animation: scan-y 3s linear infinite;
   }
@@ -67,6 +82,15 @@
   .animate-spin-slow {
     animation: spin 8s linear infinite;
   }
+}
+
+@keyframes strike {
+  to { width: 100%; }
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes scan-y {

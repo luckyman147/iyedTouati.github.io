@@ -42,9 +42,10 @@ export default function HeroContent({ name, heading, typingText, description, bt
           <span className="uppercase tracking-[0.3em]">{heading}</span>
         </div>
         
-        <p className="text-lg md:text-xl text-white/70 font-rajdhani leading-relaxed max-w-xl border-l-2 border-plasma/20 pl-6 py-2">
-          {description}
-        </p>
+        <p 
+          className="text-lg md:text-xl text-white/70 font-rajdhani leading-relaxed max-w-xl border-l-2 border-plasma/20 pl-6 py-2"
+          dangerouslySetInnerHTML={{ __html: description }}
+        />
       </motion.div>
 
       <motion.div
@@ -53,17 +54,7 @@ export default function HeroContent({ name, heading, typingText, description, bt
         transition={{ delay: 1, duration: 0.5 }}
         className="flex flex-wrap gap-6 mt-4"
       >
-        <ScrollLink 
-          to={btnUrl} 
-          spy={true} 
-          smooth={true} 
-          offset={-80} 
-          duration={500} 
-          className="scifi-button group flex items-center gap-3"
-        >
-          <span>{btnText}</span>
-          <Icon icon="lucide:arrow-right" className="transition-transform group-hover:translate-x-1" />
-        </ScrollLink>
+    
       </motion.div>
     </div>
   );

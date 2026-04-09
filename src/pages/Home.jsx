@@ -2,7 +2,7 @@
 import Projects from "../components/Projects";
 import Testimonial from "../components/Testimonial";
 import Hero from "../components/Hero";
-import About from "../components/About";
+
 import Service from "../components/Service";
 import HomePagdData from "../data/HomePagdData.json";
 import Experience from "../components/Experience";
@@ -13,7 +13,7 @@ export default function Home() {
     hero,
     socialBtns,
 
-    about,
+
     projects,
     service,
     experience,
@@ -24,7 +24,7 @@ export default function Home() {
     <>
       <Hero data={hero} socialData={socialBtns} />
       {/* <Brands data={brands} /> */}
-      <About data={about} />
+
       <Projects data={projects} />
       <Service data={service} />
       <Experience data={experience} />
