@@ -169,6 +169,18 @@
         "subTitle": "Engineering secure, production-grade backend services with a focus on high-concurrency processing and resilient cloud-native integrations.",
         "icon": "logos:spring-icon",
         "ratings": 5
+      },
+      {
+        "title": "Docker & Kubernetes",
+        "subTitle": "Containerizing applications and orchestrating cloud-native deployments with automated scaling, self-healing, and high-availability clusters.",
+        "icon": "logos:docker-icon",
+        "ratings": 5
+      },
+      {
+        "title": "Azure & AWS",
+        "subTitle": "Architecting resilient cloud infrastructures and serverless solutions across leading cloud providers for optimal performance and global scalability.",
+        "icon": "logos:aws",
+        "ratings": 5
       }
     ]
   },
