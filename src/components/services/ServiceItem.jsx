@@ -9,6 +9,7 @@ const scifiLabels = {
   '.NET Core / C#': 'Enterprise Backend Grid',
   'NestJS & Node.js': 'Microservice Orchestrator',
   'Spring Boot / Java': 'Mission-Critical Core',
+  'Flutter Development': 'Cross-Platform Engine',
 };
 
 export default function ServiceItem({ item, index }) {

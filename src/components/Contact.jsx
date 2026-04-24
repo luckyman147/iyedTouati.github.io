@@ -10,7 +10,7 @@ export default function Contact({ data, socialData }) {
   return (
     <section 
       id="contactus" 
-      className="relative min-h-screen py-24 px-4 overflow-hidden bg-void flex flex-col items-center justify-center"
+      className="relative min-h-screen py-24 px-4 overflow-hidden flex flex-col items-center justify-center"
     >
       {/* Background Interference Effect */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none -z-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]" />

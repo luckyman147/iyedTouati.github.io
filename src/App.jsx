@@ -8,6 +8,8 @@ import CustomCursor from './components/CustomCursor';
 import { useLenis } from './hooks/useLenis';
 import { useGSAPRegistry } from './hooks/useGSAPRegistry';
 
+import BackgroundFrames from './components/BackgroundFrames';
+
 function App() {
   const [progress, setProgress] = useState(0);
   const [currentChapter, setCurrentChapter] = useState("THE VOID");
@@ -35,6 +37,7 @@ function App() {
     <>
       <CustomCursor />
       <HUD currentChapter={currentChapter} progress={progress} />
+      <BackgroundFrames />
       <Scene />
       
       <div className="relative z-10">

@@ -135,6 +135,12 @@
         "ratings": 5
       },
       {
+        "title": "Flutter Development",
+        "subTitle": "Crafting high-performance, cross-platform mobile experiences with fluid animations and responsive architectures for iOS and Android.",
+        "icon": "logos:flutter",
+        "ratings": 5
+      },
+      {
         "title": "Angular Framework",
         "subTitle": "Engineering scalable, modular corporate infrastructures with the Angular framework, ensuring maximum maintainability and structural integrity.",
         "icon": "logos:angular-icon",

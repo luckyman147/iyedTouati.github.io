@@ -9,7 +9,7 @@ export default function Testimonial({ data }) {
   if (!allTestimonial || allTestimonial.length === 0) return null;
 
   return (
-    <section className="relative min-h-[60vh] py-24 px-4 overflow-hidden bg-void" id="testimonials">
+    <section className="relative min-h-[60vh] py-24 px-4 overflow-hidden" id="testimonials">
       {/* Background Interference Accent */}
       <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-plasma/5 to-transparent skew-x-12 -z-10" />
       
