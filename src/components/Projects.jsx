@@ -89,10 +89,10 @@ export default function Projects({ data }) {
   const { sectionHeading, allProjects } = data;
 
   return (
-    <section className="relative min-h-screen py-24 px-4 overflow-hidden bg-void" id="project">
+    <section className="relative min-h-screen py-24 px-4 overflow-hidden " id="project">
       {/* Multiverse Map Background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none -z-10">
-         <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,212,255,0.05)_0%,transparent_80%)]" />
+      <div className="absolute inset-0  pointer-events-none -z-10">
+         <div className="absolute w-full h-full " />
          {/* Fake timeline lines */}
          <svg className="w-full h-full opacity-30">
             <line x1="10%" y1="0" x2="90%" y2="100%" stroke="currentColor" className="text-plasma/20" strokeWidth="0.5" />
@@ -132,8 +132,8 @@ export default function Projects({ data }) {
       </div>
       
       {/* Hyperspace Tunnel Frame */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-void to-transparent pointer-events-none z-20" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void to-transparent pointer-events-none z-20" />
+      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b  pointer-events-none z-20" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t  pointer-events-none z-20" />
     </section>
   );
 }

@@ -56,9 +56,11 @@ const Nebula = () => {
 
 export default function Scene() {
   return (
-    <div className="fixed inset-0 z-[-1] pointer-events-none bg-void">
-      <Canvas camera={{ position: [0, 0, 5], fov: 60 }}>
-        <color attach="background" args={["#00000a"]} />
+    <div className="fixed inset-0 z-[-1] pointer-events-none">
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 60 }}
+        gl={{ alpha: true, antialias: true }}
+      >
         <ambientLight intensity={0.2} />
         <pointLight position={[10, 10, 10]} intensity={1} color="#00d4ff" />
         

@@ -7,12 +7,12 @@ export default function Experience({ data }) {
 
   return (
     <section 
-      className="relative min-h-screen py-24 px-4 overflow-hidden bg-void/50 flex flex-col items-center" 
+      className="relative min-h-screen py-24 px-4 overflow-hidden  flex flex-col items-center" 
       id="experience"
     >
       {/* Background Star Map Frame */}
-      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-void to-transparent pointer-events-none -z-10" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-void to-transparent pointer-events-none -z-10" />
+      <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b  pointer-events-none -z-10" />
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t  pointer-events-none -z-10" />
       
       <div className="container mx-auto max-w-4xl z-10">
         <motion.div
