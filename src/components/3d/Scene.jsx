@@ -1,7 +1,29 @@
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, Component } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Stars, Float } from "@react-three/drei";
 import * as THREE from "three";
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("WebGL Error:", error);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null;
+    }
+    return this.props.children;
+  }
+}
 
 const WarpStars = () => {
   const points = useRef();
@@ -57,28 +79,30 @@ const Nebula = () => {
 export default function Scene() {
   return (
     <div className="fixed inset-0 z-[-1] pointer-events-none">
-      <Canvas 
-        camera={{ position: [0, 0, 5], fov: 60 }}
-        gl={{ alpha: true, antialias: true }}
-      >
-        <ambientLight intensity={0.2} />
-        <pointLight position={[10, 10, 10]} intensity={1} color="#00d4ff" />
-        
-        <Stars 
-          radius={100} 
-          depth={50} 
-          count={5000} 
-          factor={4} 
-          saturation={0} 
-          fade 
-          speed={0} 
-        />
-        
-        <WarpStars />
-        <Nebula />
-        
-        <fog attach="fog" args={["#00000a", 10, 50]} />
-      </Canvas>
+      <ErrorBoundary>
+        <Canvas 
+          camera={{ position: [0, 0, 5], fov: 60 }}
+          gl={{ alpha: true, antialias: true }}
+        >
+          <ambientLight intensity={0.2} />
+          <pointLight position={[10, 10, 10]} intensity={1} color="#00d4ff" />
+          
+          <Stars 
+            radius={100} 
+            depth={50} 
+            count={5000} 
+            factor={4} 
+            saturation={0} 
+            fade 
+            speed={0} 
+          />
+          
+          <WarpStars />
+          <Nebula />
+          
+          <fog attach="fog" args={["#00000a", 10, 50]} />
+        </Canvas>
+      </ErrorBoundary>
     </div>
   );
 }

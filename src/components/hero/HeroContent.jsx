@@ -18,6 +18,29 @@ const GlitchText = ({ text }) => {
 };
 
 export default function HeroContent({ name, heading, typingText, description, btnText, btnUrl }) {
+  const [dynamicDescription, setDynamicDescription] = React.useState(description);
+  const [roleBadge, setRoleBadge] = React.useState('Transmission Received');
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const role = params.get('role')?.toLowerCase();
+    
+    if (role) {
+       let roleName = "Software Engineer";
+       if (role === 'frontend') roleName = "Senior Frontend Engineer";
+       else if (role === 'mobile') roleName = "Mobile App Architect";
+       else if (role === 'backend') roleName = "Backend Solutions Engineer";
+       else if (role === 'fullstack') roleName = "Full-Stack Architect";
+       else if (role === 'ai') roleName = "AI Specialist";
+       
+       setDynamicDescription(description.replace("Software Engineer", roleName));
+       setRoleBadge(`[ TARGET PROFILE: ${roleName.toUpperCase()} ]`);
+    } else {
+       setDynamicDescription(description);
+       setRoleBadge('Transmission Received');
+    }
+  }, [description]);
+
   return (
     <div className="flex flex-col gap-6 max-w-2xl px-4 md:px-0">
       <motion.div
@@ -25,8 +48,8 @@ export default function HeroContent({ name, heading, typingText, description, bt
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <span className="scifi-badge mb-4">Transmission Received</span>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold tracking-tighter leading-tight break-words">
+        <span className="scifi-badge mb-4 text-plasma border-plasma/50 bg-plasma/10 px-3 py-1 text-xs">{roleBadge}</span>
+        <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold tracking-tighter leading-tight break-words mt-4">
           <GlitchText text={name} />
         </h1>
       </motion.div>
@@ -44,7 +67,7 @@ export default function HeroContent({ name, heading, typingText, description, bt
         
         <p 
           className="text-lg md:text-xl text-white/70 font-rajdhani leading-relaxed max-w-xl border-l-2 border-plasma/20 pl-6 py-2"
-          dangerouslySetInnerHTML={{ __html: description }}
+          dangerouslySetInnerHTML={{ __html: dynamicDescription }}
         />
       </motion.div>
 

@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
 
 export default function Brands({ data }) {
+  const dynamicBrands = useMemo(() => {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const role = params.get('role')?.toLowerCase();
+      
+      if (!role) return data;
+      
+      return [...data].sort((a, b) => {
+        const aAlt = a.alt.toLowerCase();
+        const bAlt = b.alt.toLowerCase();
+        
+        const roleKeywords = {
+          frontend: ['react', 'figma', 'angular'],
+          mobile: ['flutter', 'react native', 'react'],
+          backend: ['.net', 'backend', 'node', 'fastapi'],
+          ai: ['python', 'ai', 'fastapi']
+        };
+        
+        const keywords = roleKeywords[role] || [];
+        const aMatch = keywords.some(k => aAlt.includes(k)) ? 1 : 0;
+        const bMatch = keywords.some(k => bAlt.includes(k)) ? 1 : 0;
+        
+        return bMatch - aMatch;
+      });
+    } catch (e) {
+      return data;
+    }
+  }, [data]);
+
   const settings = {
     dots: false,
     arrows: false,
@@ -37,7 +66,7 @@ export default function Brands({ data }) {
 
         <div className="px-4">
           <Slider {...settings}>
-            {data.map((item, index) => (
+            {dynamicBrands.map((item, index) => (
               <div key={index} className="px-4 outline-none">
                 <div className="flex items-center justify-center h-20 group transition-all duration-500 hover:scale-110">
                   <img 
