@@ -7,72 +7,60 @@ export default function HeroBanner({ imgUrl }) {
       {/* Outer Pulse Ring */}
       <motion.div
         animate={{ 
-          scale: [1, 1.1, 1],
-          opacity: [0.1, 0.3, 0.1],
+          scale: [1, 1.05, 1],
+          opacity: [0.05, 0.15, 0.05],
           rotate: 360
         }}
         transition={{ 
-          duration: 15, 
+          duration: 30, 
           repeat: Infinity, 
           ease: "linear" 
         }}
-        className="absolute w-[320px] h-[320px] md:w-[550px] md:h-[550px] border border-plasma/30 rounded-full"
+        className="absolute w-[320px] h-[320px] md:w-[550px] md:h-[550px] border border-plasma/20 rounded-full"
       />
       
       {/* Middle Spinning Ring */}
       <motion.div
         animate={{ 
-          scale: [1, 1.05, 1],
+          scale: [1, 1.02, 1],
           rotate: -360
         }}
         transition={{ 
-          duration: 20, 
+          duration: 40, 
           repeat: Infinity, 
           ease: "linear" 
         }}
-        className="absolute w-[260px] h-[260px] md:w-[480px] md:h-[480px] border-2 border-dashed border-solar/40 rounded-full"
+        className="absolute w-[260px] h-[260px] md:w-[480px] md:h-[480px] border border-dashed border-solar/20 rounded-full"
       />
       
       {/* Inner Core Portal */}
       <motion.div
         animate={{ 
-          scale: [0.95, 1.05, 0.95],
+          scale: [0.98, 1.02, 0.98],
           boxShadow: [
-            "0 0 30px rgba(0, 212, 255, 0.3)",
-            "0 0 60px rgba(0, 212, 255, 0.6)",
-            "0 0 30px rgba(0, 212, 255, 0.3)"
+            "0 0 20px rgba(0, 212, 255, 0.1)",
+            "0 0 40px rgba(0, 212, 255, 0.2)",
+            "0 0 20px rgba(0, 212, 255, 0.1)"
           ]
         }}
         transition={{ 
-          duration: 4, 
+          duration: 8, 
           repeat: Infinity, 
           ease: "easeInOut" 
         }}
-        className="relative w-64 h-64 md:w-[400px] md:h-[400px] bg-gradient-to-tr from-void via-plasma/20 to-void 
-                   rounded-full flex items-center justify-center overflow-hidden border-2 border-plasma/50"
+        className="relative w-64 h-64 md:w-[400px] md:h-[400px] bg-gradient-to-tr from-void via-plasma/10 to-void 
+                   rounded-full flex items-center justify-center overflow-hidden border border-plasma/30"
       >
         {/* Glow effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,212,255,0.4)_0%,transparent_70%)] z-10 pointer-events-none" />
-        
-        {/* Warp particles (CSS) */}
-        <div className="absolute w-full h-full animate-spin-slow opacity-30 z-10 pointer-events-none">
-          {[...Array(8)].map((_, i) => (
-            <div 
-              key={i} 
-              className="absolute top-1/2 left-1/2 w-[1px] h-16 bg-plasma"
-              style={{ 
-                transform: `translate(-50%, -100%) rotate(${i * 45}deg)`,
-                transformOrigin: 'bottom center'
-              }}
-            />
-          ))}
-        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,212,255,0.2)_0%,transparent_70%)] z-10 pointer-events-none" />
         
         {/* User Image */}
         {imgUrl ? (
           <img 
             src={imgUrl} 
             alt="Hero Avatar" 
+            fetchPriority="high"
+            loading="eager"
             className="w-full h-full object-cover object-top relative z-20 grayscale brightness-125 contrast-125 hover:grayscale-0 hover:scale-110 transition-all duration-700 pointer-events-auto cursor-crosshair" 
           />
         ) : (

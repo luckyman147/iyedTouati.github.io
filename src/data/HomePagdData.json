@@ -13,7 +13,7 @@
       "AI Solution Specialist",
       1500
     ],
-    "description": "I'm a <span class='correction-strikethrough text-white/20'>developer</span> <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. With <b class='text-plasma animate-pulse text-2xl'>3+ Years</b> in Flutter and <b class='text-plasma animate-pulse text-2xl'>2+ Years</b> in .NET, I love turning complex problems into simple, powerful solutions that users actually enjoy.",
+    "description": "I'm a <span class='correction-strikethrough text-white/20'>developer</span> <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. I love turning complex problems into simple, powerful solutions that users actually enjoy.",
     "btnText": "Empower Your Project",
     "btnUrl": "contactus"
   },
@@ -79,7 +79,7 @@
         "subTitle": "Scalable Flutter Solution",
         "details": {
           "title": "JCI Organization Hub",
-          "description": "Architected a comprehensive organization management system featuring automated member tracking, activity coordination, and high-performance real-time data synchronization with Firebase.",
+          "description": "Engineered a centralized management hub that automated member tracking and activity coordination, reducing manual administrative tasks by 60% while ensuring real-time data consistency across regional chapters using Firebase synchronization.",
           "frameworks": "Flutter, Dart, Firebase, Figma",
           "type": "Enterprise Application"
         }
@@ -91,7 +91,7 @@
         "subTitle": "Corporate HR & Project Governance",
         "details": {
           "title": "JCI A Member Operations",
-          "description": "Architected an enterprise-level operational hub for JCI, integrating advanced Human Resources automation with high-precision project lifecycle tracking. Leveraged the React ecosystem and Supabase's real-time Postgres capabilities to streamline internal governance and drastically reduce manual administrative overhead.",
+          "description": "Engineered an HR and project governance dashboard that reduced administrative overhead by 40%. Built with React and real-time Supabase sync, the platform streamlined internal governance and improved project delivery efficiency by 25%.",
           "frameworks": "React, Supabase",
           "type": "Operations Dashboard"
         }
@@ -103,21 +103,33 @@
         "subTitle": "Humanitarian AI Solutions",
         "details": {
           "title": "AID Social Interface",
-          "description": "Engineered an AI-driven humanitarian aid analysis platform, optimizing community strategy and resource allocation through predictive metrics and real-time social data integration.",
+          "description": "Developed an AI-driven predictive analytics platform for humanitarian aid, optimizing resource allocation and community strategy. The integration of real-time social metrics improved aid distribution efficiency by over 30%.",
           "frameworks": "React Native , AI Algorithms, Node Js",
           "type": "AI Platform"
         }
       },
       {
         "thumbUrl": "/myapps/karhabty.jpg",
-        "videoUrl": "/myapps/karhabty.jpg", 
+        "videoUrl": "/myapps/karhabty.jpg",
         "title": "Karhabty.app",
         "subTitle": "Automotive Marketplace",
         "details": {
           "title": "Karhabty.app",
-          "description": "Pioneered a full-cycle automotive platform for real-time vehicle management and service acquisition, featuring high-performance animations and secure .NET API integrations.",
+          "description": "Spearheaded the development of a full-cycle automotive marketplace, increasing vendor-to-customer engagement rates by 45%. Delivered a high-performance 60fps mobile experience backed by scalable, secure .NET API infrastructure.",
           "frameworks": "Flutter, .Node js, SQL Server, Figma",
           "type": "Dashboard App"
+        }
+      },
+      {
+        "thumbUrl": "/images/pfe_link.png",
+        "videoUrl": "/images/pfe_link.png",
+        "title": "HeySir PFE Platform",
+        "subTitle": "Capstone Project",
+        "details": {
+          "title": "HeySir PFE Platform",
+          "description": "Landing for HeySir — a PFE management platform that connects students with expert advisors. Highlights: smart advisor matching, advisor ratings, project tracking, and CTAs for account creation and faculty registration.",
+          "frameworks": "Web UI, Matching Engine",
+          "type": "Capstone / Showcase"
         }
       }
     ]
@@ -147,9 +159,9 @@
         "ratings": 5
       },
       {
-        "title": "Kotlin / Android",
-        "subTitle": "Crafting natively optimized, high-performance mobile experiences for the Android ecosystem with a focus on fluid UX and secure architectures.",
-        "icon": "logos:kotlin-icon",
+        "title": "FastAPI / Python",
+        "subTitle": "Engineering high-performance, async-first web APIs with FastAPI and Python, focusing on rapid development and robust backend architectures.",
+        "icon": "logos:fastapi",
         "ratings": 5
       },
       {
@@ -191,34 +203,34 @@
     },
     "allExperience": [
       {
-        "designation": "Intern, Software Engineer",
+        "designation": "Software Engineer",
         "company": "JCI Hammam Sousse",
-        "duration": "July 2025 - August 2025",
-        "jobType": "Internship",
+        "duration": "August 2025",
+        "jobType": "Contract",
         "companyTitle": "Architecture of Operations & HR Systems",
         "companyDescription": "Successfully architected and deployed a comprehensive internal ecosystem using React and Supabase. Engineered high-performance modules for Project & Activity Management, while developing a sophisticated Human Resources portal and integrated Member Management system, significantly streamlining organizational operations."
       },
       {
-        "designation": "Intern, Flutter Developer",
+        "designation": "Flutter Developer",
         "company": "JCI Hammam Sousse, Sousse",
-        "duration": "Jan 2024 - May 2024",
-        "jobType": "Internship",
+        "duration": "May 2024",
+        "jobType": "Contract",
         "companyTitle": "Architecture of Organization Management Systems",
         "companyDescription": "Successfully engineered a large-scale Organization Management mobile application using Flutter. Implemented a highly scalable architecture to support heavy features, integrated complex state management, and optimized real-time database syncing, significantly enhancing administrative workflows."
       },
       {
         "designation": "Software Engineer",
         "company": "IEEE, ESSTHS, Sousse",
-        "duration": "October 2023 - November 2023",
+        "duration": "November 2023",
         "jobType": "Project work",
         "companyTitle": "IoT Medical Solutions Architecture",
         "companyDescription": "Developed a mission-critical medical support application using React Native, specifically designed to integrate with IoT wearable devices like smart rings. Engineered real-time health monitoring features and automated alert systems, focusing on data precision and patient-centric UX."
       },
       {
-        "designation": "Intern, Flutter Developer",
+        "designation": "Flutter Developer",
         "company": "Karhabty.app, Monastir, Tunisia",
-        "duration": "Jun 2023 - August 2023",
-        "jobType": "Internship",
+        "duration": "August 2023",
+        "jobType": "Contract",
         "companyTitle": "Product Strategy & Flutter Development",
         "companyDescription": "Drove the product lifecycle of a flagship automotive application by crafting premium Flutter interfaces from complex Figma prototypes. Optimized complex widget trees for maximum performance, ensuring 60fps smooth animations."
       }
