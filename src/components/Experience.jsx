@@ -1,14 +1,51 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import ExperienceCard from './experience/ExperienceCard';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Experience({ data }) {
   const { sectionHeading, allExperience } = data;
+  const sectionRef = useRef(null);
+
+  // Scroll animations
+  useEffect(() => {
+    const cards = sectionRef.current?.querySelectorAll('.experience-card');
+    if (!cards || cards.length === 0) return;
+
+    cards.forEach((card, index) => {
+      // Scroll animation - fade in
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            end: 'top 50%',
+            markers: false
+          },
+          delay: index * 0.08
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section 
-      className="relative min-h-screen py-24 px-4 overflow-hidden  flex flex-col items-center" 
+    <section
+      className="relative min-h-screen py-24 px-4 overflow-hidden  flex flex-col items-center"
       id="experience"
+      ref={sectionRef}
     >
       {/* Background Star Map Frame */}
       <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b  pointer-events-none -z-10" />
@@ -36,12 +73,13 @@ export default function Experience({ data }) {
 
         <div className="flex flex-col relative">
           {allExperience?.map((item, index) => (
-            <ExperienceCard
-              key={index}
-              item={item}
-              index={index}
-              total={allExperience.length}
-            />
+            <div key={index} className='experience-card'>
+              <ExperienceCard
+                item={item}
+                index={index}
+                total={allExperience.length}
+              />
+            </div>
           ))}
         </div>
       </div>
