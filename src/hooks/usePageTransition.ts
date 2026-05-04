@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import gsap from 'gsap';
 
 /**
@@ -56,20 +56,33 @@ export const usePageTransition = (config?: TransitionConfig) => {
     }
   }, [duration]);
 
+  useEffect(() => {
+    return () => {
+      // Kill any active animations on unmount
+      if (pageRef.current) {
+        gsap.killTweensOf(pageRef.current);
+      }
+    };
+  }, []);
+
   /**
    * Animates the page exit transition
    * Should be called before navigating to a new page/route
    *
    * @returns GSAP Tween animation that can be awaited
    */
-  const exitAnimation = () => {
+  const exitAnimation = useCallback(() => {
+    if (!pageRef.current) {
+      console.warn('usePageTransition: pageRef is not attached to an element');
+      return gsap.to({}, { duration: 0 }); // Return empty tween
+    }
     return gsap.to(pageRef.current, {
       opacity: 0,
       y: -30,
       duration: exitDuration,
       ease: 'power2.in',
     });
-  };
+  }, [exitDuration]);
 
   return { pageRef, exitAnimation };
 };
