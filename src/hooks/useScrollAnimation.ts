@@ -3,8 +3,7 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
 // ScrollTrigger is registered in src/animations/presets.ts
-// but we ensure it's available here as well
-gsap.registerPlugin(ScrollTrigger);
+// Note: duplicate registration removed to avoid conflicts
 
 /**
  * Configuration object for scroll-triggered animations
@@ -19,7 +18,11 @@ interface ScrollAnimationConfig {
   trigger?: string | Element;
   /** When animation should start (default: 'top 80%') */
   start?: string;
-  /** When animation should end (default: 'top 50%') */
+  /**
+   * When animation should end (default: 'top 50%')
+   * The default 'top 50%' means the animation continues to scrub as the trigger element
+   * moves from top of viewport (80%) to the middle of the viewport (50%)
+   */
   end?: string;
   /** Enable scrubbing or set scrub value (default: false) */
   scrub?: boolean | number;
@@ -54,6 +57,12 @@ export const useScrollAnimation = (config: ScrollAnimationConfig) => {
   useEffect(() => {
     if (!elementRef.current) return;
 
+    // Validate string trigger selectors
+    if (typeof config.trigger === 'string' && !document.querySelector(config.trigger)) {
+      console.warn(`ScrollTrigger: Element not found for selector "${config.trigger}"`);
+      return;
+    }
+
     // Create the animation timeline
     const timeline = gsap.timeline({
       scrollTrigger: {
@@ -82,8 +91,9 @@ export const useScrollAnimation = (config: ScrollAnimationConfig) => {
     return () => {
       timeline.kill();
       timeline.scrollTrigger?.kill();
+      ScrollTrigger.refresh();
     };
-  }, [config]);
+  }, [config.from, config.to, config.trigger, config.start, config.end, config.scrub, config.markers, config.onEnter]);
 
   return elementRef;
 };
