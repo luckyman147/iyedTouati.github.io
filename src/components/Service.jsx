@@ -1,14 +1,71 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import ServiceItem from './services/ServiceItem';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Service({ data }) {
   const { sectionHeading, allService } = data;
+  const sectionRef = useRef(null);
+
+  // Scroll and hover animations
+  useEffect(() => {
+    const items = sectionRef.current?.querySelectorAll('.service-item');
+    if (!items || items.length === 0) return;
+
+    items.forEach((item, index) => {
+      // Scroll animation - fade in + rotate
+      gsap.fromTo(
+        item,
+        { opacity: 0, y: 30, rotateX: -15 },
+        {
+          opacity: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+            end: 'top 50%',
+            markers: false
+          },
+          delay: (index % 3) * 0.08 // Stagger by column
+        }
+      );
+
+      // Hover animations - scale up
+      item.addEventListener('mouseenter', () => {
+        gsap.to(item, {
+          scale: 1.05,
+          boxShadow: '0 20px 40px rgba(0, 212, 255, 0.2)',
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      });
+
+      item.addEventListener('mouseleave', () => {
+        gsap.to(item, {
+          scale: 1,
+          boxShadow: '0 4px 12px rgba(0, 212, 255, 0.1)',
+          duration: 0.3,
+          ease: 'power2.out'
+        });
+      });
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
+  }, []);
 
   return (
-    <section 
-      className="relative min-h-screen py-24 px-4 overflow-hidden flex flex-col items-center justify-center" 
+    <section
+      className="relative min-h-screen py-24 px-4 overflow-hidden flex flex-col items-center justify-center"
       id="services"
+      ref={sectionRef}
     >
       {/* Background Quantum Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.05)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)] -z-10" />
@@ -35,11 +92,12 @@ export default function Service({ data }) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {allService?.map((item, index) => (
-            <ServiceItem 
-              key={index} 
-              item={item} 
-              index={index} 
-            />
+            <div key={index} className='service-item'>
+              <ServiceItem
+                item={item}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </div>

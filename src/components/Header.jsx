@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { Link as ScrollLink } from 'react-scroll';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const NavLink = ({ to, label, onClick }) => (
   <ScrollLink
@@ -18,9 +22,59 @@ const NavLink = ({ to, label, onClick }) => (
 
 export default function Header() {
   const [mobileToggle, setMobileToggle] = useState(false);
+  const headerRef = useRef(null);
+  const lastScrollY = useRef(0);
+  const isHeaderVisible = useRef(true);
+
+  // Scroll velocity detection - hide/show nav on scroll
+  useEffect(() => {
+    let animationFrameId;
+    let currentScroll = window.scrollY;
+    let lastScroll = 0;
+
+    const handleScroll = () => {
+      currentScroll = window.scrollY;
+      const velocity = currentScroll - lastScroll;
+      lastScroll = currentScroll;
+
+      // Only animate if we're scrolling significantly
+      if (Math.abs(velocity) > 5) {
+        // Scroll down (velocity > 500px/s) - hide nav
+        if (velocity > 500) {
+          if (isHeaderVisible.current) {
+            gsap.to(headerRef.current, {
+              y: -100,
+              duration: 0.4,
+              ease: 'power2.inOut'
+            });
+            isHeaderVisible.current = false;
+          }
+        }
+        // Scroll up (velocity < -500px/s) - show nav
+        else if (velocity < -500) {
+          if (!isHeaderVisible.current) {
+            gsap.to(headerRef.current, {
+              y: 0,
+              duration: 0.4,
+              ease: 'power2.inOut'
+            });
+            isHeaderVisible.current = true;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-[100] transition-all duration-500">
+    <header className="fixed top-0 left-0 w-full z-[100] transition-all duration-500" ref={headerRef}>
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
         {/* Minimal Logo */}
         <motion.div 
