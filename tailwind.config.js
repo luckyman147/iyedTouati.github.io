@@ -21,6 +21,8 @@ export default {
       animation: {
         'glitch': 'glitch 1s infinite alternate',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float': 'float 3s ease-in-out infinite',
+        'spotlight': 'spotlight 8s ease-in-out infinite',
       },
       keyframes: {
         glitch: {
@@ -30,6 +32,15 @@ export default {
           '60%': { transform: 'translate(2px, 2px)' },
           '80%': { transform: 'translate(2px, -2px)' },
           '100%': { transform: 'translate(0)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        spotlight: {
+          '0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(2)' },
+          '50%': { opacity: '1' },
+          '100%': { opacity: '0', transform: 'translate(calc(var(--scroll-y, 0px) * 1.3), calc(var(--scroll-y, 0px) * -1)) scale(1)' },
         },
       },
     },
