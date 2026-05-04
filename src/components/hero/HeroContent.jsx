@@ -49,7 +49,7 @@ export default function HeroContent({ name, heading, typingText, description, bt
         transition={{ duration: 0.8 }}
       >
         <span className="scifi-badge mb-4 text-plasma border-plasma/50 bg-plasma/10 px-3 py-1 text-xs">{roleBadge}</span>
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold tracking-tighter leading-tight break-words mt-4">
+        <h1 className="hero-title text-4xl sm:text-5xl md:text-7xl font-orbitron font-bold tracking-tighter leading-tight break-words mt-4">
           <GlitchText text={name} />
         </h1>
       </motion.div>
@@ -65,8 +65,8 @@ export default function HeroContent({ name, heading, typingText, description, bt
           <span className="uppercase tracking-[0.3em]">{heading}</span>
         </div>
         
-        <p 
-          className="text-lg md:text-xl text-white/70 font-rajdhani leading-relaxed max-w-xl border-l-2 border-plasma/20 pl-6 py-2"
+        <p
+          className="hero-subtitle text-lg md:text-xl text-white/70 font-rajdhani leading-relaxed max-w-xl border-l-2 border-plasma/20 pl-6 py-2"
           dangerouslySetInnerHTML={{ __html: dynamicDescription }}
         />
       </motion.div>
@@ -77,7 +77,16 @@ export default function HeroContent({ name, heading, typingText, description, bt
         transition={{ delay: 1, duration: 0.5 }}
         className="flex flex-wrap gap-6 mt-4"
       >
-    
+        {btnText && btnUrl && (
+          <ScrollLink
+            to={btnUrl}
+            smooth={true}
+            duration={500}
+            className="hero-cta px-8 py-3 bg-plasma/20 border border-plasma/50 text-plasma hover:bg-plasma/30 transition-all duration-300 cursor-pointer rounded font-rajdhani font-semibold uppercase tracking-wider text-sm"
+          >
+            {btnText}
+          </ScrollLink>
+        )}
       </motion.div>
     </div>
   );
