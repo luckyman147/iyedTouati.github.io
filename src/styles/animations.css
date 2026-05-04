@@ -1,0 +1,61 @@
+/* Accessibility: Respect prefers-reduced-motion setting */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* will-change declarations for performance optimization */
+.hero-background,
+.hero-title,
+.hero-subtitle,
+.hero-cta,
+.project-card,
+.skill-badge,
+.about-content,
+.contact-form {
+  will-change: transform, opacity;
+}
+
+/* Utility classes for scroll animations */
+.animation-complete {
+  will-change: auto;
+}
+
+.fade-in-scroll {
+  opacity: 0;
+}
+
+.scale-in-scroll {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.slide-up-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Navigation transitions */
+.navbar {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Form element transitions */
+input,
+textarea,
+button {
+  transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Card transitions */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
