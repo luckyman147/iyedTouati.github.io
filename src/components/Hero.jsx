@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import HeroContent from './hero/HeroContent';
 import HeroBanner from './hero/HeroBanner';
 import { motion } from 'framer-motion';
+import { createHeroTimeline } from '../animations/heroTimeline';
 
 export default function Hero({ data, socialData }) {
+  const heroRef = useRef(null);
   const { name, heading, typingText, description, btnText, btnUrl, imgUrl } = data;
 
+  useEffect(() => {
+    // Ensure elements have required classes
+    const title = heroRef.current?.querySelector('.hero-title');
+    const subtitle = heroRef.current?.querySelector('.hero-subtitle');
+    const ctas = heroRef.current?.querySelectorAll('.hero-cta');
+
+    // Only start animation if all elements exist
+    if (title && subtitle && ctas.length > 0) {
+      createHeroTimeline();
+    }
+  }, []);
+
   return (
-    <section 
-      className="relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden" 
+    <section
+      className="hero relative min-h-screen flex flex-col items-center justify-center pt-20 overflow-hidden"
       id="home"
+      ref={heroRef}
     >
       {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle,rgba(0,212,255,0.05)_0%,transparent_60%)] -z-10" />
+      <div className="hero-background absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle,rgba(0,212,255,0.05)_0%,transparent_60%)] -z-10" />
       
       <div className="container mx-auto px-4 z-10 flex flex-col md:flex-row items-center gap-12 text-center md:text-left">
         <div className="flex-1">
