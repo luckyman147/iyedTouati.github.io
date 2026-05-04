@@ -130,5 +130,3 @@ export const animationPresets = {
     ease: 'power2.out',
   },
 } as const;
-
-export { animationPresets };
