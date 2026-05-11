@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Icon } from '@iconify/react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 import PfeAnimation from './PfeAnimation'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ProjectCard = ({ item, index }) => {
   return (
@@ -15,11 +19,16 @@ const ProjectCard = ({ item, index }) => {
       <div className='glass-panel group-hover:border-plasma/60 transition-all duration-500 overflow-hidden flex flex-col h-full'>
         {/* Project Image/Video Thumb */}
         <div className='relative h-64 overflow-hidden'>
-          {/* If this is the HeySir PFE project, render the frame animation component */}
+          {/* If this is the HeySir PFE or FlowSketch project, render the frame animation component */}
           {(item.title && item.title.toLowerCase().includes('heysir')) ||
           (item.thumbUrl && item.thumbUrl.includes('pfe_link.png')) ? (
             <div className='w-full h-full'>
-                <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact />
+                <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact type="heysir" />
+            </div>
+          ) : (item.title && item.title.toLowerCase().includes('flowsketch')) ||
+          (item.thumbUrl && item.thumbUrl.includes('flowsketch')) ? (
+            <div className='w-full h-full'>
+                <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact type="flowsketch" />
             </div>
           ) : item.videoUrl && item.videoUrl.match(/\.(mp4|webm|ogg)$/i) ? (
             <video
@@ -88,6 +97,58 @@ const ProjectCard = ({ item, index }) => {
 export default function Projects({ data }) {
   const { sectionHeading, allProjects } = data
   const [filter, setFilter] = useState('All')
+  const sectionRef = useRef(null)
+
+  // Scroll and hover animations
+  useEffect(() => {
+    const cards = sectionRef.current?.querySelectorAll('.motion-div')
+    if (!cards || cards.length === 0) return
+
+    cards.forEach((card, index) => {
+      // Scroll animation - fade in + scale up
+      gsap.fromTo(
+        card,
+        { opacity: 0, y: 30, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.6,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            end: 'top 50%',
+            markers: false
+          },
+          delay: index * 0.1
+        }
+      )
+
+      // Hover animations
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -5,
+          boxShadow: '0 20px 40px rgba(0, 212, 255, 0.2)',
+          duration: 0.3,
+          ease: 'power2.out'
+        })
+      })
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          boxShadow: '0 4px 12px rgba(0, 212, 255, 0.1)',
+          duration: 0.3,
+          ease: 'power2.out'
+        })
+      })
+    })
+
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+    }
+  }, [filter]) // Re-run when filter changes as cards are re-rendered
 
   const filteredProjects = allProjects?.filter((item) => {
     if (filter === 'All') return true
@@ -126,6 +187,7 @@ export default function Projects({ data }) {
     <section
       className='relative min-h-screen py-24 px-4 overflow-hidden '
       id='project'
+      ref={sectionRef}
     >
       {/* Multiverse Map Background */}
       <div className='absolute inset-0  pointer-events-none -z-10'>
@@ -196,7 +258,9 @@ export default function Projects({ data }) {
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16'>
           {filteredProjects?.map((item, index) => (
-            <ProjectCard key={index} item={item} index={index} />
+            <div key={index} className='motion-div'>
+              <ProjectCard item={item} index={index} />
+            </div>
           ))}
         </div>
       </div>
