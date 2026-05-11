@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 
 const PFE_FRAMES = [
   'admin_overview.png',
@@ -32,37 +31,22 @@ export default function PfeAnimation({
   fps = 6,
   autoplay = true,
   compact = false,
-  animationDuration = 0.4,
+  type = 'heysir',
 }) {
   const [frameIndex, setFrameIndex] = useState(0)
   const [playing, setPlaying] = useState(autoplay)
-  const [frames, setFrames] = useState(PFE_FRAMES)
-  const [isFlowSketch, setIsFlowSketch] = useState(false)
+  const [frames, setFrames] = useState(type === 'flowsketch' ? FLOWSKETCH_FRAMES : PFE_FRAMES)
   const rafRef = useRef(null)
   const lastRef = useRef(0)
 
   const interval = 1000 / Math.max(1, fps)
 
-  // Detect if this is FlowSketch and load appropriate frames
+  // Set frames based on type prop
   useEffect(() => {
-    const checkFlowSketch = async () => {
-      try {
-        const response = await fetch(FLOWSKETCH_FRAMES[0], { method: 'HEAD' })
-        if (response.ok) {
-          setFrames(FLOWSKETCH_FRAMES)
-          setIsFlowSketch(true)
-        }
-      } catch (err) {
-        // Fall back to PFE frames
-        setFrames(PFE_FRAMES)
-        setIsFlowSketch(false)
-      }
-    }
+    setFrames(type === 'flowsketch' ? FLOWSKETCH_FRAMES : PFE_FRAMES)
+    setFrameIndex(0)
+  }, [type])
 
-    checkFlowSketch()
-  }, [])
-
-  // Animation loop with frame cycling
   useEffect(() => {
     if (!playing) {
       if (rafRef.current) cancelAnimationFrame(rafRef.current)
@@ -89,7 +73,7 @@ export default function PfeAnimation({
   }
 
   const getFrameSrc = (frame) => {
-    return isFlowSketch ? frame : '/pfe/' + frame
+    return type === 'flowsketch' ? frame : '/pfe/' + frame
   }
 
   return (
@@ -107,23 +91,16 @@ export default function PfeAnimation({
           borderRadius: compact ? '8px' : '0px',
         }}
       >
-        <AnimatePresence mode='wait'>
-          <motion.img
-            key={`frame-${frameIndex}`}
-            src={getFrameSrc(frames[frameIndex])}
-            alt={`frame-${frameIndex}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: animationDuration, ease: 'easeInOut' }}
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-            }}
-          />
-        </AnimatePresence>
+        <img
+          src={getFrameSrc(frames[frameIndex])}
+          alt={`frame-${frameIndex}`}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+          }}
+        />
       </div>
 
       {!compact && (
@@ -195,7 +172,7 @@ export default function PfeAnimation({
                   onClick={() => goTo(i)}
                 />
                 <div style={{ fontSize: 13 }}>
-                  {isFlowSketch
+                  {type === 'flowsketch'
                     ? `Diagram ${i + 1}`
                     : f.replace(/_/g, ' ').replace('.png', '')}
                 </div>

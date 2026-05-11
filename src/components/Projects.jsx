@@ -19,11 +19,16 @@ const ProjectCard = ({ item, index }) => {
       <div className='glass-panel group-hover:border-plasma/60 transition-all duration-500 overflow-hidden flex flex-col h-full'>
         {/* Project Image/Video Thumb */}
         <div className='relative h-64 overflow-hidden'>
-          {/* If this is the HeySir PFE project, render the frame animation component */}
+          {/* If this is the HeySir PFE or FlowSketch project, render the frame animation component */}
           {(item.title && item.title.toLowerCase().includes('heysir')) ||
           (item.thumbUrl && item.thumbUrl.includes('pfe_link.png')) ? (
             <div className='w-full h-full'>
-                <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact />
+                <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact type="heysir" />
+            </div>
+          ) : (item.title && item.title.toLowerCase().includes('flowsketch')) ||
+          (item.thumbUrl && item.thumbUrl.includes('flowsketch')) ? (
+            <div className='w-full h-full'>
+                <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact type="flowsketch" />
             </div>
           ) : item.videoUrl && item.videoUrl.match(/\.(mp4|webm|ogg)$/i) ? (
             <video
