@@ -97,14 +97,26 @@
         }
       },
       {
-        "thumbUrl": "/myapps/image.png",
-        "videoUrl": "/myapps/HAI.mp4",
-        "title": "AID Social Interface",
-        "subTitle": "Humanitarian AI Solutions",
+        "thumbUrl": "/images/pfe_link.png",
+        "videoUrl": "/images/pfe_link.png",
+        "title": "HeySir PFE Platform",
+        "subTitle": "Capstone Project",
         "details": {
-          "title": "AID Social Interface",
-          "description": "Developed an AI-driven predictive analytics platform for humanitarian aid, optimizing resource allocation and community strategy. The integration of real-time social metrics improved aid distribution efficiency by over 30%.",
-          "frameworks": "React Native , AI Algorithms, Node Js",
+          "title": "HeySir PFE Platform",
+          "description": "Landing for HeySir — a PFE management platform that connects students with expert advisors. Highlights: smart advisor matching, advisor ratings, project tracking, and CTAs for account creation and faculty registration.",
+          "frameworks": "Web UI, Matching Engine",
+          "type": "Capstone / Showcase"
+        }
+      },
+      {
+        "thumbUrl": "/flowsketch/Screenshot 2026-05-11 at 14-24-12 diagrams.png",
+        "videoUrl": "/flowsketch/Screenshot 2026-05-11 at 14-24-12 diagrams.png",
+        "title": "FlowSketch",
+        "subTitle": "AI-Powered Diagram Animation",
+        "details": {
+          "title": "FlowSketch",
+          "description": "Engineered an AI-powered platform that transforms static UML diagrams into dynamic, animated educational content, enabling faster understanding of complex system architectures through beautiful, step-by-step visual walkthroughs.",
+          "frameworks": "FastAPI, React, AI",
           "type": "AI Platform"
         }
       },
@@ -121,15 +133,15 @@
         }
       },
       {
-        "thumbUrl": "/images/pfe_link.png",
-        "videoUrl": "/images/pfe_link.png",
-        "title": "HeySir PFE Platform",
-        "subTitle": "Capstone Project",
+        "thumbUrl": "/myapps/image.png",
+        "videoUrl": "/myapps/HAI.mp4",
+        "title": "AID Social Interface",
+        "subTitle": "Humanitarian AI Solutions",
         "details": {
-          "title": "HeySir PFE Platform",
-          "description": "Landing for HeySir — a PFE management platform that connects students with expert advisors. Highlights: smart advisor matching, advisor ratings, project tracking, and CTAs for account creation and faculty registration.",
-          "frameworks": "Web UI, Matching Engine",
-          "type": "Capstone / Showcase"
+          "title": "AID Social Interface",
+          "description": "Developed an AI-driven predictive analytics platform for humanitarian aid, optimizing resource allocation and community strategy. The integration of real-time social metrics improved aid distribution efficiency by over 30%.",
+          "frameworks": "React Native , AI Algorithms, Node Js",
+          "type": "AI Platform"
         }
       }
     ]
