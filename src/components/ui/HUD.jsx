@@ -63,10 +63,6 @@ const HUD = () => {
           className="flex flex-col gap-1"
         >
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 border border-plasma/50 flex items-center justify-center bg-plasma/5 backdrop-blur-sm relative group pointer-events-auto cursor-crosshair">
-               <div className="absolute inset-0 border border-plasma/20 animate-pulse" />
-               <span className="text-plasma text-xl font-orbitron">MT</span>
-            </div>
             <div className="flex flex-col">
               <span className="text-[10px] text-plasma/40 tracking-[0.4em] uppercase">Sector Alpha // Log</span>
               <span className="text-lg text-white font-orbitron tracking-tighter leading-none glow-text">

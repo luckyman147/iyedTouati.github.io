@@ -76,18 +76,6 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-[100] transition-all duration-500" ref={headerRef}>
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
-        {/* Minimal Logo */}
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-2 group cursor-crosshair"
-        >
-          <img 
-            src="/dd.ico" 
-            alt="Iyed Touati Logo" 
-            className="w-12 h-12 object-contain group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_#00d4ff] transition-all duration-500" 
-          />
-        </motion.div>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8 bg-void/20 backdrop-blur-md px-8 py-3 border border-white/5 rounded-full">

@@ -14,8 +14,8 @@ export default function Hero({ data, socialData }) {
     const subtitle = heroRef.current?.querySelector('.hero-subtitle');
     const ctas = heroRef.current?.querySelectorAll('.hero-cta');
 
-    // Only start animation if all elements exist
-    if (title && subtitle && ctas.length > 0) {
+    // Only start animation if core elements exist
+    if (title && subtitle) {
       createHeroTimeline();
     }
   }, []);
