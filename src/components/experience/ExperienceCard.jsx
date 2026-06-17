@@ -7,6 +7,9 @@ const formatStardate = (duration) => {
   return `STARDATE ${numbers.join('.')}`;
 };
 
+const bulletColors = ['text-plasma', 'text-solar', 'text-emerald-400', 'text-violet-400', 'text-amber-400', 'text-cyan-400'];
+const nodeColors = ['border-plasma', 'border-solar', 'border-emerald-400', 'border-violet-400', 'border-amber-400', 'border-cyan-400'];
+
 export default function ExperienceCard({ item, index, total }) {
   const isLast = index === total - 1;
   const stardate = formatStardate(item.duration);
@@ -17,7 +20,7 @@ export default function ExperienceCard({ item, index, total }) {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.2, duration: 0.8 }}
-      className="relative pl-12 pb-16 last:pb-0 group"
+      className="relative pl-12 pb-16 last:pb-0 mt-8 group"
     >
       {/* Timeline Line */}
       {!isLast && (
@@ -25,8 +28,11 @@ export default function ExperienceCard({ item, index, total }) {
       )}
       
       {/* Timeline Node */}
-      <div className="absolute left-0 top-1 w-4 h-4 border-2 border-plasma bg-void rounded-full z-10 
-                      group-hover:shadow-[0_0_15px_#00d4ff] group-hover:scale-125 transition-all duration-500" />
+      <motion.div
+        animate={{ scale: [1, 1.3, 1], boxShadow: ['0 0 0px rgba(0,212,255,0)', '0 0 12px rgba(0,212,255,0.6)', '0 0 0px rgba(0,212,255,0)'] }}
+        transition={{ repeat: Infinity, duration: 2.5, ease: 'easeInOut' }}
+        className={`absolute left-0 top-1 w-4 h-4 border-2 ${nodeColors[index % nodeColors.length]} bg-void rounded-full z-10 shadow-[0_0_8px_rgba(0,212,255,0.3)] group-hover:scale-125 transition-all duration-500`}
+      />
 
       <div className="flex flex-col gap-4">
         {/* Header */}
@@ -57,9 +63,14 @@ export default function ExperienceCard({ item, index, total }) {
           <h5 className="text-lg font-orbitron text-plasma/80 mb-3 border-b border-plasma/10 pb-2">
             {item.companyTitle}
           </h5>
-          <p className="text-base font-rajdhani text-white/70 leading-relaxed">
-            {item.companyDescription}
-          </p>
+          <ul className="space-y-2">
+            {item.companyDescription.split('.').filter(s => s.trim()).map((sentence, i) => (
+              <li key={i} className="text-base font-rajdhani text-white/70 leading-relaxed flex items-start gap-2">
+                <span className={`${bulletColors[i % bulletColors.length]} mt-1.5 flex-shrink-0`}>&#9656;</span>
+                <span>{sentence.trim()}.</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </motion.div>

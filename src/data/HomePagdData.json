@@ -13,9 +13,7 @@
       "AI Solution Specialist",
       1500
     ],
-    "description": "I'm a <span class='correction-strikethrough text-white/20'>developer</span> <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. I love turning complex problems into simple, powerful solutions that users actually enjoy.",
-    "btnText": "Empower Your Project",
-    "btnUrl": "contactus"
+    "description": "I'm a <span class='correction-strikethrough text-white/20'>developer</span> <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. I love turning complex problems into simple, powerful solutions that users actually enjoy."
   },
   "socialBtns": [
     {
@@ -97,6 +95,18 @@
         }
       },
       {
+        "thumbUrl": "/myapps/cluby.mp4",
+        "videoUrl": "/myapps/cluby.mp4",
+        "title": "Cluby",
+        "subTitle": "The all-in-one platform that powers clubs, associations, and nonprofit organizations.",
+        "details": {
+          "title": "Cluby",
+          "description": "Manage members, activities, communication, roles, and organizational structures from a single intelligent workspace.",
+          "frameworks": "Flutter, Firebase",
+          "type": "Organization Management"
+        }
+      },
+      {
         "thumbUrl": "/images/pfe_link.png",
         "videoUrl": "/images/pfe_link.png",
         "title": "HeySir PFE Platform",
@@ -130,18 +140,6 @@
           "description": "Full-cycle automotive marketplace with high-performance mobile UI (60fps). Increased engagement by 45% with scalable .NET backend.",
           "frameworks": "Flutter, .Node js, SQL Server, Figma",
           "type": "Dashboard App"
-        }
-      },
-      {
-        "thumbUrl": "/myapps/image.png",
-        "videoUrl": "/myapps/HAI.mp4",
-        "title": "AID Social Interface",
-        "subTitle": "Humanitarian AI Solutions",
-        "details": {
-          "title": "AID Social Interface",
-          "description": "AI predictive analytics platform for humanitarian aid. Real-time social metrics improved distribution efficiency by 30%.",
-          "frameworks": "React Native , AI Algorithms, Node Js",
-          "type": "AI Platform"
         }
       }
     ]
