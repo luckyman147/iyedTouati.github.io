@@ -20,3 +20,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+
+# build output
+/dist
+
+# large video files
+/public/myapps/cluby.mp4

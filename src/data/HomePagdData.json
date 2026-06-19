@@ -95,8 +95,8 @@
         }
       },
       {
-        "thumbUrl": "/myapps/cluby.mp4",
-        "videoUrl": "/myapps/cluby.mp4",
+        "thumbUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/v1781876247/kj8lchxs3c5zg5xihjdv.mp4",
+        "videoUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/v1781876247/kj8lchxs3c5zg5xihjdv.mp4",
         "title": "Cluby",
         "subTitle": "The all-in-one platform that powers clubs, associations, and nonprofit organizations.",
         "details": {
