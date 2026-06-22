@@ -78,7 +78,7 @@ export default function Header() {
       <div className="container mx-auto px-6 py-6 flex justify-between items-center">
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8 bg-void/20 backdrop-blur-md px-8 py-3 border border-white/5 rounded-full">
+        <div className="hidden lg:flex items-center gap-8 bg-void/20 backdrop-blur-md px-8 py-3 border border-white/5 rounded-full mx-auto">
            <NavLink to="home" label="Core" />
 
            <NavLink to="services" label="Lab" />

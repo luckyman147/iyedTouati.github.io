@@ -23,6 +23,7 @@ export default {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 3s ease-in-out infinite',
         'spotlight': 'spotlight 8s ease-in-out infinite',
+        'shimmer': 'shimmer 2s infinite linear',
       },
       keyframes: {
         glitch: {
@@ -41,6 +42,10 @@ export default {
           '0%': { opacity: '0', transform: 'translate(-72%, -62%) scale(2)' },
           '50%': { opacity: '1' },
           '100%': { opacity: '0', transform: 'translate(calc(var(--scroll-y, 0px) * 1.3), calc(var(--scroll-y, 0px) * -1)) scale(1)' },
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(200%)' },
         },
       },
     },

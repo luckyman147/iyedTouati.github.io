@@ -7,6 +7,38 @@ import PfeAnimation from './PfeAnimation'
 
 gsap.registerPlugin(ScrollTrigger)
 
+const VideoWithLoading = ({ src }) => {
+  const [loaded, setLoaded] = useState(false)
+  const [error, setError] = useState(false)
+
+  if (error) return null
+
+  return (
+    <div className='relative w-full h-full'>
+      {!loaded && (
+        <div className='absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-void/60'>
+          <Icon icon='svg-spinners:ring-resize' className='text-plasma text-2xl' />
+          <div className='absolute inset-0 overflow-hidden'>
+            <div className='absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full animate-shimmer' />
+          </div>
+        </div>
+      )}
+      <video
+        src={src}
+        autoPlay
+        loop
+        muted
+        playsInline
+        onCanPlay={() => setLoaded(true)}
+        onError={() => setError(true)}
+        className={`w-full h-full object-contain transition-transform duration-700 group-hover:scale-110 ${
+          loaded ? 'opacity-100' : 'opacity-0 absolute'
+        }`}
+      />
+    </div>
+  )
+}
+
 const ProjectCard = ({ item, index }) => {
   return (
     <motion.div
@@ -31,14 +63,7 @@ const ProjectCard = ({ item, index }) => {
                 <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact type="flowsketch" />
             </div>
           ) : item.videoUrl && item.videoUrl.match(/\.(mp4|webm|ogg)$/i) ? (
-            <video
-              src={item.videoUrl}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-110'
-            />
+            <VideoWithLoading src={item.videoUrl} />
           ) : (
             <img
               src={item.thumbUrl || item.videoUrl}

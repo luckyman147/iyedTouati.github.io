@@ -1,79 +1,145 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 
 const CustomCursor = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
-  const cursorRef = useRef(null);
+  const blobRef = useRef(null);
+  const dotRef  = useRef(null);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      
-      // Update custom cursor elements using refs for performance
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
+    const mouse = { x: -200, y: -200 };
+    const pos   = { x: -200, y: -200 };
+    const vel   = { x: 0,    y: 0    };
+    let hovering = false;
+    let visible  = false;
+    let animId;
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+
+    const onMove = (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      if (!visible) {
+        pos.x = mouse.x;
+        pos.y = mouse.y;
+        visible = true;
+      }
+      // dot snaps to exact cursor tip
+      if (dotRef.current) {
+        dotRef.current.style.transform =
+          `translate3d(${mouse.x}px,${mouse.y}px,0) translate(-50%,-50%)`;
       }
     };
 
-    const handleMouseOver = (e) => {
-      const target = e.target;
-      if (
-        target.tagName === 'A' || 
-        target.tagName === 'BUTTON' || 
-        target.closest('.cursor-crosshair') ||
-        target.closest('a') ||
-        target.closest('button')
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
+    const onOver = (e) => {
+      const t = e.target;
+      hovering = !!(
+        t.tagName === 'A'      ||
+        t.tagName === 'BUTTON' ||
+        t.closest('a')         ||
+        t.closest('button')    ||
+        t.closest('.cursor-crosshair')
+      );
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
-    
+    const loop = () => {
+      // velocity tracks how fast blob needs to move
+      vel.x = lerp(vel.x, mouse.x - pos.x, 0.18);
+      vel.y = lerp(vel.y, mouse.y - pos.y, 0.18);
+
+      pos.x = lerp(pos.x, mouse.x, 0.13);
+      pos.y = lerp(pos.y, mouse.y, 0.13);
+
+      const speed        = Math.sqrt(vel.x ** 2 + vel.y ** 2);
+      const angle        = Math.atan2(vel.y, vel.x) * (180 / Math.PI);
+      const stretch      = Math.min(speed * 0.038, 0.6);
+      const scaleX       = 1 + stretch;
+      const scaleY       = Math.max(0.55, 1 - stretch * 0.65);
+
+      if (blobRef.current) {
+        const size = hovering ? 52 : 26;
+
+        blobRef.current.style.transform = [
+          `translate3d(${pos.x}px,${pos.y}px,0)`,
+          `translate(-50%,-50%)`,
+          `rotate(${angle}deg)`,
+          `scaleX(${scaleX.toFixed(3)})`,
+          `scaleY(${scaleY.toFixed(3)})`,
+        ].join(' ');
+
+        blobRef.current.style.width  = `${size}px`;
+        blobRef.current.style.height = `${size}px`;
+        blobRef.current.style.opacity = visible ? '1' : '0';
+
+        if (hovering) {
+          blobRef.current.style.backgroundColor = 'transparent';
+          blobRef.current.style.border          = '1.5px solid rgba(0,212,255,0.85)';
+          blobRef.current.style.boxShadow       =
+            '0 0 16px rgba(0,212,255,0.6), 0 0 36px rgba(0,212,255,0.25), inset 0 0 12px rgba(0,212,255,0.08)';
+          blobRef.current.style.filter = 'blur(0px)';
+        } else {
+          blobRef.current.style.backgroundColor = 'rgba(0,212,255,0.55)';
+          blobRef.current.style.border          = 'none';
+          blobRef.current.style.boxShadow       =
+            '0 0 10px rgba(0,212,255,0.7), 0 0 22px rgba(0,212,255,0.35)';
+          blobRef.current.style.filter = `blur(${(1.5 - stretch).toFixed(1)}px)`;
+        }
+      }
+
+      if (dotRef.current) {
+        // dot: visible when idle, hidden when hovering
+        dotRef.current.style.opacity = visible && !hovering ? '1' : '0';
+      }
+
+      animId = requestAnimationFrame(loop);
+    };
+
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseover', onOver);
+    animId = requestAnimationFrame(loop);
+
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', onOver);
+      cancelAnimationFrame(animId);
     };
   }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-[9999] hidden lg:block">
-      <div 
-        ref={cursorRef}
-        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 will-change-transform"
-      >
-        {/* Main Crosshair Dot */}
-        <div className={`w-1 h-1 bg-white rounded-full transition-all duration-300 ${isHovering ? 'scale-[3] bg-plasma' : ''}`} />
-        
-        {/* Glowing Crosshair Rings */}
-        <motion.div 
-           animate={{ 
-             rotate: isHovering ? 90 : 0, 
-             scale: isHovering ? 1.5 : 1,
-             borderColor: isHovering ? '#00d4ff' : 'rgba(0, 212, 255, 0.4)'
-           }}
-           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border border-plasma/40 rounded-full"
-        />
-        
-        {/* Crosshair Lines */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12">
-            <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-3 bg-plasma/40 transition-all ${isHovering ? 'h-4 bg-plasma' : ''}`} />
-            <div className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-3 bg-plasma/40 transition-all ${isHovering ? 'h-4 bg-plasma' : ''}`} />
-            <div className={`absolute left-0 top-1/2 -translate-y-1/2 h-[1px] w-3 bg-plasma/40 transition-all ${isHovering ? 'w-4 bg-plasma' : ''}`} />
-            <div className={`absolute right-0 top-1/2 -translate-y-1/2 h-[1px] w-3 bg-plasma/40 transition-all ${isHovering ? 'w-4 bg-plasma' : ''}`} />
-        </div>
 
-        {/* Trail Effect (Subtle delayed glow) */}
-        <motion.div 
-           animate={{ x: 0, y: 0 }}
-           transition={{ type: "spring", stiffness: 50, damping: 20 }}
-           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-plasma/10 blur-xl rounded-full"
-        />
-      </div>
+      {/* Tiny sharp dot at exact mouse tip */}
+      <div
+        ref={dotRef}
+        style={{
+          position:        'absolute',
+          top: 0, left: 0,
+          width:           '4px',
+          height:          '4px',
+          borderRadius:    '50%',
+          backgroundColor: '#fff',
+          opacity:         0,
+          transition:      'opacity 0.12s ease',
+          willChange:      'transform, opacity',
+        }}
+      />
+
+      {/* Stretchy blob */}
+      <div
+        ref={blobRef}
+        style={{
+          position:        'absolute',
+          top: 0, left: 0,
+          width:           '26px',
+          height:          '26px',
+          borderRadius:    '50%',
+          backgroundColor: 'rgba(0,212,255,0.55)',
+          boxShadow:       '0 0 10px rgba(0,212,255,0.7), 0 0 22px rgba(0,212,255,0.35)',
+          opacity:         0,
+          mixBlendMode:    'screen',
+          transition:      'width 0.18s ease, height 0.18s ease, background-color 0.18s ease, border 0.18s ease, box-shadow 0.18s ease',
+          willChange:      'transform, width, height, opacity, filter',
+        }}
+      />
+
     </div>
   );
 };
