@@ -107,6 +107,18 @@
         }
       },
       {
+        "thumbUrl": "/myapps/privora.mp4",
+        "videoUrl": "/myapps/privora.mp4",
+        "title": "Privora",
+        "subTitle": "AI-Powered Form Builder",
+        "details": {
+          "title": "Privora",
+          "description": "AI-powered platform that creates ready-to-use forms from simple descriptions. Generate, customize, and publish forms in minutes with intelligent question structuring and privacy-first design.",
+          "frameworks": "Next.js",
+          "type": "AI Platform"
+        }
+      },
+      {
         "thumbUrl": "/images/pfe_link.png",
         "videoUrl": "/images/pfe_link.png",
         "title": "HeySir PFE Platform",
@@ -128,18 +140,6 @@
           "description": "AI platform transforming UML diagrams into animated educational content. Makes complex architectures easier to understand with step-by-step walkthroughs.",
           "frameworks": "FastAPI, React, AI",
           "type": "AI Platform"
-        }
-      },
-      {
-        "thumbUrl": "/myapps/karhabty.jpg",
-        "videoUrl": "/myapps/karhabty.jpg",
-        "title": "Karhabty.app",
-        "subTitle": "Automotive Marketplace",
-        "details": {
-          "title": "Karhabty.app",
-          "description": "Full-cycle automotive marketplace with high-performance mobile UI (60fps). Increased engagement by 45% with scalable .NET backend.",
-          "frameworks": "Flutter, .Node js, SQL Server, Figma",
-          "type": "Dashboard App"
         }
       }
     ]

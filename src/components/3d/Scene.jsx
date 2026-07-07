@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
+import { getActiveIdx } from "./planetScroll";
 
 const WARP_COUNT  = 600;
 const WARP_SPEED  = 2.6;
 const BG_STARS    = 4500;
-const SECTION_IDS = ['home', 'project', 'services', 'experience', 'contactus'];
 
 const PLANETS = [
   {
@@ -20,16 +20,8 @@ const PLANETS = [
     xF:0.96, yF:0.82, rF:0.07,
   },
   {
-    // Projects — Rust-red Mars    ← LEFT
-    base: [90,28,8], mid:[155,58,18], glow:[255,107,0],
-    rings: false,
-    bands: [
-      { off:-0.22, h:0.10, clr:[175,75,28], a:0.24 },
-      { off: 0.18, h:0.12, clr:[130,48,14], a:0.20 },
-      { off: 0.42, h:0.08, clr:[200,95,38], a:0.18 },
-    ],
-    storm:{ offX:0.20, offY:-0.08, rF:0.16, clr:[255,140,60] },
-    rotSpeed: 0.00010,
+    // Projects — replaced by the real 3D Venus model (see VenusPlanet.jsx)
+    skip: true,
     xF:0.14, yF:0.52, rF:0.12,
   },
   {
@@ -333,16 +325,6 @@ export default function Scene() {
       warpStars = Array.from({ length:WARP_COUNT }, spawnWarp);
     };
 
-    const getActiveIdx = () => {
-      const mid = window.scrollY + window.innerHeight*0.5;
-      let idx=0;
-      for (let i=0;i<SECTION_IDS.length;i++) {
-        const el=document.getElementById(SECTION_IDS[i]);
-        if (el && el.offsetTop<=mid) idx=i;
-      }
-      return idx;
-    };
-
     const drawWarp = () => {
       const cx=W/2, cy=H/2;
       for (const s of warpStars) {
@@ -376,6 +358,7 @@ export default function Scene() {
 
       // planets — one visible at a time, smooth blend
       for (let i=0;i<PLANETS.length;i++) {
+        if (PLANETS[i].skip) continue;
         const opacity=clamp(1-Math.abs(smoothIdx-i),0,1);
         drawPlanet(ctx,PLANETS[i],W,H,opacity,t);
       }
