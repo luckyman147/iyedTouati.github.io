@@ -99,17 +99,6 @@ const ProjectCard = ({ item, index }) => {
             {item.details?.description}
           </p>
 
-          <div className='flex justify-between items-center mt-auto pt-4 border-t border-plasma/10'>
-            <div className='flex gap-4'>
-              <a
-                href='#'
-                className='text-plasma/60 hover:text-plasma transition-colors text-xs font-mono uppercase tracking-widest flex items-center gap-2 group/link'
-              >
-                <Icon icon='lucide:github' />
-                <span>Github</span>
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Shimmer Effect */}

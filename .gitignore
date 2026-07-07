@@ -27,3 +27,7 @@ yarn-error.log*
 
 # large video files
 /public/myapps/cluby.mp4
+
+# original 3D source files (blend/fbx/full-res textures) — not shipped, web-ready
+# versions live under public/venus and public/earth
+/assets/

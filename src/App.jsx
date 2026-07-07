@@ -5,6 +5,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import Home from './pages/Home';
 import Layout from './components/Layout';
 import Scene from './components/3d/Scene';
+import VenusPlanet from './components/3d/VenusPlanet';
 import HUD from './components/ui/HUD';
 import CustomCursor from './components/CustomCursor';
 import { useLenis } from './hooks/useLenis';
@@ -49,6 +50,7 @@ function App() {
       <HUD currentChapter={currentChapter} progress={progress} />
       <BackgroundFrames />
       <Scene />
+      <VenusPlanet />
       
       <div className="relative z-10">
         <Routes>
