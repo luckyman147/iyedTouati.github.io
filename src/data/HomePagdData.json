@@ -75,6 +75,7 @@
         "videoUrl": "/myapps/JCI HS APP Overview Video.mp4",
         "title": "JCI Organization Hub",
         "subTitle": "Scalable Flutter Solution",
+        "github": "https://github.com/luckyman147/jci_app",
         "details": {
           "title": "JCI Organization Hub",
           "description": "Centralized hub for member tracking and activity coordination. Reduced admin tasks by 60% with real-time Firebase sync.",
@@ -87,6 +88,7 @@
         "videoUrl": "/myapps/jci a member video.mp4",
         "title": "JCI A Member",
         "subTitle": "Corporate HR & Project Governance",
+        "github": "https://github.com/luckyman147/admin_dashboard",
         "details": {
           "title": "JCI A Member Operations",
           "description": "HR and governance dashboard built with React + Supabase. Reduced overhead by 40%, improved delivery efficiency by 25%.",
@@ -99,6 +101,7 @@
         "videoUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/v1781876247/kj8lchxs3c5zg5xihjdv.mp4",
         "title": "Cluby",
         "subTitle": "The all-in-one platform that powers clubs, associations, and nonprofit organizations.",
+        "github": "#",
         "details": {
           "title": "Cluby",
           "description": "Manage members, activities, communication, roles, and organizational structures from a single intelligent workspace.",
@@ -111,6 +114,7 @@
         "videoUrl": "/myapps/privora.mp4",
         "title": "Privora",
         "subTitle": "AI-Powered Form Builder",
+        "github": "#",
         "details": {
           "title": "Privora",
           "description": "AI-powered platform that creates ready-to-use forms from simple descriptions. Generate, customize, and publish forms in minutes with intelligent question structuring and privacy-first design.",
@@ -123,6 +127,7 @@
         "videoUrl": "/images/pfe_link.png",
         "title": "HeySir PFE Platform",
         "subTitle": "Capstone Project",
+        "github": "https://github.com/luckyman147/PFE_Project",
         "details": {
           "title": "HeySir PFE Platform",
           "description": "PFE management platform connecting students with expert advisors. Smart matching, ratings, project tracking, and enrollment CTAs.",
@@ -135,11 +140,54 @@
         "videoUrl": "/flowsketch/Screenshot 2026-05-11 at 14-24-12 diagrams.png",
         "title": "FlowSketch",
         "subTitle": "AI-Powered Diagram Animation",
+        "github": "#",
         "details": {
           "title": "FlowSketch",
           "description": "AI platform transforming UML diagrams into animated educational content. Makes complex architectures easier to understand with step-by-step walkthroughs.",
           "frameworks": "FastAPI, React, AI",
           "type": "AI Platform"
+        }
+      }
+    ],
+    "aiSkills": [
+      {
+        "title": "Sajalni",
+        "subTitle": "Automated Demo Recorder for AI Agents",
+        "github": "https://github.com/luckyman147/sajalni.git",
+        "details": {
+          "description": "AI-driven Playwright scripting tool that walks through any web project, records the browser session, and exports MP4 demo videos. Built for Claude, opencode, and other AI coding agents.",
+          "frameworks": "JavaScript, Playwright, Node.js",
+          "type": "AI Skill"
+        }
+      },
+      {
+        "title": "BigBang",
+        "subTitle": "AI Project Scaffolding & Code Generation",
+        "github": "https://github.com/luckyman147/BigBang.git",
+        "details": {
+          "description": "Automated project initialization toolkit that scaffolds full-stack applications with AI-powered code generation, environment setup, and best-practice configurations out of the box.",
+          "frameworks": "PowerShell, AI, Automation",
+          "type": "AI Skill"
+        }
+      },
+      {
+        "title": "Afkaar Gen",
+        "subTitle": "AI-Powered Site Generation & Design Planning",
+        "github": "https://github.com/luckyman147/afkaar_gen.git",
+        "details": {
+          "description": "Generates flat-file PHP showcase websites (digital agency style) through interactive Q&A. Walks through design decisions, feature planning, and deployment setup with AI guidance.",
+          "frameworks": "PHP, Flat-File, AI",
+          "type": "AI Skill"
+        }
+      },
+      {
+        "title": "Code & Doc",
+        "subTitle": "AI-Driven Documentation & Diagram Generation",
+        "github": "https://github.com/luckyman147/cod-to-doc.git",
+        "details": {
+          "description": "Generates LaTeX documentation with PlantUML/Mermaid diagrams from existing code. Implements features while producing academic-quality documentation for students and stakeholders.",
+          "frameworks": "LaTeX, PlantUML, Mermaid, AI",
+          "type": "AI Skill"
         }
       }
     ]
@@ -169,12 +217,6 @@
         "ratings": 5
       },
       {
-        "title": "FastAPI / Python",
-        "subTitle": "Engineering high-performance, async-first web APIs with FastAPI and Python, focusing on rapid development and robust backend architectures.",
-        "icon": "logos:fastapi",
-        "ratings": 5
-      },
-      {
         "title": ".NET Core / C#",
         "subTitle": "Developing mission-critical backend systems and robust enterprise infrastructures that demand high availability and low-latency performance.",
         "icon": "logos:dotnet",
@@ -190,18 +232,6 @@
         "title": "Spring Boot / Java",
         "subTitle": "Engineering secure, production-grade backend services with a focus on high-concurrency processing and resilient cloud-native integrations.",
         "icon": "logos:spring-icon",
-        "ratings": 5
-      },
-      {
-        "title": "Docker & Kubernetes",
-        "subTitle": "Containerizing applications and orchestrating cloud-native deployments with automated scaling, self-healing, and high-availability clusters.",
-        "icon": "logos:docker-icon",
-        "ratings": 5
-      },
-      {
-        "title": "Azure & AWS",
-        "subTitle": "Architecting resilient cloud infrastructures and serverless solutions across leading cloud providers for optimal performance and global scalability.",
-        "icon": "logos:aws",
         "ratings": 5
       }
     ]

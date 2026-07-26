@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Home from './pages/Home';
 import Layout from './components/Layout';
-import Scene from './components/3d/Scene';
-import VenusPlanet from './components/3d/VenusPlanet';
 import HUD from './components/ui/HUD';
-import CustomCursor from './components/CustomCursor';
 import { useLenis } from './hooks/useLenis';
 import { useGSAPRegistry } from './hooks/useGSAPRegistry';
 
-import BackgroundFrames from './components/BackgroundFrames';
+const BackgroundFrames = lazy(() => import('./components/BackgroundFrames'));
 
 function App() {
   const [progress, setProgress] = useState(0);
@@ -46,11 +43,10 @@ function App() {
 
   return (
     <>
-      <CustomCursor />
       <HUD currentChapter={currentChapter} progress={progress} />
-      <BackgroundFrames />
-      <Scene />
-      <VenusPlanet />
+      <Suspense fallback={null}>
+        <BackgroundFrames />
+      </Suspense>
       
       <div className="relative z-10">
         <Routes>
