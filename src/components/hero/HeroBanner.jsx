@@ -61,7 +61,7 @@ export default function HeroBanner({ imgUrl }) {
               key="hero-image"
               src={imgUrl}
               alt="Hero Avatar"
-              fetchPriority="high"
+              fetchpriority="high"
               loading="eager"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

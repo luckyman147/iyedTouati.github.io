@@ -11,9 +11,8 @@
     --quantum: #7c3aed;
   }
 
-  * {
-    @apply cursor-none; /* Hide default cursor for scifi custom cursor */
-  }
+
+
 
   body {
     @apply bg-void text-white font-rajdhani selection:bg-plasma/30 selection:text-white overflow-x-hidden;

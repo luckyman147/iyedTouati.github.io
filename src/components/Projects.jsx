@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
@@ -64,12 +64,23 @@ const ProjectCard = ({ item, index }) => {
             </div>
           ) : item.videoUrl && item.videoUrl.match(/\.(mp4|webm|ogg)$/i) ? (
             <VideoWithLoading src={item.videoUrl} />
-          ) : (
+          ) : item.thumbUrl || item.videoUrl ? (
             <img
               src={item.thumbUrl || item.videoUrl}
               alt={item.title}
               className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-110'
             />
+          ) : (
+            <div className='w-full h-full bg-gradient-to-br from-plasma/10 via-void to-solar/10 flex items-center justify-center'>
+              <div className='text-center'>
+                <div className='w-16 h-16 mx-auto mb-2 rounded-full border border-plasma/30 flex items-center justify-center'>
+                  <Icon icon='lucide:github' className='text-plasma/50 text-2xl' />
+                </div>
+                <span className='text-[10px] font-mono text-plasma/40 uppercase tracking-widest'>
+                  {item.details?.type || 'Repository'}
+                </span>
+              </div>
+            </div>
           )}
           <div className='absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent opacity-60' />
 
@@ -99,6 +110,19 @@ const ProjectCard = ({ item, index }) => {
             {item.details?.description}
           </p>
 
+          <div className='flex justify-between items-center mt-auto pt-4 border-t border-plasma/10'>
+            <div className='flex gap-4'>
+              <a
+                href={item.github || '#'}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-plasma/60 hover:text-plasma transition-colors text-xs font-mono uppercase tracking-widest flex items-center gap-2 group/link'
+              >
+                <Icon icon='lucide:github' />
+                <span>Github</span>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Shimmer Effect */}
@@ -109,8 +133,7 @@ const ProjectCard = ({ item, index }) => {
 }
 
 export default function Projects({ data }) {
-  const { sectionHeading, allProjects } = data
-  const [filter, setFilter] = useState('All')
+  const { sectionHeading, allProjects, aiSkills } = data
   const sectionRef = useRef(null)
 
   // Scroll and hover animations
@@ -119,7 +142,6 @@ export default function Projects({ data }) {
     if (!cards || cards.length === 0) return
 
     cards.forEach((card, index) => {
-      // Scroll animation - fade in + scale up
       gsap.fromTo(
         card,
         { opacity: 0, y: 30, scale: 0.95 },
@@ -139,7 +161,6 @@ export default function Projects({ data }) {
         }
       )
 
-      // Hover animations
       card.addEventListener('mouseenter', () => {
         gsap.to(card, {
           y: -5,
@@ -162,39 +183,6 @@ export default function Projects({ data }) {
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill())
     }
-  }, [filter]) // Re-run when filter changes as cards are re-rendered
-
-  const filteredProjects = allProjects?.filter((item) => {
-    if (filter === 'All') return true
-    const searchString = JSON.stringify(item).toLowerCase()
-    if (filter === 'Frontend')
-      return (
-        searchString.includes('react') ||
-        searchString.includes('frontend') ||
-        searchString.includes('next')
-      )
-    if (filter === 'Backend')
-      return (
-        searchString.includes('node') ||
-        searchString.includes('.net') ||
-        searchString.includes('backend') ||
-        searchString.includes('firebase') ||
-        searchString.includes('supabase') ||
-        searchString.includes('sql')
-      )
-    if (filter === 'Mobile')
-      return (
-        searchString.includes('flutter') ||
-        searchString.includes('react native') ||
-        searchString.includes('mobile')
-      )
-    if (filter === 'AI')
-      return (
-        searchString.includes('ai ') ||
-        searchString.includes('ai algorithm') ||
-        searchString.includes('artificial')
-      )
-    return true
   })
 
   return (
@@ -206,7 +194,6 @@ export default function Projects({ data }) {
       {/* Multiverse Map Background */}
       <div className='absolute inset-0  pointer-events-none -z-10'>
         <div className='absolute w-full h-full ' />
-        {/* Fake timeline lines */}
         <svg className='w-full h-full opacity-10'>
           <line
             x1='10%'
@@ -253,30 +240,76 @@ export default function Projects({ data }) {
           </div>
         </motion.div>
 
-        {/* Filter Buttons */}
-        <div className='flex flex-wrap justify-center gap-4 mb-12'>
-          {['All', 'Frontend', 'Backend', 'Mobile', 'AI'].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-4 py-2 font-mono text-sm uppercase tracking-widest border transition-all duration-300 ${
-                filter === cat
-                  ? 'border-plasma bg-plasma/20 text-plasma shadow-[0_0_15px_rgba(0,212,255,0.3)]'
-                  : 'border-plasma/30 text-plasma/60 hover:border-plasma/60 hover:text-plasma/80 hover:bg-plasma/10'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
+        {/* Projects Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16'>
-          {filteredProjects?.map((item, index) => (
+          {allProjects?.map((item, index) => (
             <div key={index} className='motion-div'>
               <ProjectCard item={item} index={index} />
             </div>
           ))}
         </div>
+
+        {/* AI Skills Section */}
+        {aiSkills && aiSkills.length > 0 && (
+          <div className='mt-32'>
+            <div className='text-center mb-12 flex flex-col items-center gap-4'>
+              <div className='flex items-center gap-4'>
+                <div className='w-12 h-[1px] bg-plasma/40' />
+                <span className='scifi-badge'>AI Skills</span>
+                <div className='w-12 h-[1px] bg-plasma/40' />
+              </div>
+              <h3 className='text-2xl sm:text-3xl font-orbitron font-bold tracking-tighter text-white'>
+                AI-Powered Tools
+              </h3>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+              {aiSkills.map((skill, index) => (
+                <div key={index} className='flex-1 flex'>
+                  <a
+                    href={skill.github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='w-full border border-white/10 bg-void/80 hover:border-plasma/40 hover:bg-plasma/[0.02] transition-all duration-300 p-6 group'
+                  >
+                    <div className='flex items-start gap-4'>
+                      <div className='w-10 h-10 rounded border border-white/10 flex items-center justify-center bg-white/5 shrink-0 mt-1'>
+                        <Icon icon='lucide:github' className='text-white/40 text-xl' />
+                      </div>
+                      <div className='min-w-0 flex-1'>
+                        <div className='flex items-center gap-2 mb-1'>
+                          <h4 className='text-white font-semibold text-base tracking-tight truncate group-hover:text-plasma transition-colors'>
+                            {skill.title}
+                          </h4>
+                          <span className='text-[10px] font-mono text-plasma/60 border border-plasma/20 px-1.5 py-0.5 shrink-0'>
+                            repo
+                          </span>
+                        </div>
+                        <p className='text-sm text-white/50 mb-1 line-clamp-2'>
+                          {skill.subTitle}
+                        </p>
+                        <p className='text-xs text-white/30 line-clamp-1'>
+                          {skill.details?.description}
+                        </p>
+                        <div className='flex items-center gap-3 mt-3 text-xs text-white/30'>
+                          <span className='flex items-center gap-1'>
+                            <Icon icon='lucide:star' className='text-xs' />
+                            {skill.details?.frameworks?.split(', ')[0] || 'N/A'}
+                          </span>
+                          <span className='flex items-center gap-1'>
+                            <Icon icon='lucide:git-branch' className='text-xs' />
+                            {skill.details?.type || 'AI'}
+                          </span>
+                        </div>
+                      </div>
+                      <Icon icon='lucide:external-link' className='text-white/20 text-lg shrink-0 group-hover:text-plasma/60 transition-colors' />
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Hyperspace Tunnel Frame */}
