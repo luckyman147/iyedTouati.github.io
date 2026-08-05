@@ -88,7 +88,7 @@
         "videoUrl": "/myapps/jci a member video.mp4",
         "title": "JCI A Member",
         "subTitle": "Corporate HR & Project Governance",
-        "github": "https://github.com/luckyman147/admin_dashboard",
+        "github": "https://github.com/luckyman147/JCIAMEMBER",
         "details": {
           "title": "JCI A Member Operations",
           "description": "HR and governance dashboard built with React + Supabase. Reduced overhead by 40%, improved delivery efficiency by 25%.",
@@ -114,7 +114,7 @@
         "videoUrl": "/myapps/privora.mp4",
         "title": "Privora",
         "subTitle": "AI-Powered Form Builder",
-        "github": "#",
+        "github": "https://github.com/luckyman147/privora",
         "details": {
           "title": "Privora",
           "description": "AI-powered platform that creates ready-to-use forms from simple descriptions. Generate, customize, and publish forms in minutes with intelligent question structuring and privacy-first design.",
@@ -136,16 +136,16 @@
         }
       },
       {
-        "thumbUrl": "/flowsketch/Screenshot 2026-05-11 at 14-24-12 diagrams.png",
-        "videoUrl": "/flowsketch/Screenshot 2026-05-11 at 14-24-12 diagrams.png",
-        "title": "FlowSketch",
-        "subTitle": "AI-Powered Diagram Animation",
-        "github": "#",
+        "thumbUrl": "/myapps/tunisia_oggi.mp4",
+        "videoUrl": "/myapps/tunisia_oggi.mp4",
+        "title": "Tunisia Oggi",
+        "subTitle": "A Modern News & Publications Platform",
+        "github": "https://github.com/luckyman147/tunisia_oggi",
         "details": {
-          "title": "FlowSketch",
-          "description": "AI platform transforming UML diagrams into animated educational content. Makes complex architectures easier to understand with step-by-step walkthroughs.",
-          "frameworks": "FastAPI, React, AI",
-          "type": "AI Platform"
+          "title": "Tunisia Oggi",
+          "description": "A modern news and publications platform built with NestJS backend and React frontend. Delivers timely content with a clean, responsive interface.",
+          "frameworks": "NestJS, React",
+          "type": "Web Platform"
         }
       }
     ],
