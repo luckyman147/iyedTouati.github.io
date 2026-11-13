@@ -1,6 +1,6 @@
 {
   "hero": {
-    "imgUrl": "/images/de.png",
+    "imgUrl": "/images/de.webp",
     "name": "Mohamed Iyed Touati",
     "heading": "Hello I am",
     "typingText": [
@@ -13,19 +13,11 @@
       "AI Solution Specialist",
       1500
     ],
-    "description": "I'm a  <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. I love turning complex problems into simple, powerful solutions that users actually enjoy."
+    "description": "I'm a  <b class='reveal-engineer text-plasma font-bold ml-1 uppercase tracking-wider'>Software Engineer</b> passionate about building seamless digital worlds. I love turning complex problems into simple, powerful solutions that users actually enjoy.",
+    "btnText": "Download CV",
+    "btnUrl": "/cv.pdf"
   },
   "socialBtns": [
-    {
-      "icon": "fa-brands:facebook-f",
-      "iconBgClass": "facebook",
-      "href": "https://www.facebook.com/iyed.touati.432002"
-    },
-    {
-      "icon": "fa-brands:instagram",
-      "iconBgClass": "instagram",
-      "href": "https://www.instagram.com/mediyedtouati/"
-    },
     {
       "icon": "fa-brands:linkedin-in",
       "iconBgClass": "linkedin",
@@ -35,6 +27,16 @@
       "icon": "fa-brands:github",
       "iconBgClass": "github",
       "href": "https://github.com/luckyman147"
+    },
+    {
+      "icon": "fa-brands:instagram",
+      "iconBgClass": "instagram",
+      "href": "https://www.instagram.com/mediyedtouati/"
+    },
+    {
+      "icon": "fa-brands:facebook-f",
+      "iconBgClass": "facebook",
+      "href": "https://www.facebook.com/iyed.touati.432002"
     }
   ],
   "brands": [
@@ -59,17 +61,29 @@
       "alt": "Backend"
     },
     {
-      "src": "/images/me.png",
+      "src": "/images/me.webp",
       "alt": "Mohamed Iyed Touati"
     }
   ],
-
   "projects": {
     "sectionHeading": {
       "miniTitle": "Highlights",
       "title": "Selected <span> Apps</span>"
     },
     "allProjects": [
+      {
+        "thumbUrl": "/images/taylor-thumbnail.webp",
+        "videoUrl": "/myapps/taylor-demo.mp4",
+        "title": "Taylor",
+        "subTitle": "AI Resume-to-Job Matching Engine",
+        "github": "https://github.com/luckyman147/taylor",
+        "details": {
+          "title": "Taylor matching algorithm",
+          "description": "An intelligent platform that solves the resume black-hole problem. It parses candidate resumes and maps their skills directly against job descriptions using advanced semantic matching, giving hiring managers an instant qualification score.",
+          "frameworks": "Next.js, Python, AI APIs",
+          "type": "AI Platform"
+        }
+      },
       {
         "thumbUrl": "/myapps/jci_app.png",
         "videoUrl": "/myapps/JCI HS APP Overview Video.mp4",
@@ -84,7 +98,7 @@
         }
       },
       {
-        "thumbUrl": "/myapps/jci a member.png",
+        "thumbUrl": "/myapps/jci-a-member.webp",
         "videoUrl": "/myapps/jci a member video.mp4",
         "title": "JCI A Member",
         "subTitle": "Corporate HR & Project Governance",
@@ -97,8 +111,8 @@
         }
       },
       {
-        "thumbUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/v1781876247/kj8lchxs3c5zg5xihjdv.mp4",
-        "videoUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/v1781876247/kj8lchxs3c5zg5xihjdv.mp4",
+        "thumbUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/so_0,w_960,q_auto,f_jpg/v1781876247/kj8lchxs3c5zg5xihjdv.jpg",
+        "videoUrl": "https://res.cloudinary.com/dtjzttuo1/video/upload/w_960,q_auto:eco,vc_h264,ac_none/v1781876247/kj8lchxs3c5zg5xihjdv.mp4",
         "title": "Cluby",
         "subTitle": "The all-in-one platform that powers clubs, associations, and nonprofit organizations.",
         "github": "#",
@@ -110,7 +124,7 @@
         }
       },
       {
-        "thumbUrl": "/myapps/privora.mp4",
+        "thumbUrl": "/myapps/privora-poster.webp",
         "videoUrl": "/myapps/privora.mp4",
         "title": "Privora",
         "subTitle": "AI-Powered Form Builder",
@@ -136,7 +150,7 @@
         }
       },
       {
-        "thumbUrl": "/myapps/tunisia_oggi.mp4",
+        "thumbUrl": "/myapps/tunisia_oggi-poster.webp",
         "videoUrl": "/myapps/tunisia_oggi.mp4",
         "title": "Tunisia Oggi",
         "subTitle": "A Modern News & Publications Platform",
@@ -201,38 +215,32 @@
       {
         "title": "React Development",
         "subTitle": "Architecting high-frequency, responsive web ecosystems using the latest React patterns for enterprise-grade performance.",
-        "icon": "logos:react",
-        "ratings": 5
+        "icon": "logos:react"
       },
       {
         "title": "Flutter Development",
         "subTitle": "Crafting high-performance, cross-platform mobile experiences with fluid animations and responsive architectures for iOS and Android.",
-        "icon": "logos:flutter",
-        "ratings": 5
+        "icon": "logos:flutter"
       },
       {
-        "title": "Angular Framework",
-        "subTitle": "Engineering scalable, modular corporate infrastructures with the Angular framework, ensuring maximum maintainability and structural integrity.",
-        "icon": "logos:angular-icon",
-        "ratings": 5
+        "title": "Next.js Framework",
+        "subTitle": "Building SEO-optimized, server-rendered React applications with dynamic routing and high-performance serverless architectures.",
+        "icon": "logos:nextjs-icon"
       },
       {
-        "title": ".NET Core / C#",
-        "subTitle": "Developing mission-critical backend systems and robust enterprise infrastructures that demand high availability and low-latency performance.",
-        "icon": "logos:dotnet",
-        "ratings": 5
+        "title": "React Native",
+        "subTitle": "Developing cross-platform mobile applications with native performance, fluid UI, and shared codebases across iOS and Android.",
+        "icon": "logos:react"
       },
       {
         "title": "NestJS & Node.js",
         "subTitle": "Orchestrating scalable, microservices-oriented server architectures and real-time data streaming solutions for modern distributed systems.",
-        "icon": "logos:nestjs",
-        "ratings": 5
+        "icon": "logos:nestjs"
       },
       {
         "title": "Spring Boot / Java",
         "subTitle": "Engineering secure, production-grade backend services with a focus on high-concurrency processing and resilient cloud-native integrations.",
-        "icon": "logos:spring-icon",
-        "ratings": 5
+        "icon": "logos:spring-icon"
       }
     ]
   },
@@ -242,6 +250,22 @@
       "title": "My Work <span>Experience</span>"
     },
     "allExperience": [
+      {
+        "designation": "Software Engineer",
+        "company": "Barmajti IT",
+        "duration": "August 2026 - Present",
+        "jobType": "Full-time",
+        "companyTitle": "Full-Stack Development & Architecture",
+        "companyDescription": "Engineered scalable web applications and architectural solutions. Led the transition of legacy systems to modern React and Node architectures. Improved system performance and maintained high deployment velocity."
+      },
+      {
+        "designation": "Software Engineer",
+        "company": "Afkaar Sousse",
+        "duration": "June - July 2026",
+        "jobType": "Contract",
+        "companyTitle": "Digital Solutions & Platform Engineering",
+        "companyDescription": "Developed full-stack platforms connecting digital agencies with clients. Automated deployment pipelines and optimized server-side rendering for improved SEO and performance."
+      },
       {
         "designation": "Software Engineer",
         "company": "JCI Hammam Sousse",
@@ -278,13 +302,13 @@
   },
   "testimonial": {
     "sectionHeading": {
-      "miniTitle": "Social Life",
-      "title": "Community <span>Engagement</span>"
+      "miniTitle": "Leadership",
+      "title": "Community <span>Leadership</span>"
     },
     "allTestimonial": [
       {
         "reviewText": "Planned community strategy every 3 months, worked with a 3-person team, and created and scheduled social media content to drive engagement and growth.",
-        "avatarImg": "/images/me.jpeg",
+        "avatarImg": "/images/me-avatar.webp",
         "avatarName": "Community Manager",
         "avatarCompany": "December 2024 - December 2025",
         "communityNote": "<h2>Awarded: Best Community Strategy of the Year</h2><h2>Awarded: Best Advisor of the Year</h2>"
@@ -297,6 +321,51 @@
       "subTitle": "Flutter, React, and backend development for startups, teams, and product ideas."
     },
     "contactImg": "/images/effect-3.svg",
-    "contactInfo": []
+    "contactInfo": [
+      {
+        "title": "Email",
+        "email": "iyedtouati.dev@gmail.com"
+      },
+      {
+        "title": "Location",
+        "tel": "Sousse, Tunisia"
+      }
+    ]
+  },
+  "credentials": {
+    "education": [
+      {
+        "degree": "Engineer's degree, Information Technology",
+        "institution": "EPI - International Multidisciplinary School",
+        "year": "2024 - 2027"
+      },
+      {
+        "degree": "Bachelor's degree, Information Technology",
+        "institution": "ISITCOM",
+        "year": "2021 - 2024"
+      }
+    ],
+    "certifications": [
+      {
+        "title": "Data Scientist",
+        "issuer": "DataCamp",
+        "year": "2022 - 2023"
+      },
+      {
+        "title": "Machine Learning Engineer",
+        "issuer": "DataCamp",
+        "year": "Completed"
+      },
+      {
+        "title": "Microservices on .NET 8",
+        "issuer": "ASP.NET Web API, Docker, RabbitMQ, gRPC, Redis",
+        "year": "Completed"
+      },
+      {
+        "title": "Cloud-Native: Microservices",
+        "issuer": "Kubernetes, Service Mesh, CI/CD",
+        "year": "Completed"
+      }
+    ]
   }
 }

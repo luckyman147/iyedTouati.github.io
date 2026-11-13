@@ -1,11 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import SectionHeading from './SectionHeading';
 import parser from 'html-react-parser';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Testimonial({ data }) {
   const { sectionHeading, allTestimonial } = data;
@@ -13,59 +10,9 @@ export default function Testimonial({ data }) {
 
   if (!allTestimonial || allTestimonial.length === 0) return null;
 
-  // Scroll and hover animations
-  useEffect(() => {
-    const testimonials = sectionRef.current?.querySelectorAll('.testimonial-card');
-    if (!testimonials || testimonials.length === 0) return;
-
-    testimonials.forEach((testimonial, index) => {
-      // Scroll animation - fade in + scale
-      gsap.fromTo(
-        testimonial,
-        { opacity: 0, scale: 0.95, y: 20 },
-        {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: testimonial,
-            start: 'top 80%',
-            end: 'top 50%',
-            markers: false
-          },
-          delay: index * 0.1
-        }
-      );
-
-      // Hover animations
-      testimonial.addEventListener('mouseenter', () => {
-        gsap.to(testimonial, {
-          y: -5,
-          boxShadow: '0 20px 40px rgba(0, 212, 255, 0.2)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-
-      testimonial.addEventListener('mouseleave', () => {
-        gsap.to(testimonial, {
-          y: 0,
-          boxShadow: '0 4px 12px rgba(0, 212, 255, 0.1)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   return (
-    <section className="relative min-h-[60vh] py-24 px-4 overflow-hidden" id="testimonials" ref={sectionRef}>
+    <section className="relative min-h-[60vh] py-16 md:py-24 px-4 overflow-hidden" id="testimonials" ref={sectionRef}>
       {/* Background Interference Accent */}
       <div className="absolute top-0 right-0 w-[50%] h-full bg-gradient-to-l from-plasma/5 to-transparent skew-x-12 -z-10" />
       
@@ -76,18 +23,18 @@ export default function Testimonial({ data }) {
           variant="text-center"
         />
 
-        <div className="mt-16">
+        <div className="mt-10 md:mt-16">
           {allTestimonial.map((item, index) => (
              <div
                key={index}
-               className="testimonial-card glass-panel p-8 md:p-12 border-plasma/20 relative group overflow-visible"
+               className="testimonial-card glass-panel p-6 pt-8 md:p-12 border-plasma/20 relative group overflow-visible"
              >
                 {/* Quote Icon Accent */}
-                <div className="absolute -top-6 -left-6 w-12 h-12 bg-plasma/10 border border-plasma/30 rounded-full flex items-center justify-center text-plasma text-2xl font-serif">
+                <div className="absolute -top-5 -left-2 md:-top-6 md:-left-6 w-10 h-10 md:w-12 md:h-12 bg-plasma/10 border border-plasma/30 rounded-full flex items-center justify-center text-plasma text-2xl font-serif">
                    "
                 </div>
 
-                <div className="flex flex-col gap-8">
+                <div className="flex flex-col gap-6 md:gap-8">
                    {/* Community Note */}
                    {item.communityNote && (
                       <div className="text-[10px] font-mono text-plasma/60 tracking-[0.3em] uppercase border-b border-plasma/10 pb-4 mb-2">
@@ -95,7 +42,7 @@ export default function Testimonial({ data }) {
                       </div>
                    )}
 
-                   <p className="text-lg md:text-xl font-rajdhani italic text-white/80 leading-relaxed pl-4 border-l-2 border-plasma/10">
+                   <p className="text-base sm:text-lg md:text-xl font-rajdhani italic text-white/80 leading-relaxed pl-4 border-l-2 border-plasma/10">
                       {item.reviewText}
                    </p>
 

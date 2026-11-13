@@ -1,55 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function HeroBanner({ imgUrl }) {
-  const [baseSize, setBaseSize] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth >= 768 ? 400 : 256
-  );
-
-  useEffect(() => {
-    const update = () => setBaseSize(window.innerWidth >= 768 ? 400 : 256);
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
-
   return (
-    <div className="relative flex items-center justify-center min-h-[500px]">
+    <div className="relative flex items-center justify-center min-h-[290px] sm:min-h-[360px] md:min-h-[500px]">
       {/* Outer Pulse Ring */}
       <motion.div
         animate={{ scale: [1, 1.05, 1], opacity: [0.05, 0.15, 0.05], rotate: 360 }}
         transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-        className="absolute w-[320px] h-[320px] md:w-[550px] md:h-[550px] border border-plasma/20 rounded-full"
+        className="absolute w-[270px] h-[270px] sm:w-[340px] sm:h-[340px] md:w-[550px] md:h-[550px] border border-plasma/20 rounded-full"
       />
 
       {/* Middle Spinning Ring */}
       <motion.div
         animate={{ scale: [1, 1.02, 1], rotate: -360 }}
         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-        className="absolute w-[260px] h-[260px] md:w-[480px] md:h-[480px] border border-dashed border-solar/20 rounded-full"
+        className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] md:w-[480px] md:h-[480px] border border-dashed border-solar/20 rounded-full"
       />
 
-      {/* Inner Core */}
+      {/* Inner Core — static glow + transform-only breathing (no animated box-shadow) */}
       <motion.div
-        animate={{
-          width: baseSize,
-          height: baseSize,
-          borderRadius: '50%',
-          scale: [0.98, 1.02, 0.98],
-          boxShadow: [
-            '0 0 20px rgba(0, 212, 255, 0.1)',
-            '0 0 40px rgba(0, 212, 255, 0.2)',
-            '0 0 20px rgba(0, 212, 255, 0.1)',
-          ],
-        }}
-        transition={{
-          width: { duration: 0 },
-          height: { duration: 0 },
-          borderRadius: { duration: 0 },
-          scale: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
-          boxShadow: { duration: 8, repeat: Infinity, ease: 'easeInOut' },
-        }}
-        className="relative bg-gradient-to-tr from-void via-plasma/10 to-void
-                   flex items-center justify-center overflow-hidden border border-plasma/30"
+        animate={{ scale: [0.98, 1.02, 0.98] }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+        className="relative w-[210px] h-[210px] sm:w-64 sm:h-64 md:w-[400px] md:h-[400px] rounded-full bg-gradient-to-tr from-void via-plasma/10 to-void
+                   flex items-center justify-center overflow-hidden border border-plasma/30
+                   shadow-[0_0_30px_rgba(0,212,255,0.15)]"
       >
         {/* Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,212,255,0.2)_0%,transparent_70%)] z-10 pointer-events-none" />

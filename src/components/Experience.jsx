@@ -1,49 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { revealProps } from './ui/Reveal';
 import ExperienceCard from './experience/ExperienceCard';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Experience({ data }) {
   const { sectionHeading, allExperience } = data;
   const sectionRef = useRef(null);
 
-  // Scroll animations
-  useEffect(() => {
-    const cards = sectionRef.current?.querySelectorAll('.experience-card');
-    if (!cards || cards.length === 0) return;
-
-    cards.forEach((card, index) => {
-      // Scroll animation - fade in
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'top 50%',
-            markers: false
-          },
-          delay: index * 0.08
-        }
-      );
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   return (
     <section
-      className="relative min-h-screen py-24 px-4 overflow-hidden  flex flex-col items-center"
+      className="relative min-h-screen py-16 md:py-24 px-4 overflow-hidden  flex flex-col items-center"
       id="experience"
       ref={sectionRef}
     >
@@ -53,10 +21,8 @@ export default function Experience({ data }) {
       
       <div className="container mx-auto max-w-4xl z-10">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-20 flex flex-col items-center gap-4"
+          {...revealProps()}
+          className="text-center mb-12 md:mb-20 flex flex-col items-center gap-4"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-plasma/40" />

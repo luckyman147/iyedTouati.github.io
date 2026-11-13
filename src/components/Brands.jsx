@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import Slider from 'react-slick';
 import { motion } from 'framer-motion';
+import { revealProps } from './ui/Reveal';
 
 export default function Brands({ data }) {
   const dynamicBrands = useMemo(() => {
@@ -52,9 +53,7 @@ export default function Brands({ data }) {
     <section className="py-12 bg-void/80 border-y border-plasma/5 relative overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
-           initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
-           viewport={{ once: true }}
+           {...revealProps()}
            className="mb-8 flex items-center gap-4 justify-center"
         >
            <div className="w-12 h-[1px] bg-plasma/20" />

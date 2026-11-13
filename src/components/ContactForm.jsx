@@ -1,10 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useContactForm } from '../hooks/useContactForm';
 
-gsap.registerPlugin(ScrollTrigger);
 
 const InputField = ({ label, name, type = "text", placeholder, value, onChange, required, disabled, isTextArea = false }) => (
   <div className="flex flex-col gap-2 group">
@@ -55,80 +52,9 @@ export default function ContactForm() {
   } = useContactForm();
   const formRef = useRef(null);
 
-  // Form field scroll animations
-  useEffect(() => {
-    const fields = formRef.current?.querySelectorAll('.form-field');
-    const submitButton = formRef.current?.querySelector('.submit-button');
-    if (!fields) return;
-
-    // Animate form fields on scroll
-    fields.forEach((field, index) => {
-      gsap.fromTo(
-        field,
-        { opacity: 0, x: -30 },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.5,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: field,
-            start: 'top 80%',
-            end: 'top 50%',
-            markers: false
-          },
-          delay: index * 0.08
-        }
-      );
-    });
-
-    // Animate submit button
-    if (submitButton) {
-      gsap.fromTo(
-        submitButton,
-        { opacity: 0, scale: 0.95 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: submitButton,
-            start: 'top 80%',
-            end: 'top 50%',
-            markers: false
-          },
-          delay: fields.length * 0.08
-        }
-      );
-
-      // Button hover animation
-      submitButton.addEventListener('mouseenter', () => {
-        gsap.to(submitButton, {
-          scale: 1.02,
-          boxShadow: '0 20px 40px rgba(0, 212, 255, 0.3)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-
-      submitButton.addEventListener('mouseleave', () => {
-        gsap.to(submitButton, {
-          scale: 1,
-          boxShadow: '0 4px 12px rgba(0, 212, 255, 0.1)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-    }
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   return (
-    <form id="contact-form" onSubmit={handleSubmit} className="flex flex-col gap-6" ref={formRef}>
+    <form id="contact-form" onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-6" ref={formRef}>
       <div className="form-field">
         <InputField
           label="Username"

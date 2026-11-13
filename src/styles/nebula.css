@@ -1,0 +1,122 @@
+/* Animated CSS nebula — compositor-only (transform + opacity). No filter: blur(). */
+
+.nebula {
+  --bg-shift: 0;
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  contain: strict;
+  background: #00000a;
+}
+
+.nebula__parallax {
+  position: absolute;
+  inset: -10%;
+  will-change: transform;
+}
+.nebula__parallax--slow { transform: translate3d(0, calc(var(--bg-shift) * -0.03px), 0); }
+.nebula__parallax--fast { transform: translate3d(0, calc(var(--bg-shift) * -0.06px), 0); }
+
+.nebula__blob {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.nebula__blob--plasma {
+  width: 60vmax; height: 60vmax;
+  top: -15%; left: -10%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.22) 0%, rgba(0, 212, 255, 0.06) 40%, transparent 70%);
+  animation-name: drift-a;
+  animation-duration: 48s;
+}
+.nebula__blob--quantum {
+  width: 55vmax; height: 55vmax;
+  bottom: -20%; right: -10%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.24) 0%, rgba(124, 58, 237, 0.07) 40%, transparent 70%);
+  animation-name: drift-b;
+  animation-duration: 62s;
+}
+.nebula__blob--cyan {
+  width: 42vmax; height: 42vmax;
+  top: 35%; left: 40%;
+  background: radial-gradient(circle, rgba(34, 238, 220, 0.12) 0%, transparent 65%);
+  animation-name: drift-c;
+  animation-duration: 55s;
+}
+.nebula__blob--solar {
+  width: 38vmax; height: 38vmax;
+  top: 60%; left: -5%;
+  background: radial-gradient(circle, rgba(255, 107, 0, 0.08) 0%, transparent 65%);
+  animation-name: drift-d;
+  animation-duration: 70s;
+}
+
+@keyframes drift-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(12vw, 8vh, 0) scale(1.12); }
+  100% { transform: translate3d(4vw, 18vh, 0) scale(0.95); }
+}
+@keyframes drift-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-10vw, -12vh, 0) scale(1.08); }
+  100% { transform: translate3d(-18vw, -4vh, 0) scale(1.15); }
+}
+@keyframes drift-c {
+  0%   { transform: translate3d(0, 0, 0) scale(0.9); }
+  100% { transform: translate3d(-14vw, -16vh, 0) scale(1.15); }
+}
+@keyframes drift-d {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(20vw, -10vh, 0) scale(1.2); }
+}
+
+.nebula__stars {
+  position: absolute;
+  inset: -5%;
+  background-repeat: no-repeat;
+  will-change: transform, opacity;
+}
+.nebula__stars--far {
+  animation: twinkle 4s ease-in-out infinite alternate, stars-drift 120s linear infinite alternate;
+}
+.nebula__stars--near {
+  animation: twinkle 7s ease-in-out 1.5s infinite alternate, stars-drift 90s linear infinite alternate-reverse;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.5; }
+  to   { opacity: 1; }
+}
+@keyframes stars-drift {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-3%, 2%, 0); }
+}
+
+.nebula__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 10, 0.75) 100%);
+}
+
+/* Paused when the tab is hidden */
+.nebula--paused * { animation-play-state: paused !important; }
+
+/* Mobile: fewer layers */
+@media (max-width: 768px) {
+  .nebula__blob--cyan,
+  .nebula__blob--solar,
+  .nebula__stars--near { display: none; }
+}
+
+/* Reduced motion: static nebula */
+@media (prefers-reduced-motion: reduce) {
+  .nebula *,
+  .nebula__parallax { animation: none !important; transform: none !important; }
+}

@@ -12,8 +12,8 @@ export default function ContactInfo({ contactInfoData }) {
           data-aos-delay={index * 100}
         >
           <label>{item.title}</label>
-          {item.email && <a href={`mailto:${item.email}`}>{item.email}</a>}
-          {item.tel && <a href={`tel:${item.tel}`}>{item.tel}</a>}
+          {item.email && <a className="inline-block py-2 break-all" href={`mailto:${item.email}`}>{item.email}</a>}
+          {item.tel && <a className="inline-block py-2" href={`tel:${item.tel}`}>{item.tel}</a>}
         </div>
       ))}
     </div>

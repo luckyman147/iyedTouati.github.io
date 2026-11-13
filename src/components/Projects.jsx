@@ -1,21 +1,50 @@
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react'
-import gsap from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
 import PfeAnimation from './PfeAnimation'
+import { revealProps } from './ui/Reveal'
+import { useTilt } from '../hooks/useTilt'
 
-gsap.registerPlugin(ScrollTrigger)
-
-const VideoWithLoading = ({ src }) => {
+const VideoWithLoading = ({ src, poster }) => {
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
+  const [inView, setInView] = useState(false)
+  const containerRef = useRef(null)
+  const videoRef = useRef(null)
+
+  // Only fetch the video once the card approaches the viewport; pause when off-screen
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true)
+          videoRef.current?.play().catch(() => {})
+        } else {
+          videoRef.current?.pause()
+        }
+      },
+      { rootMargin: '200px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
 
   if (error) return null
 
   return (
-    <div className='relative w-full h-full'>
-      {!loaded && (
+    <div ref={containerRef} className='relative w-full h-full'>
+      {poster && !loaded && (
+        <img
+          src={poster}
+          alt=''
+          loading='lazy'
+          decoding='async'
+          className='absolute inset-0 w-full h-full object-contain'
+        />
+      )}
+      {!loaded && !poster && (
         <div className='absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-void/60'>
           <Icon icon='svg-spinners:ring-resize' className='text-plasma text-2xl' />
           <div className='absolute inset-0 overflow-hidden'>
@@ -24,7 +53,10 @@ const VideoWithLoading = ({ src }) => {
         </div>
       )}
       <video
-        src={src}
+        ref={videoRef}
+        src={inView ? src : undefined}
+        poster={poster}
+        preload='none'
         autoPlay
         loop
         muted
@@ -40,17 +72,18 @@ const VideoWithLoading = ({ src }) => {
 }
 
 const ProjectCard = ({ item, index }) => {
+  const tiltRef = useTilt(5)
   return (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100, z: -500 }}
-      whileInView={{ opacity: 1, x: 0, z: 0 }}
-      viewport={{ once: true, margin: '-100px' }}
-      transition={{ duration: 1, delay: index * 0.2, type: 'spring' }}
-      className='group relative perspective-1000 h-full'
+      {...revealProps((index % 2) * 0.12)}
+      className='group relative h-full'
     >
-      <div className='glass-panel group-hover:border-plasma/60 transition-all duration-500 overflow-hidden flex flex-col h-full'>
+      <div
+        ref={tiltRef}
+        className='glass-panel card-glow group-hover:border-plasma/60 transition-colors duration-500 overflow-hidden flex flex-col h-full'
+      >
         {/* Project Image/Video Thumb */}
-        <div className='relative h-64 overflow-hidden'>
+        <div className='relative aspect-video md:aspect-auto md:h-64 overflow-hidden bg-black/40'>
           {/* If this is the HeySir PFE or FlowSketch project, render the frame animation component */}
           {(item.title && item.title.toLowerCase().includes('heysir')) ||
           (item.thumbUrl && item.thumbUrl.includes('pfe_link.png')) ? (
@@ -63,11 +96,16 @@ const ProjectCard = ({ item, index }) => {
                 <PfeAnimation width={'100%'} height={'100%'} fps={1} autoplay={true} compact type="flowsketch" />
             </div>
           ) : item.videoUrl && item.videoUrl.match(/\.(mp4|webm|ogg)$/i) ? (
-            <VideoWithLoading src={item.videoUrl} />
+            <VideoWithLoading
+              src={item.videoUrl}
+              poster={item.thumbUrl && !/\.(mp4|webm|ogg)$/i.test(item.thumbUrl) ? item.thumbUrl : undefined}
+            />
           ) : item.thumbUrl || item.videoUrl ? (
             <img
               src={item.thumbUrl || item.videoUrl}
               alt={item.title}
+              loading='lazy'
+              decoding='async'
               className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-110'
             />
           ) : (
@@ -93,7 +131,7 @@ const ProjectCard = ({ item, index }) => {
         </div>
 
         {/* Content */}
-        <div className='p-6 flex flex-col gap-4 relative flex-grow'>
+        <div className='p-5 md:p-6 flex flex-col gap-3 md:gap-4 relative flex-grow'>
           {/* Diagnostic Grid Background */}
           <div className='absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,212,255,0.02)_0%,transparent_70%)] pointer-events-none' />
 
@@ -116,7 +154,7 @@ const ProjectCard = ({ item, index }) => {
                 href={item.github || '#'}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-plasma/60 hover:text-plasma transition-colors text-xs font-mono uppercase tracking-widest flex items-center gap-2 group/link'
+                className='text-plasma/60 hover:text-plasma transition-colors text-xs font-mono uppercase tracking-widest flex items-center gap-2 py-2 -my-2 pr-3 group/link'
               >
                 <Icon icon='lucide:github' />
                 <span>Github</span>
@@ -134,62 +172,10 @@ const ProjectCard = ({ item, index }) => {
 
 export default function Projects({ data }) {
   const { sectionHeading, allProjects, aiSkills } = data
-  const sectionRef = useRef(null)
-
-  // Scroll and hover animations
-  useEffect(() => {
-    const cards = sectionRef.current?.querySelectorAll('.motion-div')
-    if (!cards || cards.length === 0) return
-
-    cards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        { opacity: 0, y: 30, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 80%',
-            end: 'top 50%',
-            markers: false
-          },
-          delay: index * 0.1
-        }
-      )
-
-      card.addEventListener('mouseenter', () => {
-        gsap.to(card, {
-          y: -5,
-          boxShadow: '0 20px 40px rgba(0, 212, 255, 0.2)',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      })
-
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          y: 0,
-          boxShadow: '0 4px 12px rgba(0, 212, 255, 0.1)',
-          duration: 0.3,
-          ease: 'power2.out'
-        })
-      })
-    })
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
-    }
-  })
-
   return (
     <section
-      className='relative min-h-screen py-24 px-4 overflow-hidden '
+      className='relative min-h-screen py-16 md:py-24 px-4 overflow-hidden '
       id='project'
-      ref={sectionRef}
     >
       {/* Multiverse Map Background */}
       <div className='absolute inset-0  pointer-events-none -z-10'>
@@ -218,9 +204,7 @@ export default function Projects({ data }) {
 
       <div className='container mx-auto max-w-6xl z-10'>
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          {...revealProps()}
           className='text-center mb-12 flex flex-col items-center gap-4'
         >
           <div className='flex items-center gap-4'>
@@ -241,7 +225,7 @@ export default function Projects({ data }) {
         </motion.div>
 
         {/* Projects Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 md:gap-y-16'>
           {allProjects?.map((item, index) => (
             <div key={index} className='motion-div'>
               <ProjectCard item={item} index={index} />
@@ -251,7 +235,7 @@ export default function Projects({ data }) {
 
         {/* AI Skills Section */}
         {aiSkills && aiSkills.length > 0 && (
-          <div className='mt-32'>
+          <div className='mt-20 md:mt-32'>
             <div className='text-center mb-12 flex flex-col items-center gap-4'>
               <div className='flex items-center gap-4'>
                 <div className='w-12 h-[1px] bg-plasma/40' />
@@ -263,14 +247,14 @@ export default function Projects({ data }) {
               </h3>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8'>
               {aiSkills.map((skill, index) => (
                 <div key={index} className='flex-1 flex'>
                   <a
                     href={skill.github}
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='w-full border border-white/10 bg-void/80 hover:border-plasma/40 hover:bg-plasma/[0.02] transition-all duration-300 p-6 group'
+                    className='w-full border border-white/10 bg-void/80 hover:border-plasma/40 hover:bg-plasma/[0.02] transition-all duration-300 p-4 md:p-6 group'
                   >
                     <div className='flex items-start gap-4'>
                       <div className='w-10 h-10 rounded border border-white/10 flex items-center justify-center bg-white/5 shrink-0 mt-1'>

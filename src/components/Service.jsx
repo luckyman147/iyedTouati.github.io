@@ -1,69 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
+import { revealProps } from './ui/Reveal';
 import ServiceItem from './services/ServiceItem';
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Service({ data }) {
   const { sectionHeading, allService } = data;
   const sectionRef = useRef(null);
 
-  // Scroll and hover animations
-  useEffect(() => {
-    const items = sectionRef.current?.querySelectorAll('.service-item');
-    if (!items || items.length === 0) return;
-
-    items.forEach((item, index) => {
-      // Scroll animation - fade in + rotate
-      gsap.fromTo(
-        item,
-        { opacity: 0, y: 30, rotateX: -15 },
-        {
-          opacity: 1,
-          y: 0,
-          rotateX: 0,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: item,
-            start: 'top 80%',
-            end: 'top 50%',
-            markers: false
-          },
-          delay: (index % 3) * 0.08 // Stagger by column
-        }
-      );
-
-      // Hover animations - scale up
-      item.addEventListener('mouseenter', () => {
-        gsap.to(item, {
-          scale: 1.05,
-          boxShadow: '0 20px 40px rgba(0, 212, 255, 0.2)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-
-      item.addEventListener('mouseleave', () => {
-        gsap.to(item, {
-          scale: 1,
-          boxShadow: '0 4px 12px rgba(0, 212, 255, 0.1)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-    });
-
-    return () => {
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
-  }, []);
 
   return (
     <section
-      className="relative min-h-screen py-24 px-4 overflow-hidden flex flex-col items-center justify-center"
+      className="relative min-h-screen py-16 md:py-24 px-4 overflow-hidden flex flex-col items-center justify-center"
       id="services"
       ref={sectionRef}
     >
@@ -72,10 +20,8 @@ export default function Service({ data }) {
       
       <div className="container mx-auto z-10">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16 flex flex-col items-center gap-4"
+          {...revealProps()}
+          className="text-center mb-10 md:mb-16 flex flex-col items-center gap-4"
         >
           <div className="flex items-center gap-4">
             <div className="w-12 h-[1px] bg-plasma/40" />
@@ -85,12 +31,12 @@ export default function Service({ data }) {
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-orbitron font-bold tracking-tighter break-words">
             {sectionHeading.title.replace('<span>', '').replace('</span>', '') || "The Quantum Core"}
           </h2>
-          <div className="text-[10px] text-plasma/40 font-mono tracking-[0.5em] uppercase">
+          <div className="text-[10px] text-plasma/40 font-mono tracking-[0.25em] md:tracking-[0.5em] uppercase">
             Analyzing Proficiency Levels...
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
           {allService?.map((item, index) => (
             <div key={index} className='service-item'>
               <ServiceItem

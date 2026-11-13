@@ -75,7 +75,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-[100] transition-all duration-500" ref={headerRef}>
-      <div className="container mx-auto px-6 py-6 flex justify-between items-center">
+      <div className="container mx-auto px-4 sm:px-6 py-4 md:py-6 flex justify-between items-center">
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-8 bg-void/20 backdrop-blur-md px-8 py-3 border border-white/5 rounded-full mx-auto">
@@ -84,12 +84,16 @@ export default function Header() {
            <NavLink to="services" label="Lab" />
            <NavLink to="project" label="Missions" />
            <NavLink to="experience" label="Codex" />
+           <NavLink to="education" label="Academy" />
+           <NavLink to="certifications" label="Badges" />
            <NavLink to="contactus" label="Signal" />
         </div>
 
         {/* Mobile Toggle */}
         <button 
-          className="lg:hidden w-10 h-10 border border-plasma/20 flex flex-col items-center justify-center gap-1.5 bg-void/40"
+          className="lg:hidden w-11 h-11 border border-plasma/20 flex flex-col items-center justify-center gap-1.5 bg-void/60"
+          aria-label={mobileToggle ? "Close menu" : "Open menu"}
+          aria-expanded={mobileToggle}
           onClick={() => setMobileToggle(!mobileToggle)}
         >
           <div className={`w-5 h-[1px] bg-plasma transition-all ${mobileToggle ? 'rotate-45 translate-y-[3px]' : ''}`} />
@@ -106,12 +110,14 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="lg:hidden bg-void/95 backdrop-blur-2xl border-b border-plasma/20 overflow-hidden"
           >
-            <div className="flex flex-col items-center gap-8 py-12">
+            <div className="flex flex-col items-center gap-2 py-8 [&>a]:text-sm [&>a]:py-3 [&>a]:px-6">
                <NavLink to="home" label="Core" onClick={() => setMobileToggle(false)} />
 
                <NavLink to="services" label="Lab" onClick={() => setMobileToggle(false)} />
                <NavLink to="project" label="Missions" onClick={() => setMobileToggle(false)} />
                <NavLink to="experience" label="Codex" onClick={() => setMobileToggle(false)} />
+               <NavLink to="education" label="Academy" onClick={() => setMobileToggle(false)} />
+               <NavLink to="certifications" label="Badges" onClick={() => setMobileToggle(false)} />
                <NavLink to="contactus" label="Signal" onClick={() => setMobileToggle(false)} />
             </div>
           </motion.div>

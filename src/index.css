@@ -25,6 +25,18 @@
     @apply font-orbitron uppercase tracking-widest text-shadow-glow;
   }
 
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* iOS zooms into inputs smaller than 16px — keep form fields at 16px on phones */
+  @media (max-width: 767px) {
+    input, textarea, select {
+      font-size: 16px !important;
+    }
+  }
+
   /* Custom Scrollbar for Scifi look */
   ::-webkit-scrollbar {
     width: 4px;
@@ -49,9 +61,61 @@
     text-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
   }
 
+  /* No backdrop-filter: over an animated background it would re-blur every frame */
   .glass-panel {
-    @apply bg-void/40 backdrop-blur-md border border-plasma/10 rounded-none overflow-hidden relative;
+    @apply bg-void/70 border border-plasma/10 rounded-none overflow-hidden relative;
     box-shadow: inset 0 0 30px rgba(0, 212, 255, 0.05);
+  }
+
+  /* Cursor-following glow spot (position set by useTilt via --mx/--my) */
+  .card-glow {
+    @apply relative;
+    transform-style: preserve-3d;
+  }
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(0, 212, 255, 0.15), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* CSS-only shine sweep for buttons */
+  .btn-shine {
+    @apply relative overflow-hidden;
+  }
+  .btn-shine::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
+    transform: translateX(-120%);
+  }
+  .btn-shine:hover::after {
+    transform: translateX(120%);
+    transition: transform 0.8s ease;
+  }
+
+  /* Soft breathing glow behind the primary CTA (opacity only, no box-shadow animation) */
+  .cta-glow {
+    @apply relative;
+  }
+  .cta-glow::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.35), transparent 70%);
+    animation: breathe 2.5s ease-in-out infinite alternate;
   }
 
   .scifi-badge {
@@ -81,6 +145,37 @@
   .animate-spin-slow {
     animation: spin 8s linear infinite;
   }
+}
+
+@keyframes breathe {
+  from { opacity: 0.25; }
+  to { opacity: 0.9; }
+}
+
+/* One-shot accent when a section becomes active (class added by HUD observer) */
+section .scifi-badge {
+  position: relative;
+}
+section .scifi-badge::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  pointer-events: none;
+  box-shadow: 0 0 18px rgba(0, 212, 255, 0.6);
+  opacity: 0;
+}
+section.is-active .scifi-badge::after {
+  animation: badge-flash 1.6s ease-out 1;
+}
+@keyframes badge-flash {
+  0% { opacity: 0; }
+  25% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-glow::before,
+  section.is-active .scifi-badge::after { animation: none; }
 }
 
 @keyframes strike {
